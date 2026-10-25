@@ -1,157 +1,299 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7d2148">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
+
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
-header{text-align:center;padding:22px;background:white}
-.logo{font: bold 38px Georgia,serif;letter-spacing:5px;color:#7d2148}
-nav{background:#7d2148;padding:14px;text-align:center}
-nav a{color:white;text-decoration:none;margin:0 8px;font-size:13px}
+header{text-align:center;padding:20px 12px;background:white}
+.logo{font:bold 36px Georgia,serif;letter-spacing:5px;color:#7d2148}
+header p{font-size:12px;letter-spacing:2px}
+nav{background:#7d2148;padding:14px 8px;text-align:center;position:sticky;top:0;z-index:10}
+nav a{color:white;text-decoration:none;margin:0 9px;font-size:13px}
 .hero{text-align:center;padding:35px 16px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
-.hero h1{font:48px Georgia,serif;color:#7d2148}
+.hero h1{font:48px Georgia,serif;color:#7d2148;margin:12px 0}
 .hero p{line-height:1.7}
-.model{max-width:340px;height:300px;margin:25px auto;border:2px dashed #b86b8b;border-radius:160px 160px 20px 20px;display:flex;align-items:center;justify-content:center;background:#fff8fa;color:#7d2148;padding:20px;line-height:1.8}
-.btn,.order{display:inline-block;background:#7d2148;color:white;padding:12px 20px;border:0;border-radius:25px;text-decoration:none;cursor:pointer;font-weight:bold}
+.model{max-width:340px;height:260px;margin:24px auto;border:2px dashed #b86b8b;border-radius:150px 150px 20px 20px;display:flex;align-items:center;justify-content:center;background:#fff8fa;color:#7d2148;padding:20px;line-height:1.8}
+.btn,.order{display:inline-block;background:#7d2148;color:white;padding:12px 18px;border:0;border-radius:25px;text-decoration:none;cursor:pointer;font-weight:bold}
+.btn:hover,.order:hover{background:#54152f}
 section{padding:30px 15px}
 h2{text-align:center;color:#7d2148;font:32px Georgia,serif}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:950px;margin:auto}
-.card{background:white;text-align:center;padding:18px;border:1px solid #f0d8e2;border-radius:15px}
-.product-image{height:145px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:52px;border-radius:10px}
-.card h3{color:#7d2148}
-.card p{font-size:14px;line-height:1.6}
-.about{text-align:center;background:#f9e4ec;line-height:1.8}
+.intro{text-align:center;color:#785b69;line-height:1.7}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:900px;margin:22px auto}
+.category{background:white;border:1px solid #efd5e0;border-radius:15px;padding:18px 8px;text-align:center;cursor:pointer;color:#7d2148;font-weight:bold;font-size:15px}
+.category .emoji{display:block;font-size:36px;margin-bottom:10px}
+.category:hover,.category:focus{background:#f9e4ec;border-color:#7d2148}
+#productsSection{background:#fff4f6}
+.toolbar{max-width:950px;margin:18px auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+input,select{padding:12px;border:1px solid #d9b8c7;border-radius:10px;background:white;color:#452334;max-width:100%}
+#search{width:100%;max-width:400px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:950px;margin:20px auto}
+.card{background:white;text-align:center;padding:13px;border:1px solid #f0d8e2;border-radius:15px}
+.product-image{height:130px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:48px;border-radius:10px}
+.card h3{color:#7d2148;font-size:17px}
+.card p{font-size:13px;line-height:1.6}
+.price{font-weight:bold;color:#7d2148}
+.card button{margin:4px 0;font-size:12px;padding:10px 12px}
+.hidden{display:none!important}
+#cart{background:#f9e4ec}
+.cart-box{max-width:650px;margin:auto;background:white;padding:18px;border-radius:15px}
+.cart-row{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #eee;padding:10px 0}
+.small-btn{padding:6px 10px;border:0;border-radius:7px;background:#7d2148;color:white;cursor:pointer}
+.about{text-align:center;background:#fff0f5;line-height:1.8}
 footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
-@media(min-width:650px){.hero h1{font-size:62px}}
+footer a{color:white}
+@media(min-width:650px){
+ .hero h1{font-size:62px}
+ .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .products{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 </style>
 </head>
-<body>
 
-<header>
+<body>
+<header id="home">
   <div class="logo">TAPVORA</div>
   <p>BEAUTY • FASHION • LIFESTYLE</p>
 </header>
 
 <nav>
-  <a href="#shop">SHOP</a>
+  <a href="#home">HOME</a>
+  <a href="#categories">CATEGORIES</a>
   <a href="#about">OUR BRAND</a>
+  <a href="#cart">CART (<span id="cartCount">0</span>)</a>
   <a href="#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
   <p>WELCOME TO TAPVORA</p>
   <h1>Your Beauty.<br>Your Style.</h1>
-  <p>Discover beauty essentials, fashion accessories<br>and lifestyle favourites in one place.</p>
+  <p>Discover beauty essentials, fashion accessories<br>
+  and lifestyle favourites in one place.</p>
 
-  <!-- Female model photo can be added here later -->
   <div class="model">
     <div>
       <div style="font-size:45px">✿</div>
       <strong>YOUR MODEL PHOTO</strong><br>
-      Female model image goes here later
+      Add your campaign image here
     </div>
   </div>
 
-  <a class="btn" href="#shop">SHOP NOW</a>
+  <a class="btn" href="#categories">EXPLORE CATEGORIES</a>
 </section>
 
-<section id="shop">
-<h2>Shop Our Collection</h2>
-<div class="products">
+<section id="categories">
+  <h2>Shop by Category</h2>
+  <p class="intro">Choose a category to explore our collection.</p>
 
-  <div class="card">
-    <div class="product-image">💄</div>
-    <h3>Primer</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Primer')">Order on WhatsApp</button>
+  <div class="categories">
+    <button class="category" onclick="showCategory('Makeup')">
+      <span class="emoji">🧴</span>Makeup
+    </button>
+    <button class="category" onclick="showCategory('Lip Products')">
+      <span class="emoji">💄</span>Lip Products
+    </button>
+    <button class="category" onclick="showCategory('Bags')">
+      <span class="emoji">👜</span>Bags
+    </button>
+    <button class="category" onclick="showCategory('Sunglasses')">
+      <span class="emoji">🕶️</span>Sunglasses
+    </button>
+    <button class="category" onclick="showCategory('Jewellery')">
+      <span class="emoji">💍</span>Jewellery
+    </button>
+    <button class="category" onclick="showCategory('Nightwear')">
+      <span class="emoji">🌙</span>Nightwear
+    </button>
+    <button class="category" onclick="showCategory('Innerwear')">
+      <span class="emoji">🎀</span>Innerwear
+    </button>
+  </div>
+</section>
+
+<section id="productsSection" class="hidden">
+  <h2 id="productsTitle">Our Products</h2>
+  <p class="intro" id="productsIntro">Explore the collection.</p>
+
+  <div class="toolbar">
+    <input id="search" type="search"
+      placeholder="Search products..."
+      oninput="renderProducts()">
+    <button class="btn" onclick="showAllProducts()">View All Products</button>
   </div>
 
-  <div class="card">
-    <div class="product-image">💋</div>
-    <h3>Lipstick</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Lipstick')">Order on WhatsApp</button>
-  </div>
+  <div class="products" id="products"></div>
+  <p class="intro" id="noResults" hidden>No products found.</p>
+</section>
 
-  <div class="card">
-    <div class="product-image">🌸</div>
-    <h3>Blush</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Blush')">Order on WhatsApp</button>
+<section id="cart">
+  <h2>Your Shopping Cart</h2>
+  <div class="cart-box">
+    <div id="cartItems">Your cart is empty.</div>
+    <p id="cartTotal" class="price"></p>
+    <button class="order" onclick="checkout()">Order Cart on WhatsApp</button>
   </div>
-
-  <div class="card">
-    <div class="product-image">🧴</div>
-    <h3>Foundation & Setting Spray</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Foundation and Setting Spray')">Order on WhatsApp</button>
-  </div>
-
-  <div class="card">
-    <div class="product-image">👜</div>
-    <h3>Bags</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Bag')">Order on WhatsApp</button>
-  </div>
-
-  <div class="card">
-    <div class="product-image">🕶️</div>
-    <h3>Sunglasses</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Sunglasses')">Order on WhatsApp</button>
-  </div>
-
-  <div class="card">
-    <div class="product-image">💍</div>
-    <h3>Jewellery</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Jewellery')">Order on WhatsApp</button>
-  </div>
-
-  <div class="card">
-    <div class="product-image">🌙</div>
-    <h3>Nightwear</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Nightwear')">Order on WhatsApp</button>
-  </div>
-
-  <div class="card">
-    <div class="product-image">🎀</div>
-    <h3>Innerwear</h3>
-    <p>Price: Coming Soon</p>
-    <button class="order" onclick="orderProduct('Innerwear')">Order on WhatsApp</button>
-  </div>
-
-</div>
 </section>
 
 <section class="about" id="about">
-<h2>Welcome to TAPVORA</h2>
-<p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
+  <h2>Welcome to TAPVORA</h2>
+  <p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
 </section>
 
 <footer id="contact">
   <strong style="letter-spacing:4px;font-size:23px">TAPVORA</strong><br>
   BEAUTY • FASHION • LIFESTYLE<br>
-  WhatsApp orders available below each product.<br>
+  Questions and orders via WhatsApp<br>
   © TAPVORA
 </footer>
 
 <script>
+/* Replace this with your confirmed WhatsApp number.
+   Include country code, digits only, without + or spaces. */
 const TAPVORA_WHATSAPP = "96879547509";
 
-function orderProduct(productName){
-  const message = "Hello TAPVORA! I want to order: " + productName +
-    ". Please tell me the price and delivery details.";
-  const url = "https://wa.me/" + TAPVORA_WHATSAPP +
-    "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
-}
-</script>
+const productsData = [
+ {id:1,name:"Primer",cat:"Makeup",emoji:"🧴"},
+ {id:2,name:"Foundation",cat:"Makeup",emoji:"✨"},
+ {id:3,name:"Blush",cat:"Makeup",emoji:"🌸"},
+ {id:4,name:"Setting Spray",cat:"Makeup",emoji:"💧"},
+ {id:5,name:"Lipstick",cat:"Lip Products",emoji:"💄"},
+ {id:6,name:"Lip Gloss",cat:"Lip Products",emoji:"💋"},
+ {id:7,name:"Fashion Bag",cat:"Bags",emoji:"👜"},
+ {id:8,name:"Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
+ {id:9,name:"Jewellery",cat:"Jewellery",emoji:"💍"},
+ {id:10,name:"Nightwear",cat:"Nightwear",emoji:"🌙"},
+ {id:11,name:"Innerwear",cat:"Innerwear",emoji:"🎀"}
+];
 
+let selectedCategory = "";
+let cart = {};
+
+function showCategory(category){
+ selectedCategory = category;
+ document.getElementById("productsTitle").textContent = category;
+ document.getElementById("productsIntro").textContent =
+   "Explore our " + category + " collection.";
+ document.getElementById("search").value = "";
+ document.getElementById("productsSection").classList.remove("hidden");
+ renderProducts();
+ document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});
+}
+
+function showAllProducts(){
+ selectedCategory = "";
+ document.getElementById("productsTitle").textContent = "All Products";
+ document.getElementById("productsIntro").textContent =
+   "Explore all TAPVORA categories.";
+ document.getElementById("search").value = "";
+ renderProducts();
+}
+
+function renderProducts(){
+ const query = document.getElementById("search").value.toLowerCase();
+ const list = productsData.filter(p =>
+   (!selectedCategory || p.cat === selectedCategory) &&
+   (p.name.toLowerCase().includes(query) ||
+    p.cat.toLowerCase().includes(query))
+ );
+
+ const container = document.getElementById("products");
+ container.innerHTML = "";
+
+ list.forEach(p => {
+   const card = document.createElement("div");
+   card.className = "card";
+   card.innerHTML = `
+     <div class="product-image">${p.emoji}</div>
+     <h3>${p.name}</h3>
+     <p>${p.cat}</p>
+     <p class="price">Price: Coming Soon</p>
+     <button class="order" onclick="addToCart(${p.id})">Add to Cart</button>
+     <button class="order" onclick="orderProduct(${p.id})">WhatsApp Order</button>
+   `;
+   container.appendChild(card);
+ });
+
+ document.getElementById("noResults").hidden = list.length !== 0;
+}
+
+function addToCart(id){
+ cart[id] = (cart[id] || 0) + 1;
+ renderCart();
+}
+
+function changeQty(id,amount){
+ cart[id] = (cart[id] || 0) + amount;
+ if(cart[id] <= 0) delete cart[id];
+ renderCart();
+}
+
+function renderCart(){
+ let count = 0;
+ const container = document.getElementById("cartItems");
+ container.innerHTML = "";
+
+ Object.keys(cart).forEach(id => {
+   const p = productsData.find(item => item.id === Number(id));
+   if(!p) return;
+   count += cart[id];
+
+   const row = document.createElement("div");
+   row.className = "cart-row";
+   row.innerHTML = `
+     <span>${p.emoji} ${p.name} × ${cart[id]}</span>
+     <span>
+       <button class="small-btn" onclick="changeQty(${p.id},-1)">−</button>
+       <button class="small-btn" onclick="changeQty(${p.id},1)">+</button>
+     </span>
+   `;
+   container.appendChild(row);
+ });
+
+ if(count === 0) container.textContent = "Your cart is empty.";
+ document.getElementById("cartCount").textContent = count;
+ document.getElementById("cartTotal").textContent =
+   count ? "Final price and delivery cost to be confirmed." : "";
+}
+
+function openWhatsApp(message){
+ if(!/^\d{8,15}$/.test(TAPVORA_WHATSAPP)){
+   alert("Please set a valid WhatsApp number in the website code.");
+   return;
+ }
+ const url = "https://wa.me/" + TAPVORA_WHATSAPP +
+   "?text=" + encodeURIComponent(message);
+ window.open(url,"_blank");
+}
+
+function orderProduct(id){
+ const p = productsData.find(item => item.id === id);
+ if(!p) return;
+ openWhatsApp("Hello TAPVORA! I am interested in " + p.name +
+   ". Please confirm the price, availability and delivery details.");
+}
+
+function checkout(){
+ const items = Object.keys(cart);
+ if(items.length === 0){
+   alert("Your cart is empty. Please add a product first.");
+   return;
+ }
+
+ let message = "Hello TAPVORA! I would like to order:\n";
+ items.forEach(id => {
+   const p = productsData.find(item => item.id === Number(id));
+   if(p) message += "- " + p.name + " x " + cart[id] + "\n";
+ });
+ message += "Please confirm prices, availability and delivery charges.";
+ openWhatsApp(message);
+}
+
+renderCart();
+</script>
 </body>
 </html>
