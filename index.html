@@ -4,6 +4,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
+
+/* TAPVORA - Lavender Dream Theme */
+:root {
+  --tv-lavender: #b99ae8;
+  --tv-purple: #7651a8;
+  --tv-light: #f7f1ff;
+  --tv-pink: #fff0f6;
+  --tv-text: #342642;
+}
+
+body {
+  background: #fffaff;
+  color: var(--tv-text);
+}
+
+.tv-banner {
+  margin: 20px auto;
+  padding: 35px 22px;
+  max-width: 1150px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #f1e5ff, #fff0f6);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tv-banner .tv-tag {
+  display: inline-block;
+  background: #ffffffc9;
+  color: var(--tv-purple);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tv-banner h1 {
+  color: var(--tv-purple);
+  font-size: clamp(28px, 5vw, 46px);
+  margin: 16px 0 10px;
+}
+
+.tv-banner p {
+  max-width: 520px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.tv-btn {
+  display: inline-block;
+  background: var(--tv-purple);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 23px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tv-offer {
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 18px;
+  box-sizing: border-box;
+  border: 1px solid #eadbff;
+  border-radius: 16px;
+  background: var(--tv-pink);
+  text-align: center;
+}
+
+.tv-offer h2 {
+  color: var(--tv-purple);
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.tv-offer p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .tv-banner {
+    margin: 14px 10px;
+    padding: 28px 16px;
+  }
+
+  .tv-offer {
+    margin: 14px 10px;
+  }
+}
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
