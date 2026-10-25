@@ -2,187 +2,148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#7d2148">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
-
 <style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
-header{text-align:center;padding:20px 12px;background:white}
+header{text-align:center;padding:22px;background:white}
 .logo{font:bold 36px Georgia,serif;letter-spacing:5px;color:#7d2148}
-header p{font-size:12px;letter-spacing:2px}
-nav{background:#7d2148;padding:14px 8px;text-align:center;position:sticky;top:0;z-index:10}
-nav a{color:white;text-decoration:none;margin:0 9px;font-size:13px}
-.hero{text-align:center;padding:35px 16px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
-.hero h1{font:48px Georgia,serif;color:#7d2148;margin:12px 0}
+nav{background:#7d2148;padding:14px 5px;text-align:center;position:sticky;top:0;z-index:5}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:12px}
+.hero{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
+.hero h1{font:48px Georgia,serif;color:#7d2148}
 .hero p{line-height:1.7}
-.model{max-width:340px;height:260px;margin:24px auto;border:2px dashed #b86b8b;border-radius:150px 150px 20px 20px;display:flex;align-items:center;justify-content:center;background:#fff8fa;color:#7d2148;padding:20px;line-height:1.8}
-.btn,.order{display:inline-block;background:#7d2148;color:white;padding:12px 18px;border:0;border-radius:25px;text-decoration:none;cursor:pointer;font-weight:bold}
-.btn:hover,.order:hover{background:#54152f}
-section{padding:30px 15px}
-h2{text-align:center;color:#7d2148;font:32px Georgia,serif}
-.intro{text-align:center;color:#785b69;line-height:1.7}
-.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:900px;margin:22px auto}
-.category{background:white;border:1px solid #efd5e0;border-radius:15px;padding:18px 8px;text-align:center;cursor:pointer;color:#7d2148;font-weight:bold;font-size:15px}
-.category .emoji{display:block;font-size:36px;margin-bottom:10px}
-.category:hover,.category:focus{background:#f9e4ec;border-color:#7d2148}
-#productsSection{background:#fff4f6}
-.toolbar{max-width:950px;margin:18px auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-input,select{padding:12px;border:1px solid #d9b8c7;border-radius:10px;background:white;color:#452334;max-width:100%}
-#search{width:100%;max-width:400px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:950px;margin:20px auto}
-.card{background:white;text-align:center;padding:13px;border:1px solid #f0d8e2;border-radius:15px}
-.product-image{height:130px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:48px;border-radius:10px}
-.card h3{color:#7d2148;font-size:17px}
-.card p{font-size:13px;line-height:1.6}
-.price{font-weight:bold;color:#7d2148}
-.card button{margin:4px 0;font-size:12px;padding:10px 12px}
+.btn,.order{display:inline-block;background:#7d2148;color:white;padding:11px 15px;border:0;border-radius:22px;text-decoration:none;cursor:pointer;margin:4px}
+section{padding:28px 14px}
+h2{text-align:center;color:#7d2148;font:30px Georgia,serif}
+.intro{text-align:center;line-height:1.6}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px;margin:22px auto}
+.category{padding:18px 5px;background:white;border:1px solid #efd5e0;border-radius:14px;color:#7d2148;font-weight:bold;cursor:pointer}
+.category span{display:block;font-size:34px;margin-bottom:8px}
+.category:hover{background:#f9e4ec}
+#productsSection{background:#fff0f5}
+.toolbar{text-align:center;margin:15px auto}
+input{width:90%;max-width:400px;padding:12px;border:1px solid #d9b8c7;border-radius:10px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:950px;margin:20px auto}
+.card{background:white;text-align:center;padding:12px 8px;border:1px solid #f0d8e2;border-radius:13px;overflow-wrap:anywhere}
+.product-image{height:110px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:43px;border-radius:10px}
+.card h3{color:#7d2148;font-size:15px}
+.card p{font-size:13px;line-height:1.5}
+.price{color:#7d2148;font-weight:bold}
+.order{font-size:11px;padding:10px 9px}
 .hidden{display:none!important}
-#cart{background:#f9e4ec}
-.cart-box{max-width:650px;margin:auto;background:white;padding:18px;border-radius:15px}
-.cart-row{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid #eee;padding:10px 0}
-.small-btn{padding:6px 10px;border:0;border-radius:7px;background:#7d2148;color:white;cursor:pointer}
-.about{text-align:center;background:#fff0f5;line-height:1.8}
+.cart-box{max-width:650px;margin:auto;background:white;padding:15px;border-radius:14px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #eee;padding:10px 0}
+.small-btn{background:#7d2148;color:white;border:0;border-radius:5px;padding:6px 10px}
+.about{text-align:center;background:#f9e4ec;line-height:1.8}
 footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
-footer a{color:white}
 @media(min-width:650px){
- .hero h1{font-size:62px}
+ .hero h1{font-size:60px}
  .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
  .products{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 </style>
 </head>
-
 <body>
+
 <header id="home">
-  <div class="logo">TAPVORA</div>
-  <p>BEAUTY • FASHION • LIFESTYLE</p>
+<div class="logo">TAPVORA</div>
+<p>BEAUTY • FASHION • LIFESTYLE</p>
 </header>
 
 <nav>
-  <a href="#home">HOME</a>
-  <a href="#categories">CATEGORIES</a>
-  <a href="#about">OUR BRAND</a>
-  <a href="#cart">CART (<span id="cartCount">0</span>)</a>
-  <a href="#contact">CONTACT</a>
+<a href="#home">HOME</a>
+<a href="#categories">CATEGORIES</a>
+<a href="#about">OUR BRAND</a>
+<a href="#cart">CART (<span id="cartCount">0</span>)</a>
+<a href="#contact">CONTACT</a>
 </nav>
 
 <section class="hero">
-  <p>WELCOME TO TAPVORA</p>
-  <h1>Your Beauty.<br>Your Style.</h1>
-  <p>Discover beauty essentials, fashion accessories<br>
-  and lifestyle favourites in one place.</p>
-
-  <div class="model">
-    <div>
-      <div style="font-size:45px">✿</div>
-      <strong>YOUR MODEL PHOTO</strong><br>
-      Add your campaign image here
-    </div>
-  </div>
-
-  <a class="btn" href="#categories">EXPLORE CATEGORIES</a>
+<p>WELCOME TO TAPVORA</p>
+<h1>Your Beauty.<br>Your Style.</h1>
+<p>Beauty essentials, fashion accessories<br>and lifestyle favourites in one place.</p>
+<a class="btn" href="#categories">EXPLORE CATEGORIES</a>
 </section>
 
 <section id="categories">
-  <h2>Shop by Category</h2>
-  <p class="intro">Choose a category to explore our collection.</p>
-
-  <div class="categories">
-    <button class="category" onclick="showCategory('Makeup')">
-      <span class="emoji">🧴</span>Makeup
-    </button>
-    <button class="category" onclick="showCategory('Lip Products')">
-      <span class="emoji">💄</span>Lip Products
-    </button>
-    <button class="category" onclick="showCategory('Bags')">
-      <span class="emoji">👜</span>Bags
-    </button>
-    <button class="category" onclick="showCategory('Sunglasses')">
-      <span class="emoji">🕶️</span>Sunglasses
-    </button>
-    <button class="category" onclick="showCategory('Jewellery')">
-      <span class="emoji">💍</span>Jewellery
-    </button>
-    <button class="category" onclick="showCategory('Nightwear')">
-      <span class="emoji">🌙</span>Nightwear
-    </button>
-    <button class="category" onclick="showCategory('Innerwear')">
-      <span class="emoji">🎀</span>Innerwear
-    </button>
-  </div>
+<h2>Shop by Category</h2>
+<p class="intro">Choose a category to explore products.</p>
+<div class="categories">
+<button class="category" onclick="showCategory('Makeup')"><span>🧴</span>Makeup</button>
+<button class="category" onclick="showCategory('Lip Products')"><span>💄</span>Lip Products (15)</button>
+<button class="category" onclick="showCategory('Bags')"><span>👜</span>Bags</button>
+<button class="category" onclick="showCategory('Sunglasses')"><span>🕶️</span>Sunglasses</button>
+<button class="category" onclick="showCategory('Jewellery')"><span>💍</span>Jewellery</button>
+<button class="category" onclick="showCategory('Nightwear')"><span>🌙</span>Nightwear</button>
+<button class="category" onclick="showCategory('Innerwear')"><span>🎀</span>Innerwear</button>
+</div>
 </section>
 
 <section id="productsSection" class="hidden">
-  <h2 id="productsTitle">Our Products</h2>
-  <p class="intro" id="productsIntro">Explore the collection.</p>
-
-  <div class="toolbar">
-    <input id="search" type="search"
-      placeholder="Search products..."
-      oninput="renderProducts()">
-    <button class="btn" onclick="showAllProducts()">View All Products</button>
-  </div>
-
-  <div class="products" id="products"></div>
-  <p class="intro" id="noResults" hidden>No products found.</p>
+<h2 id="productsTitle">Products</h2>
+<p class="intro" id="productsIntro"></p>
+<div class="toolbar">
+<input id="search" type="search" placeholder="Search products..." oninput="renderProducts()">
+<p><button class="btn" onclick="showAllProducts()">View All Products</button></p>
+</div>
+<div id="products" class="products"></div>
+<p id="noResults" class="intro hidden">No products found.</p>
 </section>
 
 <section id="cart">
-  <h2>Your Shopping Cart</h2>
-  <div class="cart-box">
-    <div id="cartItems">Your cart is empty.</div>
-    <p id="cartTotal" class="price"></p>
-    <button class="order" onclick="checkout()">Order Cart on WhatsApp</button>
-  </div>
+<h2>Your Shopping Cart</h2>
+<div class="cart-box">
+<div id="cartItems">Your cart is empty.</div>
+<p id="cartTotal" class="price"></p>
+<button class="order" onclick="checkout()">Order Cart on WhatsApp</button>
+</div>
 </section>
 
 <section class="about" id="about">
-  <h2>Welcome to TAPVORA</h2>
-  <p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
+<h2>Welcome to TAPVORA</h2>
+<p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
 </section>
 
 <footer id="contact">
-  <strong style="letter-spacing:4px;font-size:23px">TAPVORA</strong><br>
-  BEAUTY • FASHION • LIFESTYLE<br>
-  Questions and orders via WhatsApp<br>
-  © TAPVORA
+<strong style="letter-spacing:4px;font-size:23px">TAPVORA</strong><br>
+BEAUTY • FASHION • LIFESTYLE<br>
+Questions and orders via WhatsApp<br>
+© TAPVORA
 </footer>
 
 <script>
-/* Replace this with your confirmed WhatsApp number.
-   Include country code, digits only, without + or spaces. */
 const TAPVORA_WHATSAPP = "96879547509";
 
-const productsData = [ {id:1,name:"Primer",cat:"Makeup",emoji:"🧴"},
- {id:2,name:"Foundation",cat:"Makeup",emoji:"✨"},
- {id:3,name:"Blush",cat:"Makeup",emoji:"🌸"},
- {id:4,name:"Setting Spray",cat:"Makeup",emoji:"💧"},
+const productsData = [
+{id:1,name:"Primer",cat:"Makeup",emoji:"🧴"},
+{id:2,name:"Foundation",cat:"Makeup",emoji:"✨"},
+{id:3,name:"Blush",cat:"Makeup",emoji:"🌸"},
+{id:4,name:"Setting Spray",cat:"Makeup",emoji:"💧"},
 
- {id:5,name:"Matte Lipstick",cat:"Lip Products",emoji:"💄"},
- {id:6,name:"Liquid Matte Lipstick",cat:"Lip Products",emoji:"💋"},
- {id:7,name:"Cream Lipstick",cat:"Lip Products",emoji:"💄"},
- {id:8,name:"Satin Lipstick",cat:"Lip Products",emoji:"💋"},
- {id:9,name:"Glossy Lipstick",cat:"Lip Products",emoji:"💄"},
- {id:10,name:"Velvet Lipstick",cat:"Lip Products",emoji:"💋"},
- {id:11,name:"Metallic Lipstick",cat:"Lip Products",emoji:"✨"},
- {id:12,name:"Sheer Lipstick",cat:"Lip Products",emoji:"💄"},
- {id:13,name:"Lip Tint",cat:"Lip Products",emoji:"🌸"},
- {id:14,name:"Lip Stain",cat:"Lip Products",emoji:"💋"},
- {id:15,name:"Lip Crayon",cat:"Lip Products",emoji:"🖍️"},
- {id:16,name:"Lip Balm Tint",cat:"Lip Products",emoji:"🌷"},
- {id:17,name:"Lip Gloss",cat:"Lip Products",emoji:"✨"},
- {id:18,name:"Long-Lasting Lipstick",cat:"Lip Products",emoji:"💄"},
- {id:19,name:"Transfer-Proof Lipstick",cat:"Lip Products",emoji:"💋"},
+{id:5,name:"Matte Lipstick",cat:"Lip Products",emoji:"💄"},
+{id:6,name:"Liquid Matte Lipstick",cat:"Lip Products",emoji:"💋"},
+{id:7,name:"Cream Lipstick",cat:"Lip Products",emoji:"💄"},
+{id:8,name:"Satin Lipstick",cat:"Lip Products",emoji:"💋"},
+{id:9,name:"Glossy Lipstick",cat:"Lip Products",emoji:"💄"},
+{id:10,name:"Velvet Lipstick",cat:"Lip Products",emoji:"💋"},
+{id:11,name:"Metallic Lipstick",cat:"Lip Products",emoji:"✨"},
+{id:12,name:"Sheer Lipstick",cat:"Lip Products",emoji:"💄"},
+{id:13,name:"Lip Tint",cat:"Lip Products",emoji:"🌸"},
+{id:14,name:"Lip Stain",cat:"Lip Products",emoji:"💋"},
+{id:15,name:"Lip Crayon",cat:"Lip Products",emoji:"🖍️"},
+{id:16,name:"Lip Balm Tint",cat:"Lip Products",emoji:"🌷"},
+{id:17,name:"Lip Gloss",cat:"Lip Products",emoji:"✨"},
+{id:18,name:"Long-Lasting Lipstick",cat:"Lip Products",emoji:"💄"},
+{id:19,name:"Transfer-Proof Lipstick",cat:"Lip Products",emoji:"💋"},
 
- {id:20,name:"Fashion Bag",cat:"Bags",emoji:"👜"},
- {id:21,name:"Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
- {id:22,name:"Jewellery",cat:"Jewellery",emoji:"💍"},
- {id:23,name:"Nightwear",cat:"Nightwear",emoji:"🌙"},
- {id:24,name:"Innerwear",cat:"Innerwear",emoji:"🎀"}
-];
+{id:20,name:"Fashion Bag",cat:"Bags",emoji:"👜"},
+{id:21,name:"Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
+{id:22,name:"Jewellery",cat:"Jewellery",emoji:"💍"},
+{id:23,name:"Nightwear",cat:"Nightwear",emoji:"🌙"},
+{id:24,name:"Innerwear",cat:"Innerwear",emoji:"🎀"}
 ];
 
 let selectedCategory = "";
@@ -191,8 +152,7 @@ let cart = {};
 function showCategory(category){
  selectedCategory = category;
  document.getElementById("productsTitle").textContent = category;
- document.getElementById("productsIntro").textContent =
-   "Explore our " + category + " collection.";
+ document.getElementById("productsIntro").textContent = "Explore our " + category + " collection.";
  document.getElementById("search").value = "";
  document.getElementById("productsSection").classList.remove("hidden");
  renderProducts();
@@ -202,43 +162,59 @@ function showCategory(category){
 function showAllProducts(){
  selectedCategory = "";
  document.getElementById("productsTitle").textContent = "All Products";
- document.getElementById("productsIntro").textContent =
-   "Explore all TAPVORA categories.";
+ document.getElementById("productsIntro").textContent = "Explore all TAPVORA products.";
  document.getElementById("search").value = "";
+ document.getElementById("productsSection").classList.remove("hidden");
  renderProducts();
 }
 
 function renderProducts(){
  const query = document.getElementById("search").value.toLowerCase();
  const list = productsData.filter(p =>
-   (!selectedCategory || p.cat === selectedCategory) &&
-   (p.name.toLowerCase().includes(query) ||
-    p.cat.toLowerCase().includes(query))
+ (!selectedCategory || p.cat === selectedCategory) &&
+ (p.name.toLowerCase().includes(query) || p.cat.toLowerCase().includes(query))
  );
-
  const container = document.getElementById("products");
  container.innerHTML = "";
 
  list.forEach(p => {
-   const card = document.createElement("div");
-   card.className = "card";
-   card.innerHTML = `
-     <div class="product-image">${p.emoji}</div>
-     <h3>${p.name}</h3>
-     <p>${p.cat}</p>
-     <p class="price">Price: Coming Soon</p>
-     <button class="order" onclick="addToCart(${p.id})">Add to Cart</button>
-     <button class="order" onclick="orderProduct(${p.id})">WhatsApp Order</button>
-   `;
-   container.appendChild(card);
- });
+  const card = document.createElement("div");
+  card.className = "card";
 
- document.getElementById("noResults").hidden = list.length !== 0;
+  const image = document.createElement("div");
+  image.className = "product-image";
+  image.textContent = p.emoji;
+
+  const name = document.createElement("h3");
+  name.textContent = p.name;
+
+  const category = document.createElement("p");
+  category.textContent = p.cat;
+
+  const price = document.createElement("p");
+  price.className = "price";
+  price.textContent = "Price: Coming Soon";
+
+  const add = document.createElement("button");
+  add.className = "order";
+  add.textContent = "Add to Cart";
+  add.onclick = () => addToCart(p.id);
+
+  const order = document.createElement("button");
+  order.className = "order";
+  order.textContent = "WhatsApp Order";
+  order.onclick = () => orderProduct(p.id);
+
+  card.append(image,name,category,price,add,order);
+  container.appendChild(card);
+ });
+ document.getElementById("noResults").classList.toggle("hidden",list.length !== 0);
 }
 
 function addToCart(id){
  cart[id] = (cart[id] || 0) + 1;
  renderCart();
+ alert("Added to cart!");
 }
 
 function changeQty(id,amount){
@@ -251,60 +227,54 @@ function renderCart(){
  let count = 0;
  const container = document.getElementById("cartItems");
  container.innerHTML = "";
-
  Object.keys(cart).forEach(id => {
-   const p = productsData.find(item => item.id === Number(id));
-   if(!p) return;
-   count += cart[id];
-
-   const row = document.createElement("div");
-   row.className = "cart-row";
-   row.innerHTML = `
-     <span>${p.emoji} ${p.name} × ${cart[id]}</span>
-     <span>
-       <button class="small-btn" onclick="changeQty(${p.id},-1)">−</button>
-       <button class="small-btn" onclick="changeQty(${p.id},1)">+</button>
-     </span>
-   `;
-   container.appendChild(row);
+  const p = productsData.find(item => item.id === Number(id));
+  if(!p) return;
+  count += cart[id];
+  const row = document.createElement("div");
+  row.className = "cart-row";
+  const label = document.createElement("span");
+  label.textContent = p.name + " × " + cart[id];
+  const controls = document.createElement("span");
+  const minus = document.createElement("button");
+  minus.className = "small-btn";
+  minus.textContent = "−";
+  minus.onclick = () => changeQty(p.id,-1);
+  const plus = document.createElement("button");
+  plus.className = "small-btn";
+  plus.textContent = "+";
+  plus.onclick = () => changeQty(p.id,1);
+  controls.append(minus,plus);
+  row.append(label,controls);
+  container.appendChild(row);
  });
-
  if(count === 0) container.textContent = "Your cart is empty.";
  document.getElementById("cartCount").textContent = count;
- document.getElementById("cartTotal").textContent =
-   count ? "Final price and delivery cost to be confirmed." : "";
+ document.getElementById("cartTotal").textContent = count ? "Price and delivery cost to be confirmed." : "";
 }
 
 function openWhatsApp(message){
  if(!/^\d{8,15}$/.test(TAPVORA_WHATSAPP)){
-   alert("Please set a valid WhatsApp number in the website code.");
-   return;
+  alert("Please set a valid WhatsApp number in the code.");
+  return;
  }
- const url = "https://wa.me/" + TAPVORA_WHATSAPP +
-   "?text=" + encodeURIComponent(message);
- window.open(url,"_blank");
+ window.open("https://wa.me/" + TAPVORA_WHATSAPP + "?text=" + encodeURIComponent(message),"_blank");
 }
 
 function orderProduct(id){
  const p = productsData.find(item => item.id === id);
- if(!p) return;
- openWhatsApp("Hello TAPVORA! I am interested in " + p.name +
-   ". Please confirm the price, availability and delivery details.");
+ if(p) openWhatsApp("Hello TAPVORA! I am interested in " + p.name + ". Please confirm price and delivery details.");
 }
 
 function checkout(){
- const items = Object.keys(cart);
- if(items.length === 0){
-   alert("Your cart is empty. Please add a product first.");
-   return;
- }
-
+ const ids = Object.keys(cart);
+ if(!ids.length){alert("Your cart is empty.");return;}
  let message = "Hello TAPVORA! I would like to order:\n";
- items.forEach(id => {
-   const p = productsData.find(item => item.id === Number(id));
-   if(p) message += "- " + p.name + " x " + cart[id] + "\n";
+ ids.forEach(id => {
+  const p = productsData.find(item => item.id === Number(id));
+  if(p) message += "- " + p.name + " x " + cart[id] + "\n";
  });
- message += "Please confirm prices, availability and delivery charges.";
+ message += "Please confirm prices and delivery charges.";
  openWhatsApp(message);
 }
 
