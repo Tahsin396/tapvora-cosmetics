@@ -4,6 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
+header{text-align:center;padding:22px;background:white}
+.logo{font:bold 36px Georgia,serif;letter-spacing:5px;color:#7d2148}
+nav{background:#7d2148;padding:14px 5px;text-align:center;position:sticky;top:0;z-index:5}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:12px}
+.hero{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
+.hero h1{font:48px Georgia,serif;color:#7d2148}
+.hero p{line-height:1.7}
+.btn,.order{display:inline-block;background:#7d2148;color:white;padding:11px 15px;border:0;border-radius:22px;text-decoration:none;cursor:pointer;margin:4px}
+section{padding:28px 14px}
+h2{text-align:center;color:#7d2148;font:30px Georgia,serif}
+.intro{text-align:center;line-height:1.6}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px;margin:22px auto}
+.category{padding:18px 5px;background:white;border:1px solid #efd5e0;border-radius:14px;color:#7d2148;font-weight:bold;cursor:pointer}
+.category span{display:block;font-size:34px;margin-bottom:8px}
+.category:hover{background:#f9e4ec}
+#productsSection{background:#fff0f5}
+.toolbar{text-align:center;margin:15px auto}
+input{width:90%;max-width:400px;padding:12px;border:1px solid #d9b8c7;border-radius:10px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:950px;margin:20px auto}
+.card{background:white;text-align:center;padding:12px 8px;border:1px solid #f0d8e2;border-radius:13px;overflow-wrap:anywhere}
+.product-image{height:110px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:43px;border-radius:10px}
+.card h3{color:#7d2148;font-size:15px}
+.card p{font-size:13px;line-height:1.5}
+.price{color:#7d2148;font-weight:bold}
+.order{font-size:11px;padding:10px 9px}
+.hidden{display:none!important}
+.cart-box{max-width:650px;margin:auto;background:white;padding:15px;border-radius:14px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #eee;padding:10px 0}
+.small-btn{background:#7d2148;color:white;border:0;border-radius:5px;padding:6px 10px}
+.about{text-align:center;background:#f9e4ec;line-height:1.8}
+footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
+@media(min-width:650px){
+ .hero h1{font-size:60px}
+ .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .products{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 
 /* TAPVORA - Lavender Dream Theme */
 :root {
@@ -86,6 +126,7 @@ body {
   line-height: 1.6;
 }
 
+
 @media (max-width: 600px) {
   .tv-banner {
     margin: 14px 10px;
@@ -96,54 +137,38 @@ body {
     margin: 14px 10px;
   }
 }
-<style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
-header{text-align:center;padding:22px;background:white}
-.logo{font:bold 36px Georgia,serif;letter-spacing:5px;color:#7d2148}
-nav{background:#7d2148;padding:14px 5px;text-align:center;position:sticky;top:0;z-index:5}
-nav a{color:white;text-decoration:none;margin:0 8px;font-size:12px}
-.hero{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
-.hero h1{font:48px Georgia,serif;color:#7d2148}
-.hero p{line-height:1.7}
-.btn,.order{display:inline-block;background:#7d2148;color:white;padding:11px 15px;border:0;border-radius:22px;text-decoration:none;cursor:pointer;margin:4px}
-section{padding:28px 14px}
-h2{text-align:center;color:#7d2148;font:30px Georgia,serif}
-.intro{text-align:center;line-height:1.6}
-.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px;margin:22px auto}
-.category{padding:18px 5px;background:white;border:1px solid #efd5e0;border-radius:14px;color:#7d2148;font-weight:bold;cursor:pointer}
-.category span{display:block;font-size:34px;margin-bottom:8px}
-.category:hover{background:#f9e4ec}
-#productsSection{background:#fff0f5}
-.toolbar{text-align:center;margin:15px auto}
-input{width:90%;max-width:400px;padding:12px;border:1px solid #d9b8c7;border-radius:10px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:950px;margin:20px auto}
-.card{background:white;text-align:center;padding:12px 8px;border:1px solid #f0d8e2;border-radius:13px;overflow-wrap:anywhere}
-.product-image{height:110px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:43px;border-radius:10px}
-.card h3{color:#7d2148;font-size:15px}
-.card p{font-size:13px;line-height:1.5}
-.price{color:#7d2148;font-weight:bold}
-.order{font-size:11px;padding:10px 9px}
-.hidden{display:none!important}
-.cart-box{max-width:650px;margin:auto;background:white;padding:15px;border-radius:14px}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #eee;padding:10px 0}
-.small-btn{background:#7d2148;color:white;border:0;border-radius:5px;padding:6px 10px}
-.about{text-align:center;background:#f9e4ec;line-height:1.8}
-footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
-@media(min-width:650px){
- .hero h1{font-size:60px}
- .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
- .products{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
 </style>
 </head>
+
+
 <body>
 
 <header id="home">
-<div class="logo">TAPVORA</div>
-<p>BEAUTY • FASHION • LIFESTYLE</p>
+  <div class="logo">TAPVORA</div>
+  <p>BEAUTY • FASHION • LIFESTYLE</p>
 </header>
+
+<!-- TAPVORA Banner -->
+<section class="tv-banner">
+  <span class="tv-tag">WELCOME TO TAPVORA</span>
+  <h1>Your Beauty, Your Way</h1>
+  <p>
+    Discover your beauty favorites with TAPVORA Cosmetics.
+    Explore makeup, lip products and more.
+  </p>
+  <a class="tv-btn" href="#productsSection"
+     onclick="showAllProducts()">Shop Now</a>
+</section>
+
+<!-- Special Offers -->
+<section class="tv-offer">
+  <h2>✨ Special Offers ✨</h2>
+  <p>
+    Discover our beauty collection and stay tuned
+    for upcoming offers from TAPVORA.
+  </p>
+</section>
+
 
 <nav>
 <a href="#home">HOME</a>
