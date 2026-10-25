@@ -1,102 +1,121 @@
 
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
-<meta name="description" content="Discover beauty, fashion and lifestyle products at TAPVORA. Retail and wholesale orders available.">
 <style>
 *{box-sizing:border-box}
-:root{--wine:#571c3d;--pink:#f7e3eb;--gold:#c7a36b;--cream:#fffaf8}
-body{margin:0;font-family:Arial,sans-serif;color:#30232b;background:var(--cream)}
-a{text-decoration:none;color:inherit}
-header{background:var(--wine);color:white;text-align:center;padding:23px 12px}
-.logo{font-size:34px;letter-spacing:5px;font-weight:bold}
-.tag{font-size:11px;letter-spacing:2px;margin-top:8px;color:#f5dce7}
-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:14px 8px;background:white;border-bottom:1px solid #ead8e0;font-size:13px}
-.hero{padding:38px 20px;text-align:center;background:linear-gradient(135deg,#f8e7ed,#ead0dd)}
-.hero small{letter-spacing:3px;color:var(--wine)}
-.hero h1{font-size:32px;color:var(--wine);margin:14px 0}
-.hero p{line-height:1.7;max-width:480px;margin:0 auto 22px}
-.btn{display:inline-block;background:var(--wine);color:white;padding:13px 24px;border-radius:4px;font-weight:bold}
-section{padding:28px 16px;max-width:1000px;margin:auto}
-.heading{text-align:center;color:var(--wine);font-size:24px;margin:5px 0 8px}
-.sub{text-align:center;font-size:13px;color:#776773;margin-bottom:22px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card{background:white;border:1px solid #eedfe6;border-radius:9px;overflow:hidden;text-align:center}
-.art{height:125px;display:flex;align-items:center;justify-content:center;background:#f6e7ed;font-size:48px}
-.card h3{font-size:15px;margin:14px 5px 7px;color:var(--wine)}
-.card p{font-size:12px;line-height:1.5;color:#776773;padding:0 8px}
-.card a{display:inline-block;background:var(--wine);color:white;padding:9px 12px;margin:5px 0 15px;border-radius:4px;font-size:12px}
-.banner{background:var(--wine);color:white;text-align:center;padding:26px 16px;margin:8px 0}
-.banner h2{margin-top:0}
-.banner p{font-size:14px;line-height:1.6}
-.info{background:#f7e8ee;border-radius:8px;padding:20px;text-align:center;line-height:1.8;font-size:14px}
-footer{background:#321125;color:white;text-align:center;padding:25px 15px;font-size:13px;line-height:2}
-footer a{color:#f4d4e3}
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.art{height:160px}.hero{padding:55px 20px}.hero h1{font-size:42px}}
+body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
+header{padding:20px;text-align:center;background:#fff}
+.logo{font-family:Georgia,serif;font-size:36px;letter-spacing:5px;color:#7d2148;font-weight:bold}
+nav{padding:14px;text-align:center;background:#7d2148}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:13px}
+.hero{padding:35px 18px;background:linear-gradient(135deg,#f9dce7,#fff4ee);text-align:center}
+.hero h1{font-family:Georgia,serif;font-size:45px;color:#7d2148;margin:12px}
+.hero p{line-height:1.7}
+.model{max-width:340px;height:340px;margin:25px auto 0;border:2px dashed #b86b8b;border-radius:180px 180px 20px 20px;background:#fff8fa;display:flex;align-items:center;justify-content:center;padding:25px;color:#7d2148}
+.model div{line-height:1.8}
+.btn{display:inline-block;margin:15px;padding:13px 25px;border-radius:25px;background:#7d2148;color:white;text-decoration:none;font-weight:bold}
+section{padding:35px 15px}
+h2{text-align:center;color:#7d2148;font-family:Georgia,serif;font-size:30px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:900px;margin:auto}
+.card{background:white;text-align:center;padding:22px 10px;border:1px solid #f0d8e2;border-radius:15px}
+.icon{font-size:38px}
+.card h3{color:#7d2148}
+.card p{font-size:13px;line-height:1.6}
+.about{text-align:center;background:#f9e4ec;line-height:1.8}
+footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.hero h1{font-size:60px}}
 </style>
 </head>
 <body>
-<section style="background:linear-gradient(135deg,#58152f,#c66c91,#f3d5df);padding:70px 15px;text-align:center;color:white;">
-<p style="letter-spacing:4px;font-size:12px;">WELCOME TO</p>
-<h1 style="font-size:44px;margin:10px 0;letter-spacing:5px;">TAPVORA</h1>
-<p style="font-size:18px;">Beauty • Fashion • Lifestyle</p>
-<p>Discover Your Everyday Style</p>
-<a href="#products" style="display:inline-block;background:white;color:#58152f;padding:13px 28px;border-radius:25px;text-decoration:none;font-weight:bold;">SHOP NOW</a>
-</section>
-<div class="logo">TAPVORA</div>
-<div class="tag">BEAUTY • FASHION • LIFESTYLE</div>
+
+<header>
+  <div class="logo">TAPVORA</div>
+  <div>BEAUTY • FASHION • LIFESTYLE</div>
 </header>
+
 <nav>
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#retail">Retail</a>
-<a href="#wholesale">Wholesale</a>
-<a href="#contact">Contact</a>
+  <a href="#shop">SHOP</a>
+  <a href="#about">OUR BRAND</a>
+  <a href="#contact">CONTACT</a>
 </nav>
-<div class="hero" id="home">
-<small>YOUR STYLE, YOUR STORY</small>
-<h1>Beauty Beyond Ordinary</h1>
-<p>Discover your favourite beauty, fashion and lifestyle essentials—all in one place.</p>
-<a class="btn" href="#categories">EXPLORE COLLECTION</a>
-</div>
-<section id="categories">
-<h2 class="heading">Shop by Category</h2>
-<p class="sub">Find something made for your style</p>
-<div class="grid">
-<div class="card"><div class="art">💄</div><h3>Cosmetics & Beauty</h3><p>Lipstick, Foundation, Primer, Blush, Highlighter & more.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Cosmetics%20products.">Explore Products</a></div>
-<div class="card"><div class="art">🕶️</div><h3>Sunglasses</h3><p>Explore stylish frames and everyday looks.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Sunglasses.">Explore Products</a></div>
-<div class="card"><div class="art">🎀</div><h3>Innerwear</h3><p>Bras, panties and comfortable essentials.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Innerwear.">Explore Products</a></div>
-<div class="card"><div class="art">🌙</div><h3>Nightwear</h3><p>Night dresses and sleepwear styles.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Nightwear.">Explore Products</a></div>
-<div class="card"><div class="art">💍</div><h3>Jewellery & Rings</h3><p>Rings, earrings and fashionable accessories.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Jewellery.">Explore Products</a></div>
-<div class="card"><div class="art">👜</div><h3>Bags & Accessories</h3><p>Fashion accessories to complete your look.</p><a href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20see%20Bags%20and%20Accessories.">Explore Products</a></div>
-</div>
+
+<main>
+<section class="hero">
+  <p>WELCOME TO TAPVORA</p>
+  <h1>Your Beauty.<br>Your Style.</h1>
+  <p>Discover beauty essentials, fashionable accessories<br>and lifestyle favourites — all in one place.</p>
+
+  <!-- FEMALE MODEL IMAGE SPACE: add your photo here later -->
+  <div class="model">
+    <div>
+      <span style="font-size:48px">✿</span><br>
+      <strong>YOUR MODEL PHOTO</strong><br>
+      Female campaign image goes here
+    </div>
+  </div>
+
+  <a class="btn" href="#shop">SHOP NOW</a>
 </section>
-<div class="banner" id="retail">
-<h2>Shop Your Favourites</h2>
-<p>Retail orders and product enquiries welcome.<br>Contact us for product availability and pricing.</p>
-<a class="btn" style="background:#fff;color:#571c3d" href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20want%20to%20place%20a%20retail%20order.">Retail Enquiry</a>
-</div>
-<section id="wholesale">
-<div class="info">
-<h2 style="color:#571c3d">Wholesale & Bulk Orders</h2>
-<p>Are you an online seller or retailer? Contact TAPVORA for bulk product enquiries and wholesale information.</p>
-<a class="btn" href="https://wa.me/96876247618?text=Hello%20TAPVORA%2C%20I%20am%20interested%20in%20wholesale%20products.">Ask About Wholesale</a>
-</div>
+
+<section id="shop">
+  <h2>Explore Our Collection</h2>
+  <div class="products">
+
+    <div class="card">
+      <div class="icon">💄</div>
+      <h3>Cosmetics</h3>
+      <p>Primer, foundation, lipstick, setting spray, blush & highlighter.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">👜</div>
+      <h3>Bags</h3>
+      <p>Fashionable bags for everyday style.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🕶️</div>
+      <h3>Sunglasses</h3>
+      <p>Stylish frames for every occasion.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💍</div>
+      <h3>Jewellery</h3>
+      <p>Elegant accessories to complete your look.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌙</div>
+      <h3>Nightwear</h3>
+      <p>Comfortable nighties and sleepwear.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎀</div>
+      <h3>Innerwear</h3>
+      <p>Panties and other innerwear essentials.</p>
+    </div>
+
+  </div>
 </section>
-<section id="contact">
-<h2 class="heading">Connect With TAPVORA</h2>
-<p class="sub">Questions about products, prices or orders? Message us directly.</p>
-<div style="text-align:center"><a class="btn" href="https://wa.me/96876247618?text=Hello%20TAPVORA%20COSMETICS%2C%20I%20would%20like%20more%20information.">Chat on WhatsApp</a></div>
+
+<section class="about" id="about">
+  <h2>Welcome to TAPVORA</h2>
+  <p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
 </section>
-<footer>
-<strong style="font-size:21px;letter-spacing:3px">TAPVORA</strong><br>
-Beauty • Fashion • Lifestyle<br>
-Retail & Wholesale Enquiries<br>
-<a href="https://wa.me/96876247618">WhatsApp Us</a><br>
-© TAPVORA. All rights reserved.
+</main>
+
+<footer id="contact">
+  <strong style="letter-spacing:4px;font-size:22px">TAPVORA</strong><br>
+  BEAUTY • FASHION • LIFESTYLE<br>
+  <p>Contact and social media links will be added here.</p>
+  © TAPVORA
 </footer>
+
 </body>
 </html>
