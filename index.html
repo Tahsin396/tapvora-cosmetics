@@ -8,33 +8,32 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
-header{padding:20px;text-align:center;background:#fff}
-.logo{font-family:Georgia,serif;font-size:36px;letter-spacing:5px;color:#7d2148;font-weight:bold}
-nav{padding:14px;text-align:center;background:#7d2148}
+header{text-align:center;padding:22px;background:white}
+.logo{font: bold 38px Georgia,serif;letter-spacing:5px;color:#7d2148}
+nav{background:#7d2148;padding:14px;text-align:center}
 nav a{color:white;text-decoration:none;margin:0 8px;font-size:13px}
-.hero{padding:35px 18px;background:linear-gradient(135deg,#f9dce7,#fff4ee);text-align:center}
-.hero h1{font-family:Georgia,serif;font-size:45px;color:#7d2148;margin:12px}
+.hero{text-align:center;padding:35px 16px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
+.hero h1{font:48px Georgia,serif;color:#7d2148}
 .hero p{line-height:1.7}
-.model{max-width:340px;height:340px;margin:25px auto 0;border:2px dashed #b86b8b;border-radius:180px 180px 20px 20px;background:#fff8fa;display:flex;align-items:center;justify-content:center;padding:25px;color:#7d2148}
-.model div{line-height:1.8}
-.btn{display:inline-block;margin:15px;padding:13px 25px;border-radius:25px;background:#7d2148;color:white;text-decoration:none;font-weight:bold}
-section{padding:35px 15px}
-h2{text-align:center;color:#7d2148;font-family:Georgia,serif;font-size:30px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:900px;margin:auto}
-.card{background:white;text-align:center;padding:22px 10px;border:1px solid #f0d8e2;border-radius:15px}
-.icon{font-size:38px}
+.model{max-width:340px;height:300px;margin:25px auto;border:2px dashed #b86b8b;border-radius:160px 160px 20px 20px;display:flex;align-items:center;justify-content:center;background:#fff8fa;color:#7d2148;padding:20px;line-height:1.8}
+.btn,.order{display:inline-block;background:#7d2148;color:white;padding:12px 20px;border:0;border-radius:25px;text-decoration:none;cursor:pointer;font-weight:bold}
+section{padding:30px 15px}
+h2{text-align:center;color:#7d2148;font:32px Georgia,serif}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:950px;margin:auto}
+.card{background:white;text-align:center;padding:18px;border:1px solid #f0d8e2;border-radius:15px}
+.product-image{height:145px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:52px;border-radius:10px}
 .card h3{color:#7d2148}
-.card p{font-size:13px;line-height:1.6}
+.card p{font-size:14px;line-height:1.6}
 .about{text-align:center;background:#f9e4ec;line-height:1.8}
 footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
-@media(min-width:650px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.hero h1{font-size:60px}}
+@media(min-width:650px){.hero h1{font-size:62px}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo">TAPVORA</div>
-  <div>BEAUTY • FASHION • LIFESTYLE</div>
+  <p>BEAUTY • FASHION • LIFESTYLE</p>
 </header>
 
 <nav>
@@ -43,18 +42,17 @@ footer{background:#42172c;color:white;text-align:center;padding:25px;line-height
   <a href="#contact">CONTACT</a>
 </nav>
 
-<main>
 <section class="hero">
   <p>WELCOME TO TAPVORA</p>
   <h1>Your Beauty.<br>Your Style.</h1>
-  <p>Discover beauty essentials, fashionable accessories<br>and lifestyle favourites — all in one place.</p>
+  <p>Discover beauty essentials, fashion accessories<br>and lifestyle favourites in one place.</p>
 
-  <!-- FEMALE MODEL IMAGE SPACE: add your photo here later -->
+  <!-- Female model photo can be added here later -->
   <div class="model">
     <div>
-      <span style="font-size:48px">✿</span><br>
+      <div style="font-size:45px">✿</div>
       <strong>YOUR MODEL PHOTO</strong><br>
-      Female campaign image goes here
+      Female model image goes here later
     </div>
   </div>
 
@@ -62,60 +60,98 @@ footer{background:#42172c;color:white;text-align:center;padding:25px;line-height
 </section>
 
 <section id="shop">
-  <h2>Explore Our Collection</h2>
-  <div class="products">
+<h2>Shop Our Collection</h2>
+<div class="products">
 
-    <div class="card">
-      <div class="icon">💄</div>
-      <h3>Cosmetics</h3>
-      <p>Primer, foundation, lipstick, setting spray, blush & highlighter.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">👜</div>
-      <h3>Bags</h3>
-      <p>Fashionable bags for everyday style.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🕶️</div>
-      <h3>Sunglasses</h3>
-      <p>Stylish frames for every occasion.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💍</div>
-      <h3>Jewellery</h3>
-      <p>Elegant accessories to complete your look.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🌙</div>
-      <h3>Nightwear</h3>
-      <p>Comfortable nighties and sleepwear.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🎀</div>
-      <h3>Innerwear</h3>
-      <p>Panties and other innerwear essentials.</p>
-    </div>
-
+  <div class="card">
+    <div class="product-image">💄</div>
+    <h3>Primer</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Primer')">Order on WhatsApp</button>
   </div>
+
+  <div class="card">
+    <div class="product-image">💋</div>
+    <h3>Lipstick</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Lipstick')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">🌸</div>
+    <h3>Blush</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Blush')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">🧴</div>
+    <h3>Foundation & Setting Spray</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Foundation and Setting Spray')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">👜</div>
+    <h3>Bags</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Bag')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">🕶️</div>
+    <h3>Sunglasses</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Sunglasses')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">💍</div>
+    <h3>Jewellery</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Jewellery')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">🌙</div>
+    <h3>Nightwear</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Nightwear')">Order on WhatsApp</button>
+  </div>
+
+  <div class="card">
+    <div class="product-image">🎀</div>
+    <h3>Innerwear</h3>
+    <p>Price: Coming Soon</p>
+    <button class="order" onclick="orderProduct('Innerwear')">Order on WhatsApp</button>
+  </div>
+
+</div>
 </section>
 
 <section class="about" id="about">
-  <h2>Welcome to TAPVORA</h2>
-  <p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
+<h2>Welcome to TAPVORA</h2>
+<p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
 </section>
-</main>
 
 <footer id="contact">
-  <strong style="letter-spacing:4px;font-size:22px">TAPVORA</strong><br>
+  <strong style="letter-spacing:4px;font-size:23px">TAPVORA</strong><br>
   BEAUTY • FASHION • LIFESTYLE<br>
-  <p>Contact and social media links will be added here.</p>
+  WhatsApp orders available below each product.<br>
   © TAPVORA
 </footer>
+
+<script>
+const TAPVORA_WHATSAPP = "96879547509";
+
+function orderProduct(productName){
+  const message = "Hello TAPVORA! I want to order: " + productName +
+    ". Please tell me the price and delivery details.";
+  const url = "https://wa.me/" + TAPVORA_WHATSAPP +
+    "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
