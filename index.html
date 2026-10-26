@@ -3,472 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f0e9">
+<meta name="description" content="TAPVORA — Beauty, Fashion & Lifestyle. Discover cosmetics, women's sunglasses, bags, jewellery and more.">
 <title>TAPVORA | Beauty, Fashion & Lifestyle</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#fff9f6;color:#452334}
-header{text-align:center;padding:22px;background:white}
-.logo{font:bold 36px Georgia,serif;letter-spacing:5px;color:#7d2148}
-nav{background:#7d2148;padding:14px 5px;text-align:center;position:sticky;top:0;z-index:5}
-nav a{color:white;text-decoration:none;margin:0 8px;font-size:12px}
-.hero{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#f9dce7,#fff4ee)}
-.hero h1{font:48px Georgia,serif;color:#7d2148}
-.hero p{line-height:1.7}
-.btn,.order{display:inline-block;background:#7d2148;color:white;padding:11px 15px;border:0;border-radius:22px;text-decoration:none;cursor:pointer;margin:4px}
-section{padding:28px 14px}
-h2{text-align:center;color:#7d2148;font:30px Georgia,serif}
-.intro{text-align:center;line-height:1.6}
-.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:900px;margin:22px auto}
-.category{padding:18px 5px;background:white;border:1px solid #efd5e0;border-radius:14px;color:#7d2148;font-weight:bold;cursor:pointer}
-.category span{display:block;font-size:34px;margin-bottom:8px}
-.category:hover{background:#f9e4ec}
-#productsSection{background:#fff0f5}
-.toolbar{text-align:center;margin:15px auto}
-input{width:90%;max-width:400px;padding:12px;border:1px solid #d9b8c7;border-radius:10px}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:950px;margin:20px auto}
-.card{background:white;text-align:center;padding:12px 8px;border:1px solid #f0d8e2;border-radius:13px;overflow-wrap:anywhere}
-.product-image{height:110px;background:#fff0f5;display:flex;align-items:center;justify-content:center;font-size:43px;border-radius:10px}
-.card h3{color:#7d2148;font-size:15px}
-.card p{font-size:13px;line-height:1.5}
-.price{color:#7d2148;font-weight:bold}
-.order{font-size:11px;padding:10px 9px}
-.hidden{display:none!important}
-.cart-box{max-width:650px;margin:auto;background:white;padding:15px;border-radius:14px}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid #eee;padding:10px 0}
-.small-btn{background:#7d2148;color:white;border:0;border-radius:5px;padding:6px 10px}
-.about{text-align:center;background:#f9e4ec;line-height:1.8}
-footer{background:#42172c;color:white;text-align:center;padding:25px;line-height:1.9}
-@media(min-width:650px){
- .hero h1{font-size:60px}
- .categories{grid-template-columns:repeat(4,minmax(0,1fr))}
- .products{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-
-/* TAPVORA - Lavender Dream Theme */
-:root {
-  --tv-lavender: #b99ae8;
-  --tv-purple: #7651a8;
-  --tv-light: #f7f1ff;
-  --tv-pink: #fff0f6;
-  --tv-text: #342642;
-}
-
-body {
-  background: #fffaff;
-  color: var(--tv-text);
-}
-
-.tv-banner {
-  margin: 20px auto;
-  padding: 35px 22px;
-  max-width: 1150px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #f1e5ff, #fff0f6);
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.tv-banner .tv-tag {
-  display: inline-block;
-  background: #ffffffc9;
-  color: var(--tv-purple);
-  padding: 7px 14px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.tv-banner h1 {
-  color: var(--tv-purple);
-  font-size: clamp(28px, 5vw, 46px);
-  margin: 16px 0 10px;
-}
-
-.tv-banner p {
-  max-width: 520px;
-  margin: 0 auto 20px;
-  line-height: 1.7;
-}
-
-.tv-btn {
-  display: inline-block;
-  background: var(--tv-purple);
-  color: white;
-  text-decoration: none;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 23px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.tv-offer {
-  max-width: 1100px;
-  margin: 18px auto;
-  padding: 18px;
-  box-sizing: border-box;
-  border: 1px solid #eadbff;
-  border-radius: 16px;
-  background: var(--tv-pink);
-  text-align: center;
-}
-
-.tv-offer h2 {
-  color: var(--tv-purple);
-  margin: 0 0 8px;
-  font-size: 22px;
-}
-
-.tv-offer p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-
-@media (max-width: 600px) {
-  .tv-banner {
-    margin: 14px 10px;
-    padding: 28px 16px;
-  }
-
-  .tv-offer {
-    margin: 14px 10px;
-  }
-}
+:root{--ink:#171514;--cream:#fbf6f0;--blush:#f4d7d7;--rose:#d99a9e;--muted:#756b66;--line:#e9ded6;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button,input{font:inherit}
+.topbar{min-height:30px;background:#171514;color:#fff;display:flex;justify-content:center;align-items:center;gap:18px;padding:7px 12px;font-size:11px;letter-spacing:.2px;flex-wrap:wrap}
+.topbar span+span:before{content:"|";color:#a99c95;margin-right:16px}
+.header{background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px clamp(16px,5vw,70px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.brand{min-width:180px;text-align:center}.logo{font:42px/1 Georgia,'Times New Roman',serif;letter-spacing:3px}.brand small{font-size:10px;letter-spacing:1px;color:#5e5550}
+.nav{display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.3vw,32px);font-size:13px}.nav a{padding:8px 0;border-bottom:2px solid transparent}.nav a:hover{border-color:var(--rose)}
+.header-actions{display:flex;gap:15px;align-items:center;font-size:20px}.header-actions a{position:relative}.count{font-size:10px;background:var(--rose);color:#fff;border-radius:50%;padding:3px 6px;position:absolute;top:-8px;right:-9px}
+.menu-toggle{display:none;background:none;border:0;font-size:24px}
+.hero{min-height:380px;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;background:#e8c8b7 url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85') center 36%/cover no-repeat}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(250,233,218,.97) 0%,rgba(250,233,218,.88) 37%,rgba(250,233,218,.18) 70%,rgba(30,20,17,.08) 100%)}
+.hero-copy{position:relative;z-index:1;padding:48px clamp(24px,8vw,115px);max-width:680px}
+.eyebrow{font-size:12px;letter-spacing:6px;text-transform:uppercase}.hero h1{font:clamp(48px,7vw,88px)/.98 Georgia,'Times New Roman',serif;letter-spacing:-2px;margin:16px 0 10px}.hero h1 span{display:block;font-size:.36em;letter-spacing:7px;font-family:Arial,sans-serif;margin-bottom:14px;font-weight:400}
+.hero-sub{font:clamp(19px,2.5vw,27px) Georgia,serif;margin:0 0 14px}.hero p{max-width:380px;line-height:1.65;color:#4d413c;font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:30px;padding:13px 27px;font-size:11px;font-weight:bold;letter-spacing:.8px;text-transform:uppercase;cursor:pointer;transition:.2s}.btn:hover{background:var(--rose);border-color:var(--rose);color:#fff}.btn.light{background:#fff;color:var(--ink);border-color:#fff}.btn.rose{background:var(--rose);border-color:var(--rose)}
+.section{padding:34px clamp(16px,3vw,42px)}.section-heading{text-align:center;margin:0 auto 22px}.section-heading .eyebrow{letter-spacing:3px;font-size:10px;color:var(--muted)}.section-heading h2{font:32px Georgia,serif;margin:8px 0}.section-heading p{font-size:13px;color:var(--muted);margin:0}
+.category-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;max-width:1250px;margin:0 auto}.category{border:0;background:transparent;text-align:center;cursor:pointer;padding:8px 3px;color:var(--ink)}.category-icon{width:62px;height:62px;margin:0 auto 9px;background:#f8e2e1;border-radius:50%;display:grid;place-items:center;font-size:28px;transition:.2s}.category:hover .category-icon{transform:translateY(-4px);background:#edc3c5}.category strong{font-size:12px;font-weight:600}
+.featured{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-top:12px}.feature-card{min-height:220px;position:relative;display:flex;align-items:center;overflow:hidden;background:#ead0d0}.feature-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,19,23,.82),rgba(36,19,23,.35) 47%,rgba(36,19,23,0) 100%)}.feature-card.sunglasses:after{background:linear-gradient(90deg,rgba(247,229,208,.97),rgba(247,229,208,.78) 42%,rgba(247,229,208,.05) 100%)}
+.feature-card img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0;transition:transform .4s}.feature-card:hover img{transform:scale(1.04)}.feature-copy{position:relative;z-index:1;padding:24px;max-width:60%;color:#fff}.feature-card.sunglasses .feature-copy{color:var(--ink)}.feature-copy small{font-size:10px;letter-spacing:2px;text-transform:uppercase}.feature-copy h3{font:clamp(27px,3.3vw,42px)/1.02 Georgia,serif;margin:12px 0 8px}.feature-copy p{font-size:12px;line-height:1.5;margin-bottom:16px}
+.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:21px 8px;margin:8px auto 0;max-width:1250px}.benefit{display:flex;align-items:center;justify-content:center;gap:10px}.benefit .symbol{font-size:25px}.benefit strong{display:block;font-size:11px}.benefit small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+.best-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.best-card{background:#fff;border:1px solid var(--line);text-align:center;cursor:pointer;overflow:hidden}.best-card img{width:100%;height:125px;object-fit:cover;display:block;transition:transform .3s}.best-card:hover img{transform:scale(1.04)}.best-card strong{display:block;font-size:12px;padding:10px 4px 3px}.best-card small{display:block;font-size:10px;color:var(--muted);padding-bottom:12px}
+.lifestyle{min-height:125px;margin:0 clamp(16px,3vw,42px) 25px;display:grid;place-items:center;text-align:center;background:linear-gradient(90deg,rgba(248,229,219,.45),rgba(255,255,255,.65)),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80') center 45%/cover}.lifestyle h2{font:italic 29px Georgia,serif;margin:0 0 5px}.lifestyle p{margin:0;font-size:12px;letter-spacing:1px}
+#productsSection{background:#f9eeee}.toolbar{text-align:center;margin:18px auto}.toolbar input{width:min(92%,430px);padding:12px 15px;border:1px solid #dfc9c5;border-radius:24px;background:#fff;outline:none}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;max-width:1200px;margin:22px auto}.card{background:#fff;text-align:center;border:1px solid #eadbd6;padding:12px;overflow-wrap:anywhere}.product-image{height:150px;background:linear-gradient(135deg,#f9e4e3,#f8f0e8);display:flex;align-items:center;justify-content:center;font-size:48px;border-radius:2px}.card h3{font:17px Georgia,serif;margin:12px 0 5px}.card p{font-size:12px;color:var(--muted);line-height:1.5}.price{color:#7b3e46!important;font-weight:bold}.order{font-size:10px;padding:10px 11px;margin:3px;border-radius:20px;background:var(--ink);color:#fff;border:1px solid var(--ink);cursor:pointer}.order.secondary{background:#fff;color:var(--ink)}.hidden{display:none!important}
+#cart{background:#fff}.cart-box{max-width:750px;margin:auto;background:#fbf6f0;padding:20px;border:1px solid var(--line)}.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:12px 0;font-size:13px}.small-btn{background:var(--ink);color:#fff;border:0;padding:6px 11px;margin-left:4px;cursor:pointer}.about{text-align:center;background:#f4e1df;line-height:1.8}.about p{max-width:650px;margin:auto;font-size:14px;padding:0 10px}
+.footer{background:#171514;color:#fff;padding:34px clamp(18px,5vw,70px) 16px}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr 1.4fr;gap:30px;max-width:1250px;margin:auto}.footer-logo{font:32px Georgia,serif;letter-spacing:3px}.footer p,.footer a{font-size:12px;color:#e4d8d3;line-height:1.9}.footer h3{font-size:13px;margin:4px 0 10px}.footer a{display:block}.newsletter{display:flex;gap:5px;margin-top:12px}.newsletter input{min-width:0;width:100%;padding:11px;border:0;border-radius:22px}.newsletter button{border:0;border-radius:22px;background:var(--rose);padding:0 15px;cursor:pointer}.copyright{border-top:1px solid #4d4541;margin:24px auto 0;padding-top:13px;max-width:1250px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:10px;color:#cfc3bd}
+@media(max-width:850px){.header{padding:12px 16px}.brand{min-width:135px}.logo{font-size:32px}.brand small{font-size:8px}.nav{gap:12px}.header-actions{gap:10px}.hero{min-height:350px}.hero-copy{padding:38px 28px}.category-strip{grid-template-columns:repeat(4,1fr)}.best-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(3,1fr)}.benefits{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.topbar{font-size:9px;gap:8px}.topbar span+span:before{margin-right:8px}.header{flex-wrap:wrap}.brand{order:1;text-align:left;min-width:0}.header-actions{order:2;margin-left:auto}.menu-toggle{display:block;order:3}.nav{display:none;order:4;width:100%;flex-direction:column;gap:0;align-items:stretch;padding:8px 0}.nav.open{display:flex}.nav a{padding:12px 6px;border-bottom:1px solid var(--line)}.hero{min-height:450px;grid-template-columns:1fr;background-position:62% center}.hero:before{background:linear-gradient(90deg,rgba(250,233,218,.96),rgba(250,233,218,.78) 58%,rgba(250,233,218,.16))}.hero-copy{padding:36px 22px;max-width:90%}.hero h1{font-size:57px}.hero .eyebrow{letter-spacing:4px}.section{padding:27px 13px}.section-heading h2{font-size:28px}.category-strip{grid-template-columns:repeat(4,1fr);gap:7px}.category-icon{width:53px;height:53px;font-size:24px}.category strong{font-size:10px}.featured{grid-template-columns:1fr;gap:12px}.feature-card{min-height:205px}.feature-copy{padding:20px;max-width:66%}.feature-copy h3{font-size:31px}.benefits{grid-template-columns:repeat(2,1fr);gap:17px 8px}.benefit{justify-content:flex-start}.benefit .symbol{font-size:22px}.best-grid{grid-template-columns:repeat(2,1fr)}.best-card img{height:135px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image{height:115px}.card{padding:8px 5px}.order{padding:9px 8px}.lifestyle{min-height:110px;margin:0 13px 20px}.lifestyle h2{font-size:24px}.footer-grid{grid-template-columns:1fr 1fr;gap:22px 15px}.footer-logo{font-size:26px}.copyright{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
-
-
 <body>
-
-<header id="home">
-  <div class="logo">TAPVORA</div>
-  <p>BEAUTY • FASHION • LIFESTYLE</p>
+<div class="topbar"><span>♧ Free Delivery Offers</span><span>♡ Beauty • Fashion • Lifestyle</span><span>🇧🇩 Bangladesh</span><span>🇴🇲 Oman</span></div>
+<header class="header" id="home">
+  <a class="brand" href="#home" aria-label="TAPVORA home"><div class="logo">TAPVORA</div><small>Beauty, Fashion &amp; Lifestyle</small></a>
+  <nav class="nav" id="mainNav"><a href="#home">Home</a><a href="#featured">Shop</a><a href="#categories">Categories</a><a href="#about">Our Brand</a><a href="#contact">Contact</a><a href="#cart">Cart (<span id="cartCount">0</span>)</a></nav>
+  <div class="header-actions"><a href="#productsSection" aria-label="Search products">⌕</a><a href="#cart" aria-label="Shopping cart">♡<span class="count" id="cartCountTop">0</span></a></div>
+  <button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
 </header>
 
-<!-- TAPVORA Banner -->
-<section class="tv-banner">
-  <span class="tv-tag">WELCOME TO TAPVORA</span>
-  <h1>Your Beauty, Your Way</h1>
-  <p>
-    Discover your beauty favorites with TAPVORA Cosmetics.
-    Explore makeup, lip products and more.
-  </p>
-  <a class="tv-btn" href="#productsSection"
-     onclick="showAllProducts()">Shop Now</a>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Welcome to</div>
+    <h1>TAPVORA</h1>
+    <div class="hero-sub">Beauty • Fashion • Lifestyle</div>
+    <p>More than just shopping. Discover beauty favorites, statement accessories and everyday lifestyle essentials in one place.</p>
+    <a class="btn" href="#featured">Shop the Collection&nbsp; →</a>
+  </div>
 </section>
 
-<!-- Special Offers -->
-<section class="tv-offer">
-  <h2>✨ Special Offers ✨</h2>
-  <p>
-    Discover our beauty collection and stay tuned
-    for upcoming offers from TAPVORA.
-  </p>
+<section class="section" id="categories">
+  <div class="category-strip">
+    <button class="category" onclick="showCategory('Makeup')"><span class="category-icon">💄</span><strong>Makeup</strong></button>
+    <button class="category" onclick="showCategory('Lip Products')"><span class="category-icon">💋</span><strong>Lip Products</strong></button>
+    <button class="category" onclick="showCategory('Bags')"><span class="category-icon">👜</span><strong>Bags</strong></button>
+    <button class="category" onclick="showCategory('Jewellery')"><span class="category-icon">◇</span><strong>Jewellery</strong></button>
+    <button class="category" onclick="showCategory('Nightwear')"><span class="category-icon">🌙</span><strong>Nightwear</strong></button>
+    <button class="category" onclick="showCategory('Innerwear')"><span class="category-icon">🎀</span><strong>Innerwear</strong></button>
+    <button class="category" onclick="showCategory('Sunglasses')"><span class="category-icon">🕶️</span><strong>Women's Sunglasses</strong></button>
+  </div>
 </section>
 
+<section class="section featured" id="featured">
+  <article class="feature-card cosmetics">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1100&q=85" alt="Makeup and beauty products" loading="lazy">
+    <div class="feature-copy"><small>Featured Collection</small><h3>SHEGLAM<br>Cosmetics</h3><p>Glow • Create • Be You</p><a class="btn light" href="#productsSection" onclick="showCategory('Makeup')">Shop Now →</a></div>
+  </article>
+  <article class="feature-card sunglasses">
+    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1100&q=85" alt="Women's sunglasses collection" loading="lazy">
+    <div class="feature-copy"><small>Featured Collection</small><h3>Women's<br>Sunglasses</h3><p>Style • Confidence • Everyday looks</p><a class="btn" href="#productsSection" onclick="showCategory('Sunglasses')">Shop Now →</a></div>
+  </article>
+</section>
 
-<nav>
-<a href="#home">HOME</a>
-<a href="#categories">CATEGORIES</a>
-<a href="#about">OUR BRAND</a>
-<a href="#cart">CART (<span id="cartCount">0</span>)</a>
-<a href="#contact">CONTACT</a>
-</nav>
-<section id="categories">
-<h2>Shop by Category</h2>
-<p class="intro">Choose a category to explore products.</p>
-<div class="categories">
-<button class="category" onclick="showCategory('Makeup')"><span>🧴</span>Makeup</button>
-<button class="category" onclick="showCategory('Lip Products')"><span>💄</span>Lip Products (15)</button>
-<button class="category" onclick="showCategory('Bags')"><span>👜</span>Bags</button>
-<button class="category" onclick="showCategory('Sunglasses')"><span>🕶️</span>Sunglasses</button>
-<button class="category" onclick="showCategory('Jewellery')"><span>💍</span>Jewellery</button>
-<button class="category" onclick="showCategory('Nightwear')"><span>🌙</span>Nightwear</button>
-<button class="category" onclick="showCategory('Innerwear')"><span>🎀</span>Innerwear</button>
+<div class="benefits">
+  <div class="benefit"><span class="symbol">♧</span><div><strong>Delivery Options</strong><small>Details confirmed at order</small></div></div>
+  <div class="benefit"><span class="symbol">◇</span><div><strong>Product Information</strong><small>Ask us before ordering</small></div></div>
+  <div class="benefit"><span class="symbol">☏</span><div><strong>WhatsApp Support</strong><small>We're here to help</small></div></div>
+  <div class="benefit"><span class="symbol">✧</span><div><strong>Curated Collections</strong><small>Beauty and lifestyle finds</small></div></div>
+  <div class="benefit"><span class="symbol">♡</span><div><strong>Customer First</strong><small>Your choice matters</small></div></div>
 </div>
+
+<section class="section">
+  <div class="section-heading"><div class="eyebrow">Discover your style</div><h2>Our Best Picks</h2><p>Beauty essentials and lifestyle favorites to explore</p></div>
+  <div class="best-grid">
+    <button class="best-card" onclick="showCategory('Makeup')"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80" alt="Makeup" loading="lazy"><strong>Makeup</strong><small>Explore collection →</small></button>
+    <button class="best-card" onclick="showCategory('Lip Products')"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" alt="Lip products" loading="lazy"><strong>Lip Products</strong><small>Explore collection →</small></button>
+    <button class="best-card" onclick="showCategory('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" alt="Handbags" loading="lazy"><strong>Bags</strong><small>Explore collection →</small></button>
+    <button class="best-card" onclick="showCategory('Jewellery')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80" alt="Jewellery" loading="lazy"><strong>Jewellery</strong><small>Explore collection →</small></button>
+    <button class="best-card" onclick="showCategory('Nightwear')"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80" alt="Fashion style" loading="lazy"><strong>Nightwear</strong><small>Explore collection →</small></button>
+    <button class="best-card" onclick="showCategory('Sunglasses')"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="Sunglasses" loading="lazy"><strong>Sunglasses</strong><small>Explore collection →</small></button>
+  </div>
 </section>
 
-<section id="productsSection" class="hidden">
-<h2 id="productsTitle">Products</h2>
-<p class="intro" id="productsIntro"></p>
-<div class="toolbar">
-<input id="search" type="search" placeholder="Search products..." oninput="renderProducts()">
-<p><button class="btn" onclick="showAllProducts()">View All Products</button></p>
-</div>
-<div id="products" class="products"></div>
-<p id="noResults" class="intro hidden">No products found.</p>
+<div class="lifestyle"><div><h2>More Than Just Shopping</h2><p>It's a TAPVORA Lifestyle&nbsp; ♡</p></div></div>
+
+<section id="productsSection" class="section hidden">
+  <div class="section-heading"><div class="eyebrow">TAPVORA collections</div><h2 id="productsTitle">Products</h2><p id="productsIntro">Explore our collections.</p></div>
+  <div class="toolbar"><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()" aria-label="Search products"><p><button class="btn" onclick="showAllProducts()">View All Products</button></p></div>
+  <div id="products" class="products"></div><p id="noResults" class="hidden" style="text-align:center">No products found.</p>
 </section>
 
-<section id="cart">
-<h2>Your Shopping Cart</h2>
-<div class="cart-box">
-<div id="cartItems">Your cart is empty.</div>
-<p id="cartTotal" class="price"></p>
-<button class="order" onclick="checkout()">Order Cart on WhatsApp</button>
-</div>
+<section class="section" id="cart">
+  <div class="section-heading"><div class="eyebrow">Your selection</div><h2>Your Shopping Cart</h2><p>We'll confirm prices and delivery details before your order is finalized.</p></div>
+  <div class="cart-box"><div id="cartItems">Your cart is empty.</div><p id="cartTotal" class="price"></p><button class="btn" onclick="checkout()">Order Cart on WhatsApp →</button></div>
 </section>
 
-<section class="about" id="about">
-<h2>Welcome to TAPVORA</h2>
-<p>Beauty, fashion and lifestyle — thoughtfully brought together for your everyday needs.</p>
-</section>
+<section class="section about" id="about"><div class="section-heading"><div class="eyebrow">Our story</div><h2>Welcome to TAPVORA</h2><p>Beauty • Fashion • Lifestyle</p></div><p>We bring beauty favorites, stylish accessories and lifestyle essentials together in one place. Browse our collections and contact us to confirm product availability, pricing and delivery options.</p></section>
+</main>
 
-<footer id="contact">
-<strong style="letter-spacing:4px;font-size:23px">TAPVORA</strong><br>
-BEAUTY • FASHION • LIFESTYLE<br>
-Questions and orders via WhatsApp<br>
-© TAPVORA
+<footer class="footer" id="contact">
+  <div class="footer-grid">
+    <div><div class="footer-logo">TAPVORA</div><p>Beauty, Fashion &amp; Lifestyle</p><p>More than just shopping.</p></div>
+    <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#featured">Shop</a><a href="#about">Our Brand</a><a href="#cart">Shopping Cart</a></div>
+    <div><h3>Categories</h3><a href="#productsSection" onclick="showCategory('Makeup')">Makeup</a><a href="#productsSection" onclick="showCategory('Lip Products')">Lip Products</a><a href="#productsSection" onclick="showCategory('Bags')">Bags</a><a href="#productsSection" onclick="showCategory('Jewellery')">Jewellery</a><a href="#productsSection" onclick="showCategory('Sunglasses')">Women's Sunglasses</a></div>
+    <div><h3>Stay Connected</h3><p>Contact us for new arrivals, product details and orders.</p><form class="newsletter" onsubmit="event.preventDefault();alert('Thank you for your interest in TAPVORA! Please contact us on WhatsApp for updates.');"><input type="email" placeholder="Your email address" aria-label="Your email address" required><button type="submit" aria-label="Subscribe">➤</button></form><p><a href="https://wa.me/96879547509" target="_blank" rel="noopener">WhatsApp: Contact TAPVORA</a></p></div>
+  </div>
+  <div class="copyright"><span>© <span id="year"></span> TAPVORA. All rights reserved.</span><span>Beauty • Fashion • Lifestyle</span></div>
 </footer>
 
 <script>
 const TAPVORA_WHATSAPP = "96879547509";
-
-const productsData = [
-  // MAKEUP (1–26)
-  {id:1,name:"Primer",cat:"Makeup",emoji:"🧴"},
-  {id:2,name:"Foundation",cat:"Makeup",emoji:"✨"},
-  {id:3,name:"Concealer",cat:"Makeup",emoji:"💄"},
-  {id:4,name:"Setting Spray",cat:"Makeup",emoji:"💧"},
-  {id:5,name:"Compact Powder",cat:"Makeup",emoji:"🤍"},
-  {id:6,name:"Blush",cat:"Makeup",emoji:"🌸"},
-  {id:7,name:"Highlighter",cat:"Makeup",emoji:"✨"},
-  {id:8,name:"Makeup Remover",cat:"Makeup",emoji:"🫧"},
-  {id:9,name:"Eyeshadow Palette",cat:"Makeup",emoji:"🎨"},
-  {id:10,name:"Eyeliner",cat:"Makeup",emoji:"🖤"},
-  {id:11,name:"Mascara",cat:"Makeup",emoji:"👁️"},
-  {id:12,name:"Eyebrow Pencil",cat:"Makeup",emoji:"✏️"},
-  {id:13,name:"Makeup Brush Set",cat:"Makeup",emoji:"🖌️"},
-  {id:14,name:"Loose Setting Powder",cat:"Makeup",emoji:"🤍"},
-  {id:15,name:"Makeup Sponge",cat:"Makeup",emoji:"🩷"},
-  {id:16,name:"Contour Palette",cat:"Makeup",emoji:"🎨"},
-  {id:17,name:"Bronzer",cat:"Makeup",emoji:"✨"},
-  {id:18,name:"Color Corrector",cat:"Makeup",emoji:"🌈"},
-  {id:19,name:"BB Cream",cat:"Makeup",emoji:"🧴"},
-  {id:20,name:"CC Cream",cat:"Makeup",emoji:"🧴"},
-  {id:21,name:"False Eyelashes",cat:"Makeup",emoji:"👁️"},
-  {id:22,name:"Eyelash Curler",cat:"Makeup",emoji:"✨"},
-  {id:23,name:"Brow Gel",cat:"Makeup",emoji:"🖤"},
-  {id:24,name:"Makeup Fixing Powder",cat:"Makeup",emoji:"🤍"},
-  {id:25,name:"Makeup Pouch",cat:"Makeup",emoji:"👝"},
-  {id:26,name:"Kajal Pencil",cat:"Makeup",emoji:"🖤"},
-
-  // LIP PRODUCTS (27–41)
-  {id:27,name:"Matte Lipstick",cat:"Lip Products",emoji:"💄"},
-  {id:28,name:"Liquid Matte Lipstick",cat:"Lip Products",emoji:"💋"},
-  {id:29,name:"Cream Lipstick",cat:"Lip Products",emoji:"💄"},
-  {id:30,name:"Satin Lipstick",cat:"Lip Products",emoji:"💋"},
-  {id:31,name:"Glossy Lipstick",cat:"Lip Products",emoji:"💄"},
-  {id:32,name:"Velvet Lipstick",cat:"Lip Products",emoji:"💋"},
-  {id:33,name:"Metallic Lipstick",cat:"Lip Products",emoji:"✨"},
-  {id:34,name:"Sheer Lipstick",cat:"Lip Products",emoji:"💄"},
-  {id:35,name:"Lip Tint",cat:"Lip Products",emoji:"🌸"},
-  {id:36,name:"Lip Stain",cat:"Lip Products",emoji:"💋"},
-  {id:37,name:"Lip Crayon",cat:"Lip Products",emoji:"🖍️"},
-  {id:38,name:"Lip Balm Tint",cat:"Lip Products",emoji:"🩷"},
-  {id:39,name:"Lip Gloss",cat:"Lip Products",emoji:"✨"},
-  {id:40,name:"Long-Lasting Lipstick",cat:"Lip Products",emoji:"💄"},
-  {id:41,name:"Transfer-Proof Lipstick",cat:"Lip Products",emoji:"💋"},
-
-  // BAGS (42–45)
-  {id:42,name:"Tote Bag",cat:"Bags",emoji:"👜"},
-  {id:43,name:"Crossbody Bag",cat:"Bags",emoji:"👜"},
-  {id:44,name:"Mini Bag",cat:"Bags",emoji:"👛"},
-  {id:45,name:"Clutch Bag",cat:"Bags",emoji:"👝"},
-
-  // SUNGLASSES (46–55)
-  {id:46,name:"Cat-Eye Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:47,name:"Oversized Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:48,name:"Butterfly Sunglasses",cat:"Sunglasses",emoji:"🦋"},
-  {id:49,name:"Slim Rectangle Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:50,name:"Oval Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:51,name:"Heart-Shaped Sunglasses",cat:"Sunglasses",emoji:"💗"},
-  {id:52,name:"Rimless Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:53,name:"Feminine Aviator Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:54,name:"Geometric Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-  {id:55,name:"Vintage Round Sunglasses",cat:"Sunglasses",emoji:"🕶️"},
-
-  // JEWELLERY (56–75)
-  {id:56,name:"Necklace",cat:"Jewellery",emoji:"📿"},
-  {id:57,name:"Pendant Necklace",cat:"Jewellery",emoji:"💎"},
-  {id:58,name:"Hoop Earrings",cat:"Jewellery",emoji:"💍"},
-  {id:59,name:"Stud Earrings",cat:"Jewellery",emoji:"✨"},
-  {id:60,name:"Drop Earrings",cat:"Jewellery",emoji:"💎"},
-  {id:61,name:"Ear Cuff",cat:"Jewellery",emoji:"💍"},
-  {id:62,name:"Chain Bracelet",cat:"Jewellery",emoji:"✨"},
-  {id:63,name:"Bangle Bracelet",cat:"Jewellery",emoji:"💫"},
-  {id:64,name:"Charm Bracelet",cat:"Jewellery",emoji:"💖"},
-  {id:65,name:"Stackable Rings",cat:"Jewellery",emoji:"💍"},
-  {id:66,name:"Statement Ring",cat:"Jewellery",emoji:"💎"},
-  {id:67,name:"Adjustable Ring",cat:"Jewellery",emoji:"💍"},
-  {id:68,name:"Anklet",cat:"Jewellery",emoji:"✨"},
-  {id:69,name:"Layered Necklace",cat:"Jewellery",emoji:"📿"},
-  {id:70,name:"Pearl Jewellery Set",cat:"Jewellery",emoji:"🤍"},
-  {id:71,name:"Bridal Jewellery Set",cat:"Jewellery",emoji:"👑"},
-  {id:72,name:"Waist Chain",cat:"Jewellery",emoji:"✨"},
-  {id:73,name:"Brooch Pin",cat:"Jewellery",emoji:"🌸"},
-  {id:74,name:"Decorative Hair Pins",cat:"Jewellery",emoji:"🎀"},
-  {id:75,name:"Jewellery Gift Set",cat:"Jewellery",emoji:"🎁"},
-
-  // NIGHTWEAR (76–85)
-  {id:76,name:"Satin Nightdress",cat:"Nightwear",emoji:"🌙"},
-  {id:77,name:"Cotton Nightdress",cat:"Nightwear",emoji:"🌙"},
-  {id:78,name:"Pajama Set",cat:"Nightwear",emoji:"🛌"},
-  {id:79,name:"Short Nightdress",cat:"Nightwear",emoji:"🌸"},
-  {id:80,name:"Long Nightdress",cat:"Nightwear",emoji:"🌙"},
-  {id:81,name:"Night Suit",cat:"Nightwear",emoji:"🛌"},
-  {id:82,name:"Sleep Shirt",cat:"Nightwear",emoji:"🌙"},
-  {id:83,name:"Lounge Set",cat:"Nightwear",emoji:"🩷"},
-  {id:84,name:"Night Robe",cat:"Nightwear",emoji:"🌸"},
-  {id:85,name:"Sleep Shorts Set",cat:"Nightwear",emoji:"🛌"},
-
-  // INNERWEAR (86–95)
-  {id:86,name:"Everyday Bra",cat:"Innerwear",emoji:"🎀"},
-  {id:87,name:"Sports Bra",cat:"Innerwear",emoji:"💗"},
-  {id:88,name:"Bralette",cat:"Innerwear",emoji:"🎀"},
-  {id:89,name:"Cotton Underwear",cat:"Innerwear",emoji:"🌸"},
-  {id:90,name:"Seamless Underwear",cat:"Innerwear",emoji:"🩷"},
-  {id:91,name:"Camisole",cat:"Innerwear",emoji:"🎀"},
-  {id:92,name:"Shapewear Shorts",cat:"Innerwear",emoji:"🩷"},
-  {id:93,name:"Matching Innerwear Set",cat:"Innerwear",emoji:"🎀"},
-  {id:94,name:"High-Waist Underwear",cat:"Innerwear",emoji:"🌸"},
-  {id:95,name:"Full-Coverage Briefs",cat:"Innerwear",emoji:"🩷"}
-];
-let selectedCategory = "";
-let cart = {};
-
-function showCategory(category){
- selectedCategory = category;
- document.getElementById("productsTitle").textContent = category;
- document.getElementById("productsIntro").textContent = "Explore our " + category + " collection.";
- document.getElementById("search").value = "";
- document.getElementById("productsSection").classList.remove("hidden");
- renderProducts();
- document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});
-}
-
-function showAllProducts(){
- selectedCategory = "";
- document.getElementById("productsTitle").textContent = "All Products";
- document.getElementById("productsIntro").textContent = "Explore all TAPVORA products.";
- document.getElementById("search").value = "";
- document.getElementById("productsSection").classList.remove("hidden");
- renderProducts();
-}
-
-function renderProducts(){
- const query = document.getElementById("search").value.toLowerCase();
- const list = productsData.filter(p =>
- (!selectedCategory || p.cat === selectedCategory) &&
- (p.name.toLowerCase().includes(query) || p.cat.toLowerCase().includes(query))
- );
- const container = document.getElementById("products");
- container.innerHTML = "";
-
- list.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "card";
-
-  const image = document.createElement("div");
-  image.className = "product-image";
-  image.textContent = p.emoji;
-
-  const name = document.createElement("h3");
-  name.textContent = p.name;
-
-  const category = document.createElement("p");
-  category.textContent = p.cat;
-
-  const price = document.createElement("p");
-  price.className = "price";
-  price.textContent = "Price: Coming Soon";
-
-  const add = document.createElement("button");
-  add.className = "order";
-  add.textContent = "Add to Cart";
-  add.onclick = () => addToCart(p.id);
-
-  const order = document.createElement("button");
-  order.className = "order";
-  order.textContent = "WhatsApp Order";
-  order.onclick = () => orderProduct(p.id);
-
-  card.append(image,name,category,price,add,order);
-  container.appendChild(card);
- });
- document.getElementById("noResults").classList.toggle("hidden",list.length !== 0);
-}
-
-function addToCart(id){
- cart[id] = (cart[id] || 0) + 1;
- renderCart();
- alert("Added to cart!");
-}
-
-function changeQty(id,amount){
- cart[id] = (cart[id] || 0) + amount;
- if(cart[id] <= 0) delete cart[id];
- renderCart();
-}
-
-function renderCart(){
- let count = 0;
- const container = document.getElementById("cartItems");
- container.innerHTML = "";
- Object.keys(cart).forEach(id => {
-  const p = productsData.find(item => item.id === Number(id));
-  if(!p) return;
-  count += cart[id];
-  const row = document.createElement("div");
-  row.className = "cart-row";
-  const label = document.createElement("span");
-  label.textContent = p.name + " × " + cart[id];
-  const controls = document.createElement("span");
-  const minus = document.createElement("button");
-  minus.className = "small-btn";
-  minus.textContent = "−";
-  minus.onclick = () => changeQty(p.id,-1);
-  const plus = document.createElement("button");
-  plus.className = "small-btn";
-  plus.textContent = "+";
-  plus.onclick = () => changeQty(p.id,1);
-  controls.append(minus,plus);
-  row.append(label,controls);
-  container.appendChild(row);
- });
- if(count === 0) container.textContent = "Your cart is empty.";
- document.getElementById("cartCount").textContent = count;
- document.getElementById("cartTotal").textContent = count ? "Price and delivery cost to be confirmed." : "";
-}
-
-function openWhatsApp(message){
- if(!/^\d{8,15}$/.test(TAPVORA_WHATSAPP)){
-  alert("Please set a valid WhatsApp number in the code.");
-  return;
- }
- window.open("https://wa.me/" + TAPVORA_WHATSAPP + "?text=" + encodeURIComponent(message),"_blank");
-}
-
-function orderProduct(id){
- const p = productsData.find(item => item.id === id);
- if(p) openWhatsApp("Hello TAPVORA! I am interested in " + p.name + ". Please confirm price and delivery details.");
-}
-
-function checkout(){
- const ids = Object.keys(cart);
- if(!ids.length){alert("Your cart is empty.");return;}
- let message = "Hello TAPVORA! I would like to order:\n";
- ids.forEach(id => {
-  const p = productsData.find(item => item.id === Number(id));
-  if(p) message += "- " + p.name + " x " + cart[id] + "\n";
- });
- message += "Please confirm prices and delivery charges.";
- openWhatsApp(message);
-}
-
-renderCart();
+const groups = {
+"Makeup": ["Primer","Foundation","Concealer","Setting Spray","Compact Powder","Blush","Highlighter","Makeup Remover","Eyeshadow Palette","Eyeliner","Mascara","Eyebrow Pencil","Makeup Brush Set","Loose Setting Powder","Makeup Sponge","Contour Palette","Bronzer","Color Corrector","BB Cream","CC Cream","False Eyelashes","Eyelash Curler","Brow Gel","Makeup Fixing Powder","Makeup Pouch","Kajal Pencil"],
+"Lip Products": ["Matte Lipstick","Liquid Matte Lipstick","Cream Lipstick","Satin Lipstick","Glossy Lipstick","Velvet Lipstick","Metallic Lipstick","Sheer Lipstick","Lip Tint","Lip Stain","Lip Crayon","Lip Balm Tint","Lip Gloss","Long-Lasting Lipstick","Transfer-Proof Lipstick"],
+"Bags": ["Tote Bag","Crossbody Bag","Mini Bag","Clutch Bag"],
+"Sunglasses": ["Cat-Eye Sunglasses","Oversized Sunglasses","Butterfly Sunglasses","Slim Rectangle Sunglasses","Oval Sunglasses","Heart-Shaped Sunglasses","Rimless Sunglasses","Feminine Aviator Sunglasses","Geometric Sunglasses","Vintage Round Sunglasses"],
+"Jewellery": ["Necklace","Pendant Necklace","Hoop Earrings","Stud Earrings","Drop Earrings","Ear Cuff","Chain Bracelet","Bangle Bracelet","Charm Bracelet","Stackable Rings","Statement Ring","Adjustable Ring","Anklet","Layered Necklace","Pearl Jewellery Set","Bridal Jewellery Set","Waist Chain","Brooch Pin","Decorative Hair Pins","Jewellery Gift Set"],
+"Nightwear": ["Satin Nightdress","Cotton Nightdress","Pajama Set","Short Nightdress","Long Nightdress","Night Suit","Sleep Shirt","Lounge Set","Night Robe","Sleep Shorts Set"],
+"Innerwear": ["Everyday Bra","Sports Bra","Bralette","Cotton Underwear","Seamless Underwear","Camisole","Shapewear Shorts","Matching Innerwear Set","High-Waist Underwear","Full-Coverage Briefs"]
+};
+const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};
+const productsData=[];let id=1;
+Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>productsData.push({id:id++,name,cat,emoji:emojis[cat]})));
+let selectedCategory="";let cart={};
+function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open")}
+function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all TAPVORA products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"})}
+function renderProducts(){const query=document.getElementById("search").value.toLowerCase();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";const image=document.createElement("div");image.className="product-image";image.textContent=p.emoji;const name=document.createElement("h3");name.textContent=p.name;const cat=document.createElement("p");cat.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent="Price: Coming Soon";const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,cat,price,add,order);container.append(card)});document.getElementById("noResults").classList.toggle("hidden",list.length!==0)}
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function changeQty(id,amount){cart[id]=(cart[id]||0)+amount;if(cart[id]<=0)delete cart[id];renderCart()}
+function renderCart(){let count=0;const container=document.getElementById("cartItems");container.innerHTML="";Object.keys(cart).forEach(id=>{const p=productsData.find(item=>item.id===Number(id));if(!p)return;count+=cart[id];const row=document.createElement("div");row.className="cart-row";const label=document.createElement("span");label.textContent=p.name+" × "+cart[id];const controls=document.createElement("span");const minus=document.createElement("button");minus.className="small-btn";minus.textContent="−";minus.onclick=()=>changeQty(p.id,-1);const plus=document.createElement("button");plus.className="small-btn";plus.textContent="+";plus.onclick=()=>changeQty(p.id,1);controls.append(minus,plus);row.append(label,controls);container.append(row)});if(!count)container.textContent="Your cart is empty.";document.getElementById("cartCount").textContent=count;document.getElementById("cartCountTop").textContent=count;document.getElementById("cartTotal").textContent=count?"Prices and delivery cost will be confirmed on WhatsApp.":""}
+function openWhatsApp(message){if(!/^\d{8,15}$/.test(TAPVORA_WHATSAPP)){alert("Please set a valid WhatsApp number in the code.");return}window.open("https://wa.me/"+TAPVORA_WHATSAPP+"?text="+encodeURIComponent(message),"_blank","noopener")}
+function orderProduct(id){const p=productsData.find(item=>item.id===id);if(p)openWhatsApp("Hello TAPVORA! I am interested in "+p.name+". Please confirm price, availability and delivery details.")}
+function checkout(){const ids=Object.keys(cart);if(!ids.length){alert("Your cart is empty.");return}let message="Hello TAPVORA! I would like to order:\n";ids.forEach(id=>{const p=productsData.find(item=>item.id===Number(id));if(p)message+="- "+p.name+" x "+cart[id]+"\n"});message+="Please confirm prices, availability and delivery charges.";openWhatsApp(message)}
+document.getElementById("year").textContent=new Date().getFullYear();renderCart();
 </script>
 </body>
 </html>
