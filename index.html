@@ -140,9 +140,40 @@ const groups = {
 "Innerwear": ["Everyday Bra","Sports Bra","Bralette","Cotton Underwear","Seamless Underwear","Camisole","Shapewear Shorts","Matching Innerwear Set","High-Waist Underwear","Full-Coverage Briefs"]
 };
 const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};
-const productsData=[];let id=1;
-Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>productsData.push({id:id++,name,cat,emoji:emojis[cat]})));
-let selectedCategory="";let cart={};
+
+const productsData = [];
+let id = 1;
+
+Object.entries(groups).forEach(([cat, names]) =>
+  names.forEach(name =>
+    productsData.push({
+      id: id++,
+      name,
+      cat,
+      emoji: emojis[cat]
+    })
+  )
+);
+
+// TAPVORA in-stock SHEGLAM product
+productsData.push({
+  id: "sheglam-love-cake",
+  name: "SHEGLAM Color Bloom Liquid Blush — Love Cake",
+  cat: "Makeup",
+  emoji: "💗",
+  price: 799,
+  size: "5.2 ml",
+  shade: "Love Cake",
+  stock: 20,
+  description:
+    "Liquid blush designed to blend smoothly and add a beautiful flush of colour to the cheeks.",
+  image:
+    "https://maxbty.com/cdn/shop/files/sheglam-color-bloom-liquid-blush-love-cake-5-2ml.jpg",
+  productUrl:
+    "https://maxbty.com/en/products/sheglam-color-bloom-liquid-blush-love-cake-5-2ml"
+});
+
+let selectedCategory="";let cart={};i
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open")}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all TAPVORA products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"})}
 function renderProducts(){const query=document.getElementById("search").value.toLowerCase();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";const image=document.createElement("div");image.className="product-image";image.textContent=p.emoji;const name=document.createElement("h3");name.textContent=p.name;const cat=document.createElement("p");cat.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent="Price: Coming Soon";const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,cat,price,add,order);container.append(card)});document.getElementById("noResults").classList.toggle("hidden",list.length!==0)}
