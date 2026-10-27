@@ -176,8 +176,102 @@ productsData.push({
 let selectedCategory="";let cart={};i
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open")}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all TAPVORA products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"})}
-function renderProducts(){const query=document.getElementById("search").value.toLowerCase();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";const image=document.createElement("div");image.className="product-image";image.textContent=p.emoji;const name=document.createElement("h3");name.textContent=p.name;const cat=document.createElement("p");cat.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent="Price: Coming Soon";const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,cat,price,add,order);container.append(card)});document.getElementById("noResults").classList.toggle("hidden",list.length!==0)}
-function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function renderProducts() {
+  const query = document.getElementById("search").value.toLowerCase();
+
+  const list = productsData.filter(p =>
+    (!selectedCategory || p.cat === selectedCategory) &&
+    (p.name.toLowerCase().includes(query) ||
+     p.cat.toLowerCase().includes(query))
+  );
+
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+
+  list.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const image = document.createElement("div");
+    image.className = "product-image";
+
+    if (p.image) {
+      const img = document.createElement("img");
+      img.src = p.image;
+      img.alt = p.name;
+      img.loading = "lazy";
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "contain";
+
+      img.onerror = () => {
+        image.innerHTML = "";
+        image.textContent = p.emoji || "🛍️";
+      };
+
+      image.appendChild(img);
+    } else {
+      image.textContent = p.emoji || "🛍️";
+    }
+
+    const name = document.createElement("h3");
+    name.textContent = p.name;
+
+    const cat = document.createElement("p");
+    cat.textContent = p.cat;
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = p.price
+      ? `৳${p.price} (proposed price)`
+      : "Price: Coming Soon";
+
+    card.append(image, name, cat, price);
+
+    if (p.id === "sheglam-love-cake") {
+      const details = document.createElement("p");
+      details.textContent =
+        `Shade: ${p.shade} • Size: ${p.size}`;
+      card.appendChild(details);
+
+      const description = document.createElement("p");
+      description.textContent = p.description;
+      card.appendChild(description);
+
+      const stock = document.createElement("p");
+      stock.className = "price";
+      stock.textContent = `In Stock: ${p.stock} pcs`;
+      card.appendChild(stock);
+
+      const link = document.createElement("a");
+      link.href = p.productUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "View Product Details";
+      link.style.fontSize = "12px";
+      link.style.display = "block";
+      link.style.margin = "8px";
+      card.appendChild(link);
+    }
+
+    const add = document.createElement("button");
+    add.className = "order secondary";
+    add.textContent = "Add to Cart";
+    add.onclick = () => addToCart(p.id);
+
+    const order = document.createElement("button");
+    order.className = "order";
+    order.textContent = "WhatsApp Order";
+    order.onclick = () => orderProduct(p.id);
+
+    card.append(add, order);
+    container.appendChild(card);
+  });
+
+  document.getElementById("noResults")
+    .classList.toggle("hidden", list.length !== 0);
+}
+  function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart()}
 function changeQty(id,amount){cart[id]=(cart[id]||0)+amount;if(cart[id]<=0)delete cart[id];renderCart()}
 function renderCart(){let count=0;const container=document.getElementById("cartItems");container.innerHTML="";Object.keys(cart).forEach(id=>{const p=productsData.find(item=>item.id===Number(id));if(!p)return;count+=cart[id];const row=document.createElement("div");row.className="cart-row";const label=document.createElement("span");label.textContent=p.name+" × "+cart[id];const controls=document.createElement("span");const minus=document.createElement("button");minus.className="small-btn";minus.textContent="−";minus.onclick=()=>changeQty(p.id,-1);const plus=document.createElement("button");plus.className="small-btn";plus.textContent="+";plus.onclick=()=>changeQty(p.id,1);controls.append(minus,plus);row.append(label,controls);container.append(row)});if(!count)container.textContent="Your cart is empty.";document.getElementById("cartCount").textContent=count;document.getElementById("cartCountTop").textContent=count;document.getElementById("cartTotal").textContent=count?"Prices and delivery cost will be confirmed on WhatsApp.":""}
 function openWhatsApp(message){if(!/^\d{8,15}$/.test(TAPVORA_WHATSAPP)){alert("Please set a valid WhatsApp number in the code.");return}window.open("https://wa.me/"+TAPVORA_WHATSAPP+"?text="+encodeURIComponent(message),"_blank","noopener")}
