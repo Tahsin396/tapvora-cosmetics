@@ -140,18 +140,20 @@ const groups = {
 "Innerwear": ["Everyday Bra","Sports Bra","Bralette","Cotton Underwear","Seamless Underwear","Camisole","Shapewear Shorts","Matching Innerwear Set","High-Waist Underwear","Full-Coverage Briefs"]
 };
 const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};
+
 const sunglassesCatalog = [
- {name:"Cat-Eye Sunglasses",price:990,image:"images/cat-eye-sunglasses.jpg"},
- {name:"Oversized Sunglasses",price:1090,image:"images/oversized-sunglasses.jpg"},
- {name:"Butterfly Sunglasses",price:1190,image:"images/butterfly-sunglasses.jpg"},
- {name:"Slim Rectangle Sunglasses",price:890,image:"images/slim-rectangle-sunglasses.jpg"},
- {name:"Oval Sunglasses",price:790,image:"images/oval-sunglasses.jpg"},
- {name:"Heart-Shaped Sunglasses",price:690,image:"images/heart-shaped-sunglasses.jpg"},
- {name:"Rimless Sunglasses",price:1090,image:"images/rimless-sunglasses.jpg"},
- {name:"Feminine Aviator Sunglasses",price:990,image:"images/feminine-aviator-sunglasses.jpg"},
- {name:"Geometric Sunglasses",price:1090,image:"images/geometric-sunglasses.jpg"},
- {name:"Vintage Round Sunglasses",price:890,image:"images/vintage-round-sunglasses.jpg"}
+ {name:"Cat-Eye Sunglasses",price:990,image:"cat-eye-sunglasses.jpg"},
+ {name:"Oversized Sunglasses",price:1090,image:"oversized-sunglasses.jpg"},
+ {name:"Butterfly Sunglasses",price:1190,image:"butterfly-sunglasses.jpg"},
+ {name:"Slim Rectangle Sunglasses",price:890,image:"slim-rectangle-sunglasses.jpg"},
+ {name:"Oval Sunglasses",price:790,image:"oval-sunglasses.jpg"},
+ {name:"Heart-Shaped Sunglasses",price:690,image:"heart-shaped-sunglasses.jpg"},
+ {name:"Rimless Sunglasses",price:1090,image:"rimless-sunglasses.jpg"},
+ {name:"Feminine Aviator Sunglasses",price:990,image:"feminine-aviator-sunglasses.jpg"},
+ {name:"Geometric Sunglasses",price:1090,image:"geometric-sunglasses.jpg"},
+ {name:"Vintage Round Sunglasses",price:890,image:"vintage-round-sunglasses.jpg"}
 ];
+
 const sunglassesByName = Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
 const productsData=[];let id=1;
 Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{
