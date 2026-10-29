@@ -155,11 +155,35 @@ const sunglassesCatalog = [
 ];
 
 const sunglassesByName = Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
-const productsData=[];let id=1;
-Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{
- const extra=cat==="Sunglasses"?sunglassesByName[name]:null;
- productsData.push({id:id++,name,cat,emoji:emojis[cat],price:extra?extra.price:null,image:extra?extra.image:null});
-}));
+
+const productsData = [];
+let id = 1;
+
+Object.entries(groups).forEach(([cat, names]) => {
+  names.forEach(name => {
+    const extra = cat === "Sunglasses"
+      ? sunglassesByName[name]
+      : null;
+
+    const jewellery = cat === "Jewellery"
+      ? jewelleryByName[name]
+      : null;
+
+    productsData.push({
+      id: id++,
+      name,
+      cat,
+      emoji: emojis[cat],
+      price: extra ? extra.price : null,
+      image: extra
+        ? extra.image
+        : jewellery
+          ? jewellery.image
+          : null
+    });
+  });
+});
+
 let selectedCategory="";let cart={};
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open")}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all TAPVORA products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"})}
