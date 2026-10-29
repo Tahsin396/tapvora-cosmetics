@@ -139,7 +139,19 @@ const sunglassesByName=Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
 const jewelleryByName=Object.fromEntries(jewelleryCatalog.map(p=>[p.name,p]));
 const productsData=[];let nextId=1;
 Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{const sg=cat==="Sunglasses"?sunglassesByName[name]:null;const jew=cat==="Jewellery"?jewelleryByName[name]:null;productsData.push({id:nextId++,name,cat,emoji:emojis[cat]||"♡",price:sg?sg.price:null,image:sg?sg.image:jew?jew.image:null});}));
-let selectedCategory="";let cart={};
+// PRIORY: SHEGLAM Primer - Bangladesh price
+const primerProduct = productsData.find(
+  p => p.cat === "Makeup" && p.name === "Primer"
+);
+
+if (primerProduct) {
+  primerProduct.name = "SHEGLAM Good Grip Hydrating Primer";
+  primerProduct.price = 1199;
+  primerProduct.image =
+    "https://www.justbeautyom.com/web/image/product.template/4091/image_1920?unique=c575afd";
+  primerProduct.description =
+    "45 ml hydrating gel primer. Helps smooth the skin and prepare it for makeup.";
+}
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open");}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all PRIORY products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});}
 function renderProducts(){const query=document.getElementById("search").value.toLowerCase().trim();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";let image;if(p.image){image=document.createElement("img");image.className="product-image";image.src=p.image;image.alt=p.name;image.loading="lazy";image.onerror=function(){const fallback=document.createElement("div");fallback.className="product-fallback";fallback.textContent=p.emoji;fallback.title="View product details";fallback.onclick=()=>openProductDetails(p.id);this.replaceWith(fallback);};}else{image=document.createElement("div");image.className="product-fallback";image.textContent=p.emoji;image.title="View product details";}image.addEventListener("click",()=>openProductDetails(p.id));const name=document.createElement("h3");name.textContent=p.name;name.addEventListener("click",()=>openProductDetails(p.id));const category=document.createElement("p");category.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: Coming Soon";const note=document.createElement("p");note.className="price-note";note.textContent=p.price?"Suggested price · confirm stock":"Price to be confirmed";const details=document.createElement("button");details.className="order secondary";details.textContent="View Details";details.onclick=()=>openProductDetails(p.id);const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,category,price,note,details,add,order);container.append(card);});document.getElementById("noResults").classList.toggle("hidden",list.length!==0);}
