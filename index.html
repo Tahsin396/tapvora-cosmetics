@@ -1,159 +1,145 @@
-<!DOCTYPE html>  <html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1">  
-<meta name="theme-color" content="#f8f0e9">  
-<meta name="description" content="PRIORY Beauty, Fashion & Lifestyle">  
-<title>PRIORY | Beauty, Fashion & Lifestyle</title>  
-<style>  
-:root{--ink:#171514;--cream:#fbf6f0;--blush:#f4d7d7;--rose:#d99a9e;--muted:#756b66;--line:#e9ded6;--white:#fff}  
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}  
-body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}body.modal-open{overflow:hidden}  
-a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}  
-.topbar{background:#171514;color:white;text-align:center;padding:9px;font-size:11px;letter-spacing:.5px}  
-.header{background:white;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 5%;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}  
-.brand{text-align:center}.logo{font:38px Georgia,serif;letter-spacing:3px}.brand small{font-size:10px;color:var(--muted)}  
-.nav{display:flex;gap:18px;align-items:center;font-size:12px}.nav a:hover{color:var(--rose)}.header-actions{font-size:20px}  
-.menu-toggle{display:none;border:0;background:white;font-size:24px}  
-.hero{min-height:380px;display:flex;align-items:center;background:#ead2c4 url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=80') center/cover}  
-.hero-copy{padding:45px 8%;max-width:650px;background:linear-gradient(90deg,rgba(250,233,218,.96),rgba(250,233,218,.75),transparent)}  
-.eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}  
-h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}.hero-sub{font:24px Georgia,serif}  
-.hero p{font-size:14px;line-height:1.7;max-width:400px}  
-.btn{display:inline-block;background:var(--ink);color:white;border:0;border-radius:25px;padding:12px 22px;font-size:11px;letter-spacing:.5px;cursor:pointer;margin:5px 2px}  
-.btn:hover,.order:hover{background:var(--rose);color:white}  
-.section{padding:35px 4%}.section-heading{text-align:center;margin:0 auto 22px}  
-.section-heading h2{font:32px Georgia,serif;margin:8px 0}.section-heading p{font-size:13px;color:var(--muted)}  
-.category-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}  
-.category{border:0;background:transparent;text-align:center;padding:8px 2px}.category-icon{width:60px;height:60px;margin:0 auto 8px;background:#f8e2e1;border-radius:50%;display:grid;place-items:center;font-size:27px}  
-.category strong{font-size:12px}.featured{display:grid;grid-template-columns:1fr 1fr;gap:16px}  
-.feature-card{min-height:230px;position:relative;display:flex;align-items:center;overflow:hidden;background:#e8d4d0}  
-.feature-card img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0}  
-.feature-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,20,20,.8),transparent)}  
-.feature-card.sunglasses:after{background:linear-gradient(90deg,rgba(250,232,210,.95),transparent)}  
-.feature-copy{position:relative;z-index:1;padding:22px;max-width:70%;color:white}  
-.feature-card.sunglasses .feature-copy{color:var(--ink)}.feature-copy h3{font:36px Georgia,serif;margin:12px 0}.feature-copy p{font-size:12px}  
-.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 5px}  
-.benefit{text-align:center;font-size:12px}.benefit strong{display:block;margin:6px 0}.benefit small{color:var(--muted)}  
-.best-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}  
-.best-card{border:1px solid var(--line);background:white;text-align:center;padding:0 0 12px}.best-card img{width:100%;height:130px;object-fit:cover;display:block}  
-.best-card strong,.best-card small{display:block;margin-top:9px;font-size:12px}.best-card small{font-size:10px;color:var(--muted)}  
-.lifestyle{margin:0 4% 20px;padding:35px 10px;text-align:center;background:#f2e0da}.lifestyle h2{font:italic 28px Georgia,serif;margin:0 0 8px}  
-#productsSection{background:#f9eeee}.hidden{display:none!important}.toolbar{text-align:center;margin:18px auto}  
-.toolbar input{width:min(92%,430px);padding:12px 15px;border:1px solid #dfc9c5;border-radius:25px}  
-.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;max-width:1200px;margin:22px auto}  
-.card{background:white;text-align:center;border:1px solid #eadbd6;padding:10px;overflow:hidden;min-width:0}  
-.product-image{height:190px;width:100%;object-fit:contain;object-position:center center;padding:8px;display:block;background:#fff;cursor:zoom-in}  
-.product-fallback{height:190px;width:100%;display:grid;place-items:center;background:#f8e6e3;font-size:48px;cursor:pointer}  
-.card h3{font:17px Georgia,serif;margin:12px 0 5px;cursor:pointer}.card p{font-size:12px;color:var(--muted);line-height:1.5}  
-.price{color:#7b3e46!important;font-weight:bold}.price-note{font-size:10px!important;margin:3px 0 8px!important}  
-.order{font-size:10px;padding:10px 11px;margin:3px;border-radius:20px;background:var(--ink);color:white;border:1px solid var(--ink)}  
-.order.secondary{background:white;color:var(--ink)}#cart{background:white}.cart-box{max-width:750px;margin:auto;background:#fbf6f0;padding:20px;border:1px solid var(--line)}  
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:12px 0;font-size:13px}  
-.small-btn{background:var(--ink);color:white;border:0;padding:6px 11px;margin-left:4px}.about{text-align:center;background:#f4e1df;line-height:1.8}  
-.about p{max-width:650px;margin:auto;font-size:14px}.footer{background:#171514;color:white;padding:34px 5% 16px}  
-.footer-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr 1.4fr;gap:25px}.footer-logo{font:32px Georgia,serif;letter-spacing:3px}  
-.footer p,.footer a{font-size:12px;color:#e4d8d3;line-height:1.9}.footer h3{font-size:13px}.footer a{display:block}  
-.newsletter{display:flex;gap:5px;margin-top:12px}.newsletter input{min-width:0;width:100%;padding:11px;border:0;border-radius:22px}  
-.newsletter button{border:0;border-radius:22px;background:var(--rose);padding:0 15px}  
-.copyright{border-top:1px solid #4d4541;margin-top:24px;padding-top:13px;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:10px;color:#cfc3bd}  
-.details-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:14px}  
-.details-modal.open{display:flex}.details-panel{position:relative;width:min(100%,850px);max-height:94vh;overflow-y:auto;background:white;border-radius:14px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}  
-.details-close{position:absolute;right:10px;top:7px;border:0;background:white;font-size:30px;z-index:3}  
-.details-photo-wrap{height:400px;overflow:hidden;background:#f8e6e3;display:grid;place-items:center;position:relative}  
-.details-photo{width:100%;height:100%;object-fit:contain;object-position:center center;padding:8px;cursor:zoom-in;transition:transform .25s ease}  
-.details-photo.zoomed{transform:scale(1.8);cursor:zoom-out}.details-placeholder{font-size:75px}  
-.details-info{padding:24px 8px 8px}.details-info h2{font:30px Georgia,serif;margin:12px 0}  
-.details-info p{font-size:13px;line-height:1.7;color:var(--muted)}.details-info .price{font-size:19px}  
-.zoom-hint{font-size:11px!important;color:#7b3e46!important}.detail-actions{display:flex;flex-wrap:wrap;gap:6px}.detail-actions .btn{margin:3px 0}  
-body.modal-open .header{z-index:20}  
-@media(max-width:850px){.nav{gap:9px}.category-strip{grid-template-columns:repeat(4,1fr)}.best-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.benefits{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}}  
-@media(max-width:600px){.header{flex-wrap:wrap;padding:12px 15px}.logo{font-size:30px}.brand{order:1}.header-actions{order:2;margin-left:auto}.menu-toggle{display:block;order:3}  
-.nav{display:none;order:4;width:100%;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:11px;border-top:1px solid var(--line)}  
-.hero{min-height:420px;background-position:60% center}.hero-copy{padding:30px 20px;max-width:95%}.hero-sub{font-size:20px}  
-.section{padding:28px 13px}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.category-icon{width:52px;height:52px;font-size:23px}.category strong{font-size:10px}  
-.featured{grid-template-columns:1fr}.feature-card{min-height:205px}.feature-copy h3{font-size:30px}.benefits{grid-template-columns:repeat(2,1fr);gap:17px 8px}  
-.best-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image,.product-fallback{height:135px}  
-.card{padding:8px 5px}.order{padding:9px 7px}.footer-grid{grid-template-columns:1fr 1fr;gap:18px 12px}.footer-logo{font-size:25px}  
-.details-modal{padding:8px}.details-panel{grid-template-columns:1fr;gap:8px;padding:12px;max-height:96vh}.details-photo-wrap{height:270px}.details-info{padding:8px}.details-info h2{font-size:24px}}  
-</style>  
-</head>  
-<body>  
-<div class="topbar">♡ Beauty • Fashion • Lifestyle | Bangladesh 🇧🇩 | Oman 🇴🇲</div>  
-<header class="header" id="home">  
-<a class="brand" href="#home"><div class="logo">PRIORY</div><small>Beauty, Fashion &amp; Lifestyle</small></a>  
-<nav class="nav" id="mainNav"><a href="#home">Home</a><a href="#featured">Shop</a><a href="#categories">Categories</a><a href="#about">Our Brand</a><a href="#contact">Contact</a><a href="#cart">Cart (<span id="cartCount">0</span>)</a></nav>  
-<div class="header-actions"><a href="#productsSection" onclick="showAllProducts()">⌕</a> &nbsp; <a href="#cart">♡ <span id="cartCountTop">0</span></a></div>  
-<button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Toggle navigation">☰</button>  
-</header>  
-<main>  
-<section class="hero"><div class="hero-copy"><div class="eyebrow">Welcome to</div><h1>PRIORY</h1><div class="hero-sub">Beauty • Fashion • Lifestyle</div><p>Discover beauty favorites, stylish accessories and everyday lifestyle essentials in one place.</p><a class="btn" href="#featured">Shop the Collection →</a></div></section>  
-<section class="section" id="categories"><div class="section-heading"><div class="eyebrow">Explore</div><h2>Shop by Category</h2><p>Choose a collection to see products</p></div>  
-<div class="category-strip">  
-<button class="category" onclick="showCategory('Makeup')"><span class="category-icon">💄</span><strong>Makeup</strong></button>  
-<button class="category" onclick="showCategory('Lip Products')"><span class="category-icon">💋</span><strong>Lip Products</strong></button>  
-<button class="category" onclick="showCategory('Bags')"><span class="category-icon">👜</span><strong>Bags</strong></button>  
-<button class="category" onclick="showCategory('Jewellery')"><span class="category-icon">💎</span><strong>Jewellery</strong></button>  
-<button class="category" onclick="showCategory('Nightwear')"><span class="category-icon">🌙</span><strong>Nightwear</strong></button>  
-<button class="category" onclick="showCategory('Innerwear')"><span class="category-icon">🎀</span><strong>Innerwear</strong></button>  
-<button class="category" onclick="showCategory('Sunglasses')"><span class="category-icon">🕶️</span><strong>Women's Sunglasses</strong></button>  
-</div></section>  
-<section class="section featured" id="featured">  
-<article class="feature-card cosmetics"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1100&q=85" alt="Makeup and beauty products" loading="lazy"><div class="feature-copy"><small>Featured Collection</small><h3>SHEGLAM<br>Cosmetics</h3><p>Glow • Create • Be You</p><a class="btn" href="#productsSection" onclick="showCategory('Makeup')">Shop Now →</a></div></article>  
-<article class="feature-card sunglasses"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1100&q=85" alt="Women's sunglasses" loading="lazy"><div class="feature-copy"><small>Featured Collection</small><h3>Women's<br>Sunglasses</h3><p>Style • Confidence • Everyday looks</p><a class="btn" href="#productsSection" onclick="showCategory('Sunglasses')">Shop Now →</a></div></article>  
-</section>  
-<section class="section"><div class="benefits"><div class="benefit">🚚<strong>Delivery Options</strong><small>Confirmed at order</small></div><div class="benefit">◇<strong>Product Information</strong><small>Ask before ordering</small></div><div class="benefit">☏<strong>WhatsApp Support</strong><small>We're here to help</small></div><div class="benefit">✧<strong>Curated Collections</strong><small>Beauty and lifestyle</small></div><div class="benefit">♡<strong>Customer First</strong><small>Your choice matters</small></div></div></section>  
-<section class="section"><div class="section-heading"><div class="eyebrow">Discover your style</div><h2>Our Best Picks</h2><p>Explore our beauty and lifestyle collections</p></div><div class="best-grid">  
-<button class="best-card" onclick="showCategory('Makeup')"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80" alt="Makeup" loading="lazy"><strong>Makeup</strong><small>Explore collection →</small></button>  
-<button class="best-card" onclick="showCategory('Lip Products')"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" alt="Lip products" loading="lazy"><strong>Lip Products</strong><small>Explore collection →</small></button>  
-<button class="best-card" onclick="showCategory('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" alt="Bags" loading="lazy"><strong>Bags</strong><small>Explore collection →</small></button>  
-<button class="best-card" onclick="showCategory('Jewellery')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80" alt="Jewellery" loading="lazy"><strong>Jewellery</strong><small>Explore collection →</small></button>  
-<button class="best-card" onclick="showCategory('Nightwear')"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80" alt="Fashion" loading="lazy"><strong>Nightwear</strong><small>Explore collection →</small></button>  
-<button class="best-card" onclick="showCategory('Sunglasses')"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="Sunglasses" loading="lazy"><strong>Sunglasses</strong><small>Explore collection →</small></button>  
-</div></section>  
-<div class="lifestyle"><h2>More Than Just Shopping</h2><p>It's a PRIORY Lifestyle ♡</p></div>  
-<section id="productsSection" class="section hidden"><div class="section-heading"><div class="eyebrow">PRIORY collections</div><h2 id="productsTitle">Products</h2><p id="productsIntro">Explore our collections.</p></div><div class="toolbar"><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()" aria-label="Search products"><p><button class="btn" onclick="showAllProducts()">View All Products</button></p></div><div id="products" class="products"></div><p id="noResults" class="hidden" style="text-align:center">No products found.</p></section>  
-<div id="detailsModal" class="details-modal" role="presentation" onclick="if(event.target===this)closeProductDetails()"><div class="details-panel" role="dialog" aria-modal="true" aria-labelledby="detailsName"><button class="details-close" onclick="closeProductDetails()" aria-label="Close">&times;</button><div class="details-photo-wrap" id="detailsPhotoWrap"><img id="detailsImage" class="details-photo" alt="Product image" onclick="this.classList.toggle('zoomed')"><div id="detailsPlaceholder" class="details-placeholder hidden">♡</div></div><div class="details-info"><div class="eyebrow">PRIORY COLLECTION</div><h2 id="detailsName">Product name</h2><p id="detailsCategory"></p><p id="detailsPrice" class="price"></p><p id="detailsDescription"></p><p class="zoom-hint">Tap the image to zoom in or out.</p><div class="detail-actions"><button id="detailsAdd" class="btn">Add to Cart</button><button id="detailsOrder" class="btn">Order on WhatsApp</button></div></div></div></div>  
-<section class="section" id="cart"><div class="section-heading"><div class="eyebrow">Your selection</div><h2>Your Shopping Cart</h2><p>We'll confirm prices and delivery details before finalizing your order.</p></div><div class="cart-box"><div id="cartItems">Your cart is empty.</div><p id="cartTotal" class="price"></p><button class="btn" onclick="checkout()">Order Cart on WhatsApp →</button></div></section>  
-<section class="section about" id="about"><div class="section-heading"><div class="eyebrow">Our story</div><h2>Welcome to PRIORY</h2><p>Beauty • Fashion • Lifestyle</p></div><p>We bring beauty favorites, stylish accessories and lifestyle essentials together in one place. Browse our collections and contact us to confirm availability, pricing and delivery options.</p></section>  
-</main>  
-<footer class="footer" id="contact"><div class="footer-grid"><div><div class="footer-logo">PRIORY</div><p>Beauty, Fashion &amp; Lifestyle</p><p>More than just shopping.</p></div><div><h3>Quick Links</h3><a href="#home">Home</a><a href="#featured">Shop</a><a href="#about">Our Brand</a><a href="#cart">Shopping Cart</a></div><div><h3>Categories</h3><a href="#productsSection" onclick="showCategory('Makeup')">Makeup</a><a href="#productsSection" onclick="showCategory('Lip Products')">Lip Products</a><a href="#productsSection" onclick="showCategory('Bags')">Bags</a><a href="#productsSection" onclick="showCategory('Jewellery')">Jewellery</a><a href="#productsSection" onclick="showCategory('Sunglasses')">Women's Sunglasses</a></div><div><h3>Stay Connected</h3><p>Contact us for new arrivals, product details and orders.</p><form class="newsletter" onsubmit="event.preventDefault();alert('Thank you for your interest in PRIORY! Contact us on WhatsApp for updates.');"><input type="email" placeholder="Your email address" aria-label="Your email address" required><button type="submit" aria-label="Subscribe">➤</button></form><p><a href="https://wa.me/96879547509" target="_blank" rel="noopener">WhatsApp: Contact PRIORY</a></p></div></div><div class="copyright"><span>© <span id="year"></span> PRIORY. All rights reserved.</span><span>Beauty • Fashion • Lifestyle</span></div></footer>  
-<script>  
-"use strict";  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f0e9">
+<meta name="description" content="PRIORY Beauty, Fashion & Lifestyle">
+<title>PRIORY | Beauty, Fashion & Lifestyle</title>
+<style>
+:root{--ink:#171514;--cream:#fbf6f0;--blush:#f4d7d7;--rose:#d99a9e;--muted:#756b66;--line:#e9ded6;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}body.modal-open{overflow:hidden}
+a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}
+.topbar{background:#171514;color:white;text-align:center;padding:9px;font-size:11px;letter-spacing:.5px}
+.header{background:white;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 5%;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.brand{text-align:center}.logo{font:38px Georgia,serif;letter-spacing:3px}.brand small{font-size:10px;color:var(--muted)}
+.nav{display:flex;gap:18px;align-items:center;font-size:12px}.nav a:hover{color:var(--rose)}.header-actions{font-size:20px}
+.menu-toggle{display:none;border:0;background:white;font-size:24px}
+.hero{min-height:380px;display:flex;align-items:center;background:#ead2c4 url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=80') center/cover}
+.hero-copy{padding:45px 8%;max-width:650px;background:linear-gradient(90deg,rgba(250,233,218,.96),rgba(250,233,218,.75),transparent)}
+.eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}.hero-sub{font:24px Georgia,serif}
+.hero p{font-size:14px;line-height:1.7;max-width:400px}
+.btn{display:inline-block;background:var(--ink);color:white;border:0;border-radius:25px;padding:12px 22px;font-size:11px;letter-spacing:.5px;cursor:pointer;margin:5px 2px}
+.btn:hover,.order:hover{background:var(--rose);color:white}
+.section{padding:35px 4%}.section-heading{text-align:center;margin:0 auto 22px}
+.section-heading h2{font:32px Georgia,serif;margin:8px 0}.section-heading p{font-size:13px;color:var(--muted)}
+.category-strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.category{border:0;background:transparent;text-align:center;padding:8px 2px}.category-icon{width:60px;height:60px;margin:0 auto 8px;background:#f8e2e1;border-radius:50%;display:grid;place-items:center;font-size:27px}
+.category strong{font-size:12px}.featured{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feature-card{min-height:230px;position:relative;display:flex;align-items:center;overflow:hidden;background:#e8d4d0}
+.feature-card img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0}
+.feature-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,20,20,.8),transparent)}
+.feature-card.sunglasses:after{background:linear-gradient(90deg,rgba(250,232,210,.95),transparent)}
+.feature-copy{position:relative;z-index:1;padding:22px;max-width:70%;color:white}
+.feature-card.sunglasses .feature-copy{color:var(--ink)}.feature-copy h3{font:36px Georgia,serif;margin:12px 0}.feature-copy p{font-size:12px}
+.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 5px}
+.benefit{text-align:center;font-size:12px}.benefit strong{display:block;margin:6px 0}.benefit small{color:var(--muted)}
+.best-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.best-card{border:1px solid var(--line);background:white;text-align:center;padding:0 0 12px}.best-card img{width:100%;height:130px;object-fit:cover;display:block}
+.best-card strong,.best-card small{display:block;margin-top:9px;font-size:12px}.best-card small{font-size:10px;color:var(--muted)}
+.lifestyle{margin:0 4% 20px;padding:35px 10px;text-align:center;background:#f2e0da}.lifestyle h2{font:italic 28px Georgia,serif;margin:0 0 8px}
+#productsSection{background:#f9eeee}.hidden{display:none!important}.toolbar{text-align:center;margin:18px auto}
+.toolbar input{width:min(92%,430px);padding:12px 15px;border:1px solid #dfc9c5;border-radius:25px}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;max-width:1200px;margin:22px auto}
+.card{background:white;text-align:center;border:1px solid #eadbd6;padding:10px;overflow:hidden;min-width:0}
+.product-image{height:190px;width:100%;object-fit:contain;object-position:center center;padding:8px;display:block;background:#fff;cursor:zoom-in}
+.product-fallback{height:190px;width:100%;display:grid;place-items:center;background:#f8e6e3;font-size:48px;cursor:pointer}
+.card h3{font:17px Georgia,serif;margin:12px 0 5px;cursor:pointer}.card p{font-size:12px;color:var(--muted);line-height:1.5}
+.price{color:#7b3e46!important;font-weight:bold}.price-note{font-size:10px!important;margin:3px 0 8px!important}
+.order{font-size:10px;padding:10px 11px;margin:3px;border-radius:20px;background:var(--ink);color:white;border:1px solid var(--ink)}
+.order.secondary{background:white;color:var(--ink)}#cart{background:white}.cart-box{max-width:750px;margin:auto;background:#fbf6f0;padding:20px;border:1px solid var(--line)}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:12px 0;font-size:13px}
+.small-btn{background:var(--ink);color:white;border:0;padding:6px 11px;margin-left:4px}.about{text-align:center;background:#f4e1df;line-height:1.8}
+.about p{max-width:650px;margin:auto;font-size:14px}.footer{background:#171514;color:white;padding:34px 5% 16px}
+.footer-grid{display:grid;grid-template-columns:1.2fr .8fr 1fr 1.4fr;gap:25px}.footer-logo{font:32px Georgia,serif;letter-spacing:3px}
+.footer p,.footer a{font-size:12px;color:#e4d8d3;line-height:1.9}.footer h3{font-size:13px}.footer a{display:block}
+.newsletter{display:flex;gap:5px;margin-top:12px}.newsletter input{min-width:0;width:100%;padding:11px;border:0;border-radius:22px}
+.newsletter button{border:0;border-radius:22px;background:var(--rose);padding:0 15px}
+.copyright{border-top:1px solid #4d4541;margin-top:24px;padding-top:13px;display:flex;justify-content:space-between;flex-wrap:wrap;font-size:10px;color:#cfc3bd}
+.details-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:14px}
+.details-modal.open{display:flex}.details-panel{position:relative;width:min(100%,850px);max-height:94vh;overflow-y:auto;background:white;border-radius:14px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.details-close{position:absolute;right:10px;top:7px;border:0;background:white;font-size:30px;z-index:3}
+.details-photo-wrap{height:400px;overflow:hidden;background:#f8e6e3;display:grid;place-items:center;position:relative}
+.details-photo{width:100%;height:100%;object-fit:contain;object-position:center center;padding:8px;cursor:zoom-in;transition:transform .25s ease}
+.details-photo.zoomed{transform:scale(1.8);cursor:zoom-out}.details-placeholder{font-size:75px}
+.details-info{padding:24px 8px 8px}.details-info h2{font:30px Georgia,serif;margin:12px 0}
+.details-info p{font-size:13px;line-height:1.7;color:var(--muted)}.details-info .price{font-size:19px}
+.zoom-hint{font-size:11px!important;color:#7b3e46!important}.detail-actions{display:flex;flex-wrap:wrap;gap:6px}.detail-actions .btn{margin:3px 0}
+body.modal-open .header{z-index:20}
+@media(max-width:850px){.nav{gap:9px}.category-strip{grid-template-columns:repeat(4,1fr)}.best-grid{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(3,minmax(0,1fr))}.benefits{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.header{flex-wrap:wrap;padding:12px 15px}.logo{font-size:30px}.brand{order:1}.header-actions{order:2;margin-left:auto}.menu-toggle{display:block;order:3}
+.nav{display:none;order:4;width:100%;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:11px;border-top:1px solid var(--line)}
+.hero{min-height:420px;background-position:60% center}.hero-copy{padding:30px 20px;max-width:95%}.hero-sub{font-size:20px}
+.section{padding:28px 13px}.category-strip{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.category-icon{width:52px;height:52px;font-size:23px}.category strong{font-size:10px}
+.featured{grid-template-columns:1fr}.feature-card{min-height:205px}.feature-copy h3{font-size:30px}.benefits{grid-template-columns:repeat(2,1fr);gap:17px 8px}
+.best-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product-image,.product-fallback{height:135px}
+.card{padding:8px 5px}.order{padding:9px 7px}.footer-grid{grid-template-columns:1fr 1fr;gap:18px 12px}.footer-logo{font-size:25px}
+.details-modal{padding:8px}.details-panel{grid-template-columns:1fr;gap:8px;padding:12px;max-height:96vh}.details-photo-wrap{height:270px}.details-info{padding:8px}.details-info h2{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="topbar">♡ Beauty • Fashion • Lifestyle | Bangladesh 🇧🇩 | Oman 🇴🇲</div>
+<header class="header" id="home">
+<a class="brand" href="#home"><div class="logo">PRIORY</div><small>Beauty, Fashion &amp; Lifestyle</small></a>
+<nav class="nav" id="mainNav"><a href="#home">Home</a><a href="#featured">Shop</a><a href="#categories">Categories</a><a href="#about">Our Brand</a><a href="#contact">Contact</a><a href="#cart">Cart (<span id="cartCount">0</span>)</a></nav>
+<div class="header-actions"><a href="#productsSection" onclick="showAllProducts()">⌕</a> &nbsp; <a href="#cart">♡ <span id="cartCountTop">0</span></a></div>
+<button class="menu-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+</header>
+<main>
+<section class="hero"><div class="hero-copy"><div class="eyebrow">Welcome to</div><h1>PRIORY</h1><div class="hero-sub">Beauty • Fashion • Lifestyle</div><p>Discover beauty favorites, stylish accessories and everyday lifestyle essentials in one place.</p><a class="btn" href="#featured">Shop the Collection →</a></div></section>
+<section class="section" id="categories"><div class="section-heading"><div class="eyebrow">Explore</div><h2>Shop by Category</h2><p>Choose a collection to see products</p></div>
+<div class="category-strip">
+<button class="category" onclick="showCategory('Makeup')"><span class="category-icon">💄</span><strong>Makeup</strong></button>
+<button class="category" onclick="showCategory('Lip Products')"><span class="category-icon">💋</span><strong>Lip Products</strong></button>
+<button class="category" onclick="showCategory('Bags')"><span class="category-icon">👜</span><strong>Bags</strong></button>
+<button class="category" onclick="showCategory('Jewellery')"><span class="category-icon">💎</span><strong>Jewellery</strong></button>
+<button class="category" onclick="showCategory('Nightwear')"><span class="category-icon">🌙</span><strong>Nightwear</strong></button>
+<button class="category" onclick="showCategory('Innerwear')"><span class="category-icon">🎀</span><strong>Innerwear</strong></button>
+<button class="category" onclick="showCategory('Sunglasses')"><span class="category-icon">🕶️</span><strong>Women's Sunglasses</strong></button>
+</div></section>
+<section class="section featured" id="featured">
+<article class="feature-card cosmetics"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1100&q=85" alt="Makeup and beauty products" loading="lazy"><div class="feature-copy"><small>Featured Collection</small><h3>SHEGLAM<br>Cosmetics</h3><p>Glow • Create • Be You</p><a class="btn" href="#productsSection" onclick="showCategory('Makeup')">Shop Now →</a></div></article>
+<article class="feature-card sunglasses"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1100&q=85" alt="Women's sunglasses" loading="lazy"><div class="feature-copy"><small>Featured Collection</small><h3>Women's<br>Sunglasses</h3><p>Style • Confidence • Everyday looks</p><a class="btn" href="#productsSection" onclick="showCategory('Sunglasses')">Shop Now →</a></div></article>
+</section>
+<section class="section"><div class="benefits"><div class="benefit">🚚<strong>Delivery Options</strong><small>Confirmed at order</small></div><div class="benefit">◇<strong>Product Information</strong><small>Ask before ordering</small></div><div class="benefit">☏<strong>WhatsApp Support</strong><small>We're here to help</small></div><div class="benefit">✧<strong>Curated Collections</strong><small>Beauty and lifestyle</small></div><div class="benefit">♡<strong>Customer First</strong><small>Your choice matters</small></div></div></section>
+<section class="section"><div class="section-heading"><div class="eyebrow">Discover your style</div><h2>Our Best Picks</h2><p>Explore our beauty and lifestyle collections</p></div><div class="best-grid">
+<button class="best-card" onclick="showCategory('Makeup')"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80" alt="Makeup" loading="lazy"><strong>Makeup</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Lip Products')"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" alt="Lip products" loading="lazy"><strong>Lip Products</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" alt="Bags" loading="lazy"><strong>Bags</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Jewellery')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80" alt="Jewellery" loading="lazy"><strong>Jewellery</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Nightwear')"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80" alt="Fashion" loading="lazy"><strong>Nightwear</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Sunglasses')"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" alt="Sunglasses" loading="lazy"><strong>Sunglasses</strong><small>Explore collection →</small></button>
+</div></section>
+<div class="lifestyle"><h2>More Than Just Shopping</h2><p>It's a PRIORY Lifestyle ♡</p></div>
+<section id="productsSection" class="section hidden"><div class="section-heading"><div class="eyebrow">PRIORY collections</div><h2 id="productsTitle">Products</h2><p id="productsIntro">Explore our collections.</p></div><div class="toolbar"><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()" aria-label="Search products"><p><button class="btn" onclick="showAllProducts()">View All Products</button></p></div><div id="products" class="products"></div><p id="noResults" class="hidden" style="text-align:center">No products found.</p></section>
+<div id="detailsModal" class="details-modal" role="presentation" onclick="if(event.target===this)closeProductDetails()"><div class="details-panel" role="dialog" aria-modal="true" aria-labelledby="detailsName"><button class="details-close" onclick="closeProductDetails()" aria-label="Close">&times;</button><div class="details-photo-wrap" id="detailsPhotoWrap"><img id="detailsImage" class="details-photo" alt="Product image" onclick="this.classList.toggle('zoomed')"><div id="detailsPlaceholder" class="details-placeholder hidden">♡</div></div><div class="details-info"><div class="eyebrow">PRIORY COLLECTION</div><h2 id="detailsName">Product name</h2><p id="detailsCategory"></p><p id="detailsPrice" class="price"></p><p id="detailsDescription"></p><p class="zoom-hint">Tap the image to zoom in or out.</p><div class="detail-actions"><button id="detailsAdd" class="btn">Add to Cart</button><button id="detailsOrder" class="btn">Order on WhatsApp</button></div></div></div></div>
+<section class="section" id="cart"><div class="section-heading"><div class="eyebrow">Your selection</div><h2>Your Shopping Cart</h2><p>We'll confirm prices and delivery details before finalizing your order.</p></div><div class="cart-box"><div id="cartItems">Your cart is empty.</div><p id="cartTotal" class="price"></p><button class="btn" onclick="checkout()">Order Cart on WhatsApp →</button></div></section>
+<section class="section about" id="about"><div class="section-heading"><div class="eyebrow">Our story</div><h2>Welcome to PRIORY</h2><p>Beauty • Fashion • Lifestyle</p></div><p>We bring beauty favorites, stylish accessories and lifestyle essentials together in one place. Browse our collections and contact us to confirm availability, pricing and delivery options.</p></section>
+</main>
+<footer class="footer" id="contact"><div class="footer-grid"><div><div class="footer-logo">PRIORY</div><p>Beauty, Fashion &amp; Lifestyle</p><p>More than just shopping.</p></div><div><h3>Quick Links</h3><a href="#home">Home</a><a href="#featured">Shop</a><a href="#about">Our Brand</a><a href="#cart">Shopping Cart</a></div><div><h3>Categories</h3><a href="#productsSection" onclick="showCategory('Makeup')">Makeup</a><a href="#productsSection" onclick="showCategory('Lip Products')">Lip Products</a><a href="#productsSection" onclick="showCategory('Bags')">Bags</a><a href="#productsSection" onclick="showCategory('Jewellery')">Jewellery</a><a href="#productsSection" onclick="showCategory('Sunglasses')">Women's Sunglasses</a></div><div><h3>Stay Connected</h3><p>Contact us for new arrivals, product details and orders.</p><form class="newsletter" onsubmit="event.preventDefault();alert('Thank you for your interest in PRIORY! Contact us on WhatsApp for updates.');"><input type="email" placeholder="Your email address" aria-label="Your email address" required><button type="submit" aria-label="Subscribe">➤</button></form><p><a href="https://wa.me/96879547509" target="_blank" rel="noopener">WhatsApp: Contact PRIORY</a></p></div></div><div class="copyright"><span>© <span id="year"></span> PRIORY. All rights reserved.</span><span>Beauty • Fashion • Lifestyle</span></div></footer>
+<script>
 "use strict";
-
-const PRIORY_WHATSAPP = "96879547509";
-
-let selectedCategory = "";
-const cart = {};
-const groups={  
-"Makeup":["Primer","Foundation","Concealer","Setting Spray","Compact Powder","Blush","Highlighter","Makeup Remover","Eyeshadow Palette","Eyeliner","Mascara","Eyebrow Pencil","Makeup Brush Set","Loose Setting Powder","Makeup Sponge","Contour Palette","Bronzer","Color Corrector","BB Cream","CC Cream","False Eyelashes","Eyelash Curler","Brow Gel","Makeup Fixing Powder","Makeup Pouch","Kajal Pencil"],  
-"Lip Products":["Matte Lipstick","Liquid Matte Lipstick","Cream Lipstick","Satin Lipstick","Glossy Lipstick","Velvet Lipstick","Metallic Lipstick","Sheer Lipstick","Lip Tint","Lip Stain","Lip Crayon","Lip Balm Tint","Lip Gloss","Long-Lasting Lipstick","Transfer-Proof Lipstick"],  
-"Bags":["Tote Bag","Crossbody Bag","Mini Bag","Clutch Bag"],  
-"Sunglasses":["Cat-Eye Sunglasses","Oversized Sunglasses","Butterfly Sunglasses","Slim Rectangle Sunglasses","Oval Sunglasses","Heart-Shaped Sunglasses","Rimless Sunglasses","Feminine Aviator Sunglasses","Geometric Sunglasses","Vintage Round Sunglasses"],  
-"Jewellery":["Necklace","Pendant Necklace","Hoop Earrings","Stud Earrings","Drop Earrings","Ear Cuff","Chain Bracelet","Bangle Bracelet","Charm Bracelet","Stackable Rings","Statement Ring","Adjustable Ring","Anklet","Layered Necklace","Pearl Jewellery Set","Bridal Jewellery Set","Waist Chain","Brooch Pin","Decorative Hair Pins","Jewellery Gift Set"],  
-"Nightwear":["Satin Nightdress","Cotton Nightdress","Pajama Set","Short Nightdress","Long Nightdress","Night Suit","Sleep Shirt","Lounge Set","Night Robe","Sleep Shorts Set"],  
-"Innerwear":["Everyday Bra","Sports Bra","Bralette","Cotton Underwear","Seamless Underwear","Camisole","Shapewear Shorts","Matching Innerwear Set","High-Waist Underwear","Full-Coverage Briefs"]};  
-const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};  
-const sunglassesCatalog=[  
-{name:"Cat-Eye Sunglasses",price:990,image:"cat-eye-sunglasses.jpg"},{name:"Oversized Sunglasses",price:1090,image:"oversized-sunglasses.jpg"},{name:"Butterfly Sunglasses",price:1190,image:"butterfly-sunglasses.jpg"},{name:"Slim Rectangle Sunglasses",price:890,image:"slim-rectangle-sunglasses.jpg"},{name:"Oval Sunglasses",price:790,image:"oval-sunglasses.jpg"},{name:"Heart-Shaped Sunglasses",price:690,image:"heart-shaped-sunglasses.jpg"},{name:"Rimless Sunglasses",price:1090,image:"rimless-sunglasses.jpg"},{name:"Feminine Aviator Sunglasses",price:990,image:"feminine-aviator-sunglasses.jpg"},{name:"Geometric Sunglasses",price:1090,image:"geometric-sunglasses.jpg"},{name:"Vintage Round Sunglasses",price:890,image:"vintage-round-sunglasses.jpg"}];  
-const jewelleryCatalog=[  
-{name:"Necklace",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Pendant Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Hoop Earrings",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Stud Earrings",image:"https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=85"},{name:"Drop Earrings",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Ear Cuff",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Chain Bracelet",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Bangle Bracelet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Charm Bracelet",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Stackable Rings",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Statement Ring",image:"https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=900&q=85"},{name:"Adjustable Ring",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Anklet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Layered Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Pearl Jewellery Set",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Bridal Jewellery Set",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Waist Chain",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Brooch Pin",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Decorative Hair Pins",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Jewellery Gift Set",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"}];  
-const sunglassesByName=Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));  
-const jewelleryByName=Object.fromEntries(jewelleryCatalog.map(p=>[p.name,p]));  
-const productsData=[];let nextId=1;  
-Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{const sg=cat==="Sunglasses"?sunglassesByName[name]:null;const jew=cat==="Jewellery"?jewelleryByName[name]:null;productsData.push({id:nextId++,name,cat,emoji:emojis[cat]||"♡",price:sg?sg.price:null,image:sg?sg.image:jew?jew.image:null});}));  
-// PRIORY: SHEGLAM Primer - Bangladesh price  
-const primerProduct = productsData.find(  
-  p => p.cat === "Makeup" && p.name === "Primer"  
-);  if (primerProduct) {
-primerProduct.name = "SHEGLAM Good Grip Hydrating Primer";
-primerProduct.price = 1199;
-primerProduct.image =
-"https://www.justbeautyom.com/web/image/product.template/4091/image_1920?unique=c575afd";
-primerProduct.description =
-"45 ml hydrating gel primer. Helps smooth the skin and prepare it for makeup.";
-}
+const PRIORY_WHATSAPP="96879547509";
+const groups={
+"Makeup":["Primer","Foundation","Concealer","Setting Spray","Compact Powder","Blush","Highlighter","Makeup Remover","Eyeshadow Palette","Eyeliner","Mascara","Eyebrow Pencil","Makeup Brush Set","Loose Setting Powder","Makeup Sponge","Contour Palette","Bronzer","Color Corrector","BB Cream","CC Cream","False Eyelashes","Eyelash Curler","Brow Gel","Makeup Fixing Powder","Makeup Pouch","Kajal Pencil"],
+"Lip Products":["Matte Lipstick","Liquid Matte Lipstick","Cream Lipstick","Satin Lipstick","Glossy Lipstick","Velvet Lipstick","Metallic Lipstick","Sheer Lipstick","Lip Tint","Lip Stain","Lip Crayon","Lip Balm Tint","Lip Gloss","Long-Lasting Lipstick","Transfer-Proof Lipstick"],
+"Bags":["Tote Bag","Crossbody Bag","Mini Bag","Clutch Bag"],
+"Sunglasses":["Cat-Eye Sunglasses","Oversized Sunglasses","Butterfly Sunglasses","Slim Rectangle Sunglasses","Oval Sunglasses","Heart-Shaped Sunglasses","Rimless Sunglasses","Feminine Aviator Sunglasses","Geometric Sunglasses","Vintage Round Sunglasses"],
+"Jewellery":["Necklace","Pendant Necklace","Hoop Earrings","Stud Earrings","Drop Earrings","Ear Cuff","Chain Bracelet","Bangle Bracelet","Charm Bracelet","Stackable Rings","Statement Ring","Adjustable Ring","Anklet","Layered Necklace","Pearl Jewellery Set","Bridal Jewellery Set","Waist Chain","Brooch Pin","Decorative Hair Pins","Jewellery Gift Set"],
+"Nightwear":["Satin Nightdress","Cotton Nightdress","Pajama Set","Short Nightdress","Long Nightdress","Night Suit","Sleep Shirt","Lounge Set","Night Robe","Sleep Shorts Set"],
+"Innerwear":["Everyday Bra","Sports Bra","Bralette","Cotton Underwear","Seamless Underwear","Camisole","Shapewear Shorts","Matching Innerwear Set","High-Waist Underwear","Full-Coverage Briefs"]};
+const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};
+const sunglassesCatalog=[
+{name:"Cat-Eye Sunglasses",price:990,image:"cat-eye-sunglasses.jpg"},{name:"Oversized Sunglasses",price:1090,image:"oversized-sunglasses.jpg"},{name:"Butterfly Sunglasses",price:1190,image:"butterfly-sunglasses.jpg"},{name:"Slim Rectangle Sunglasses",price:890,image:"slim-rectangle-sunglasses.jpg"},{name:"Oval Sunglasses",price:790,image:"oval-sunglasses.jpg"},{name:"Heart-Shaped Sunglasses",price:690,image:"heart-shaped-sunglasses.jpg"},{name:"Rimless Sunglasses",price:1090,image:"rimless-sunglasses.jpg"},{name:"Feminine Aviator Sunglasses",price:990,image:"feminine-aviator-sunglasses.jpg"},{name:"Geometric Sunglasses",price:1090,image:"geometric-sunglasses.jpg"},{name:"Vintage Round Sunglasses",price:890,image:"vintage-round-sunglasses.jpg"}];
+const jewelleryCatalog=[
+{name:"Necklace",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Pendant Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Hoop Earrings",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Stud Earrings",image:"https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=85"},{name:"Drop Earrings",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Ear Cuff",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Chain Bracelet",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Bangle Bracelet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Charm Bracelet",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Stackable Rings",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Statement Ring",image:"https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=900&q=85"},{name:"Adjustable Ring",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Anklet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Layered Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Pearl Jewellery Set",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Bridal Jewellery Set",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Waist Chain",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Brooch Pin",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Decorative Hair Pins",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Jewellery Gift Set",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"}];
+const sunglassesByName=Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
+const jewelleryByName=Object.fromEntries(jewelleryCatalog.map(p=>[p.name,p]));
+const productsData=[];let nextId=1;
+Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{const sg=cat==="Sunglasses"?sunglassesByName[name]:null;const jew=cat==="Jewellery"?jewelleryByName[name]:null;const foundationImage=(cat==="Makeup"&&name==="Foundation")?"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85":null;productsData.push({id:nextId++,name,cat,emoji:emojis[cat]||"♡",price:sg?sg.price:null,image:sg?sg.image:jew?jew.image:foundationImage});}));
+let selectedCategory="";let cart={};
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open");}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all PRIORY products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});}
 function renderProducts(){const query=document.getElementById("search").value.toLowerCase().trim();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";let image;if(p.image){image=document.createElement("img");image.className="product-image";image.src=p.image;image.alt=p.name;image.loading="lazy";image.onerror=function(){const fallback=document.createElement("div");fallback.className="product-fallback";fallback.textContent=p.emoji;fallback.title="View product details";fallback.onclick=()=>openProductDetails(p.id);this.replaceWith(fallback);};}else{image=document.createElement("div");image.className="product-fallback";image.textContent=p.emoji;image.title="View product details";}image.addEventListener("click",()=>openProductDetails(p.id));const name=document.createElement("h3");name.textContent=p.name;name.addEventListener("click",()=>openProductDetails(p.id));const category=document.createElement("p");category.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: Coming Soon";const note=document.createElement("p");note.className="price-note";note.textContent=p.price?"Suggested price · confirm stock":"Price to be confirmed";const details=document.createElement("button");details.className="order secondary";details.textContent="View Details";details.onclick=()=>openProductDetails(p.id);const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,category,price,note,details,add,order);container.append(card);});document.getElementById("noResults").classList.toggle("hidden",list.length!==0);}
@@ -168,6 +154,5 @@ function orderProduct(id){const p=productsData.find(item=>item.id===id);if(p)ope
 function checkout(){const ids=Object.keys(cart);if(!ids.length){alert("Your cart is empty.");return;}let message="Hello PRIORY! I would like to order:\n";ids.forEach(id=>{const p=productsData.find(item=>item.id===Number(id));if(p)message+="- "+p.name+" x "+cart[id]+"\n";});message+="Please confirm prices, availability and delivery charges.";openWhatsApp(message);}
 document.getElementById("year").textContent=new Date().getFullYear();renderCart();
 </script>
-
-</body>  
-</html> 
+</body>
+</html>
