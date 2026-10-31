@@ -137,12 +137,14 @@ const jewelleryCatalog=[
 {name:"Necklace",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Pendant Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Hoop Earrings",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Stud Earrings",image:"https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=85"},{name:"Drop Earrings",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Ear Cuff",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Chain Bracelet",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Bangle Bracelet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Charm Bracelet",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Stackable Rings",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Statement Ring",image:"https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=900&q=85"},{name:"Adjustable Ring",image:"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"},{name:"Anklet",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"},{name:"Layered Necklace",image:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"},{name:"Pearl Jewellery Set",image:"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"},{name:"Bridal Jewellery Set",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Waist Chain",image:"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85"},{name:"Brooch Pin",image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85"},{name:"Decorative Hair Pins",image:"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85"},{name:"Jewellery Gift Set",image:"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"}];
 const sunglassesByName=Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
 const jewelleryByName=Object.fromEntries(jewelleryCatalog.map(p=>[p.name,p]));
-// Product photos for every Makeup item. Prices are intentionally left unchanged / unlisted.
+
+// Makeup product image filenames must match the GitHub repository exactly.
 const makeupPhoto="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto2="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto3="https://images.unsplash.com/photo-1583241800698-e8ab01830a3a?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto4="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto5="https://images.unsplash.com/photo-1631214540242-9f6b9c5b3a1f?auto=format&fit=crop&w=900&q=85";
+
 const makeupPhotos={
 "Primer":"primer.jpg",
 "Foundation":"foundation.jpg",
@@ -150,18 +152,33 @@ const makeupPhotos={
 "Setting Spray":"setting-spray-1.jpg",
 "Setting Spray - Color 2":"setting-spray-2.jpg",
 "Compact Powder":"compact-powder.jpg",
+"Blush":"blush.jpg.jpg",
 "Highlighter":"highlighter.jpg",
-"Blush":makeupPhoto,"Makeup Remover":makeupPhoto3,"Eyeshadow Palette":makeupPhoto4,
-"Eyeliner":makeupPhoto5,"Mascara":makeupPhoto,"Eyebrow Pencil":makeupPhoto2,
-"Makeup Brush Set":makeupPhoto3,"Loose Setting Powder":makeupPhoto4,"Makeup Sponge":makeupPhoto5,
-"Contour Palette":makeupPhoto,"Bronzer":makeupPhoto2,"Color Corrector":makeupPhoto3,
-"BB Cream":makeupPhoto4,"CC Cream":makeupPhoto5,"False Eyelashes":makeupPhoto,
-"Eyelash Curler":makeupPhoto2,"Brow Gel":makeupPhoto3,"Makeup Fixing Powder":makeupPhoto4,
-"Makeup Pouch":makeupPhoto5,"Kajal Pencil":makeupPhoto
+"Makeup Remover":makeupPhoto3,
+"Eyeshadow Palette":makeupPhoto4,
+"Eyeliner":"eyeliner.jpg.jpg",
+"Mascara":"mascara.jpg.jpg",
+"Eyebrow Pencil":"eyebrow-pencil.jpg.jpg",
+"Makeup Brush Set":"makeup-brush-set.jpg.jpg",
+"Loose Setting Powder":"loose-setting-powder.jpg.jpg",
+"Makeup Sponge":makeupPhoto5,
+"Contour Palette":"contour-palette.jpg.jpg",
+"Bronzer":"bronzer.jpg.jpg",
+"Color Corrector":"color-corrector.jpg.jpg",
+"BB Cream":"bb-cream.jpg.jpg",
+"CC Cream":makeupPhoto5,
+"False Eyelashes":"false-eyelashes.jpg.jpg",
+"Eyelash Curler":"eyelash-curler.jpg.jpg",
+"Brow Gel":"brow-gel.jpg.jpg",
+"Makeup Fixing Powder":"makeup-fixing-powder.jpg.jpg",
+"Makeup Pouch":"makeup-pouch.jpg.jpg",
+"Kajal Pencil":makeupPhoto
 };
+
 const productsData=[];let nextId=1;
 Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{const sg=cat==="Sunglasses"?sunglassesByName[name]:null;const jew=cat==="Jewellery"?jewelleryByName[name]:null;const productImage=cat==="Makeup"?makeupPhotos[name]:null;productsData.push({id:nextId++,name,cat,emoji:emojis[cat]||"♡",price:sg?sg.price:null,image:sg?sg.image:jew?jew.image:productImage});}));
 let selectedCategory="";let cart={};
+
 function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open");}
 function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all PRIORY products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});}
 function renderProducts(){const query=document.getElementById("search").value.toLowerCase().trim();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";let image;if(p.image){image=document.createElement("img");image.className="product-image";image.src=p.image;image.alt=p.name;image.loading="lazy";image.onerror=function(){const fallback=document.createElement("div");fallback.className="product-fallback";fallback.textContent=p.emoji;fallback.title="View product details";fallback.onclick=()=>openProductDetails(p.id);this.replaceWith(fallback);};}else{image=document.createElement("div");image.className="product-fallback";image.textContent=p.emoji;image.title="View product details";}image.addEventListener("click",()=>openProductDetails(p.id));const name=document.createElement("h3");name.textContent=p.name;name.addEventListener("click",()=>openProductDetails(p.id));const category=document.createElement("p");category.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: Coming Soon";const note=document.createElement("p");note.className="price-note";note.textContent=p.price?"Suggested price · confirm stock":"Price to be confirmed";const details=document.createElement("button");details.className="order secondary";details.textContent="View Details";details.onclick=()=>openProductDetails(p.id);const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,category,price,note,details,add,order);container.append(card);});document.getElementById("noResults").classList.toggle("hidden",list.length!==0);}
