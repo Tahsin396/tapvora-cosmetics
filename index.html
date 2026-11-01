@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,7 +142,6 @@ const jewelleryCatalog=[
 const sunglassesByName=Object.fromEntries(sunglassesCatalog.map(p=>[p.name,p]));
 const jewelleryByName=Object.fromEntries(jewelleryCatalog.map(p=>[p.name,p]));
 
-// Makeup product image filenames must match the GitHub repository exactly.
 const makeupPhoto="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto2="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85";
 const makeupPhoto3="https://images.unsplash.com/photo-1583241800698-e8ab01830a3a?auto=format&fit=crop&w=900&q=85";
@@ -178,55 +178,314 @@ const makeupPhotos={
 "Kajal Pencil":makeupPhoto
 };
 
-// Innerwear image naming: innerwear-[product-slug]-[colour].jpg (place files in repository root)
-// Use modest adult fashion-catalogue photos for camisoles; use mannequin/flat-lay product photos for underwear items.
+// Innerwear image files are in the root of the GitHub repository.
 const innerwearColors=[
- {name:"Black",hex:"#171717"},{name:"White",hex:"#ffffff"},{name:"Nude",hex:"#d8b99b"},{name:"Pink",hex:"#e9a8b8"}
+ {name:"Black",hex:"#171717"},
+ {name:"White",hex:"#ffffff"},
+ {name:"Nude",hex:"#d8b99b"},
+ {name:"Pink",hex:"#e9a8b8"}
 ];
 const innerwearSizes=["S","M","L","XL","XXL"];
-const innerwearSlugs={"Everyday Bra":"everyday-bra","Sports Bra":"sports-bra","Bralette":"bralette","Cotton Underwear":"cotton-underwear","Seamless Underwear":"seamless-underwear","Camisole":"camisole","Shapewear Shorts":"shapewear-shorts","Matching Innerwear Set":"matching-innerwear-set","High-Waist Underwear":"high-waist-underwear","Full-Coverage Briefs":"full-coverage-briefs"};
-const innerwearImage=(name,color)=>"innerwear-"+innerwearSlugs[name]+"-"+color.toLowerCase().replace(/\s+/g,"-")+".jpg";
+const innerwearSlugs={
+ "Everyday Bra":"everyday-bra",
+ "Sports Bra":"sports-bra",
+ "Bralette":"bralette",
+ "Cotton Underwear":"cotton-underwear",
+ "Seamless Underwear":"seamless-underwear",
+ "Camisole":"camisole",
+ "Shapewear Shorts":"shapewear-shorts",
+ "Matching Innerwear Set":"matching-innerwear-set",
+ "High-Waist Underwear":"high-waist-underwear",
+ "Full-Coverage Briefs":"full-coverage-briefs"
+};
+const innerwearImage=(name,color)=>{
+ return "./innerwear-"+innerwearSlugs[name]+"-"+color.toLowerCase()+".jpg";
+};
 const innerwearData={};
-Object.keys(innerwearSlugs).forEach(name=>{innerwearData[name]={colors:innerwearColors.map(c=>({name:c.name,hex:c.hex,image:innerwearImage(name,c.name)})),sizes:innerwearSizes};});
+Object.keys(innerwearSlugs).forEach(name=>{
+ innerwearData[name]={
+  colors:innerwearColors.map(c=>({
+   name:c.name,
+   hex:c.hex,
+   image:innerwearImage(name,c.name)
+  })),
+  sizes:innerwearSizes
+ };
+});
 
-const productsData=[];let nextId=1;
-Object.entries(groups).forEach(([cat,names])=>names.forEach(name=>{const sg=cat==="Sunglasses"?sunglassesByName[name]:null;const jew=cat==="Jewellery"?jewelleryByName[name]:null;const productImage=cat==="Makeup"?makeupPhotos[name]:null;productsData.push({id:nextId++,name,cat,emoji:emojis[cat]||"♡",price:sg?sg.price:null,image:sg?sg.image:jew?jew.image:productImage,variants:cat==="Innerwear"?innerwearData[name]:null});}));
-let selectedCategory="";let cart={};
+const productsData=[];
+let nextId=1;
+Object.entries(groups).forEach(([cat,names])=>{
+ names.forEach(name=>{
+  const sg=cat==="Sunglasses"?sunglassesByName[name]:null;
+  const jew=cat==="Jewellery"?jewelleryByName[name]:null;
+  const productImage=cat==="Makeup"?makeupPhotos[name]:null;
+  const innerwearPhoto=cat==="Innerwear"?innerwearImage(name,"Black"):null;
+  productsData.push({
+   id:nextId++,
+   name,
+   cat,
+   emoji:emojis[cat]||"♡",
+   price:sg?sg.price:null,
+   image:sg?sg.image:jew?jew.image:productImage||innerwearPhoto,
+   variants:cat==="Innerwear"?innerwearData[name]:null
+  });
+ });
+});
 
-function showCategory(category){selectedCategory=category;document.getElementById("productsTitle").textContent=category;document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});document.getElementById("mainNav").classList.remove("open");}
-function showAllProducts(){selectedCategory="";document.getElementById("productsTitle").textContent="All Products";document.getElementById("productsIntro").textContent="Explore all PRIORY products.";document.getElementById("search").value="";document.getElementById("productsSection").classList.remove("hidden");renderProducts();document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});}
-function renderProducts(){const query=document.getElementById("search").value.toLowerCase().trim();const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));const container=document.getElementById("products");container.innerHTML="";list.forEach(p=>{const card=document.createElement("article");card.className="card";let image;if(p.image){image=document.createElement("img");image.className="product-image";image.src=p.image;image.alt=p.name;image.loading="lazy";image.onerror=function(){const fallback=document.createElement("div");fallback.className="product-fallback";fallback.textContent=p.emoji;fallback.title="View product details";fallback.onclick=()=>openProductDetails(p.id);this.replaceWith(fallback);};}else{image=document.createElement("div");image.className="product-fallback";image.textContent=p.emoji;image.title="View product details";}image.addEventListener("click",()=>openProductDetails(p.id));const name=document.createElement("h3");name.textContent=p.name;name.addEventListener("click",()=>openProductDetails(p.id));const category=document.createElement("p");category.textContent=p.cat;const price=document.createElement("p");price.className="price";price.textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: Coming Soon";const note=document.createElement("p");note.className="price-note";note.textContent=p.price?"Suggested price · confirm stock":"Price to be confirmed";const details=document.createElement("button");details.className="order secondary";details.textContent="View Details";details.onclick=()=>openProductDetails(p.id);const add=document.createElement("button");add.className="order secondary";add.textContent="Add to Cart";add.onclick=()=>addToCart(p.id);const order=document.createElement("button");order.className="order";order.textContent="WhatsApp Order";order.onclick=()=>orderProduct(p.id);card.append(image,name,category,price,note,details,add,order);container.append(card);});document.getElementById("noResults").classList.toggle("hidden",list.length!==0);}
+let selectedCategory="";
+let cart={};
+
+function showCategory(category){
+ selectedCategory=category;
+ document.getElementById("productsTitle").textContent=category;
+ document.getElementById("productsIntro").textContent="Explore our "+category+" collection.";
+ document.getElementById("search").value="";
+ document.getElementById("productsSection").classList.remove("hidden");
+ renderProducts();
+ document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});
+ document.getElementById("mainNav").classList.remove("open");
+}
+function showAllProducts(){
+ selectedCategory="";
+ document.getElementById("productsTitle").textContent="All Products";
+ document.getElementById("productsIntro").textContent="Explore all PRIORY products.";
+ document.getElementById("search").value="";
+ document.getElementById("productsSection").classList.remove("hidden");
+ renderProducts();
+ document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});
+}
+function renderProducts(){
+ const query=document.getElementById("search").value.toLowerCase().trim();
+ const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));
+ const container=document.getElementById("products");
+ container.innerHTML="";
+ list.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="card";
+  let image;
+  if(p.image){
+   image=document.createElement("img");
+   image.className="product-image";
+   image.src=p.image;
+   image.alt=p.name;
+   image.loading="lazy";
+   image.onerror=function(){
+    const fallback=document.createElement("div");
+    fallback.className="product-fallback";
+    fallback.textContent=p.emoji;
+    fallback.title="View product details";
+    fallback.onclick=()=>openProductDetails(p.id);
+    this.replaceWith(fallback);
+   };
+  }else{
+   image=document.createElement("div");
+   image.className="product-fallback";
+   image.textContent=p.emoji;
+   image.title="View product details";
+  }
+  image.addEventListener("click",()=>openProductDetails(p.id));
+  const name=document.createElement("h3");
+  name.textContent=p.name;
+  name.addEventListener("click",()=>openProductDetails(p.id));
+  const category=document.createElement("p");
+  category.textContent=p.cat;
+  const price=document.createElement("p");
+  price.className="price";
+  price.textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: Coming Soon";
+  const note=document.createElement("p");
+  note.className="price-note";
+  note.textContent=p.price?"Suggested price · confirm stock":"Price to be confirmed";
+  const details=document.createElement("button");
+  details.className="order secondary";
+  details.textContent="View Details";
+  details.onclick=()=>openProductDetails(p.id);
+  const add=document.createElement("button");
+  add.className="order secondary";
+  add.textContent="Add to Cart";
+  add.onclick=()=>addToCart(p.id);
+  const order=document.createElement("button");
+  order.className="order";
+  order.textContent="WhatsApp Order";
+  order.onclick=()=>orderProduct(p.id);
+  card.append(image,name,category,price,note,details,add,order);
+  container.append(card);
+ });
+ document.getElementById("noResults").classList.toggle("hidden",list.length!==0);
+}
+
 let activeVariant={color:"Black",size:"M"};
+
 function openProductDetails(id){
- const p=productsData.find(item=>item.id===id);if(!p)return;
- const modal=document.getElementById("detailsModal"),image=document.getElementById("detailsImage"),placeholder=document.getElementById("detailsPlaceholder"),options=document.getElementById("variantOptions");
+ const p=productsData.find(item=>item.id===id);
+ if(!p)return;
+ const modal=document.getElementById("detailsModal");
+ const image=document.getElementById("detailsImage");
+ const placeholder=document.getElementById("detailsPlaceholder");
+ const options=document.getElementById("variantOptions");
+
  document.getElementById("detailsName").textContent=p.name;
  document.getElementById("detailsCategory").textContent="Category: "+p.cat;
  document.getElementById("detailsPrice").textContent=p.price?"৳"+p.price.toLocaleString("en-US"):"Price: To be confirmed";
  document.getElementById("detailsDescription").textContent=p.variants?"Choose a colour and size. The product photo changes when you select a colour. Please confirm available stock before ordering.":"Please contact PRIORY to confirm availability, colours, sizes, materials and product specifications before ordering.";
- image.classList.remove("zoomed");image.style.display="none";placeholder.classList.add("hidden");placeholder.textContent=p.emoji;
- function setPhoto(src){image.classList.remove("zoomed");placeholder.classList.add("hidden");image.style.display="block";image.src=src;image.alt=p.name+" - "+(activeVariant.color||"");image.onerror=function(){this.style.display="none";placeholder.classList.remove("hidden");placeholder.textContent="Please upload the matching product photo";};}
+
+ image.classList.remove("zoomed");
+ image.style.display="none";
+ placeholder.classList.add("hidden");
+ placeholder.textContent=p.emoji;
+
+ function setPhoto(src){
+  image.classList.remove("zoomed");
+  placeholder.classList.add("hidden");
+  image.style.display="block";
+  image.src=src;
+  image.alt=p.name+" - "+(activeVariant.color||"");
+  image.onerror=function(){
+   this.style.display="none";
+   placeholder.classList.remove("hidden");
+   placeholder.textContent="Please upload the matching product photo";
+  };
+ }
+
  if(p.variants){
-   activeVariant={color:"Black",size:"M"};options.classList.remove("hidden");options.innerHTML='<label>Choose colour</label><div class="color-options" id="colorOptions"></div><label>Choose size</label><div class="size-options" id="sizeOptions"></div>';
-   const colorBox=options.querySelector("#colorOptions"),sizeBox=options.querySelector("#sizeOptions");
-   p.variants.colors.forEach(c=>{const b=document.createElement("button");b.type="button";b.className="color-choice"+(c.name==="Black"?" active":"");b.innerHTML='<span class="color-dot" style="background:'+c.hex+'"></span>'+c.name;b.onclick=()=>{activeVariant.color=c.name;colorBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));b.classList.add("active");setPhoto(c.image);};colorBox.append(b);});
-   p.variants.sizes.forEach(sz=>{const b=document.createElement("button");b.type="button";b.className="size-choice"+(sz==="M"?" active":"");b.textContent=sz;b.onclick=()=>{activeVariant.size=sz;sizeBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));b.classList.add("active");};sizeBox.append(b);});
-   setPhoto(p.variants.colors[0].image);
- }else{options.classList.add("hidden");options.innerHTML="";if(p.image)setPhoto(p.image);else{image.removeAttribute("src");image.style.display="none";placeholder.classList.remove("hidden");}}
- document.getElementById("detailsAdd").onclick=function(){addToCart(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");closeProductDetails();document.getElementById("cart").scrollIntoView({behavior:"smooth"});};
- document.getElementById("detailsOrder").onclick=function(){orderProduct(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");};
- modal.classList.add("open");document.body.classList.add("modal-open");
+  activeVariant={color:"Black",size:"M"};
+  options.classList.remove("hidden");
+  options.innerHTML='<label>Choose colour</label><div class="color-options" id="colorOptions"></div><label>Choose size</label><div class="size-options" id="sizeOptions"></div>';
+
+  const colorBox=options.querySelector("#colorOptions");
+  const sizeBox=options.querySelector("#sizeOptions");
+
+  p.variants.colors.forEach(c=>{
+   const b=document.createElement("button");
+   b.type="button";
+   b.className="color-choice"+(c.name==="Black"?" active":"");
+   b.innerHTML='<span class="color-dot" style="background:'+c.hex+'"></span>'+c.name;
+   b.onclick=()=>{
+    activeVariant.color=c.name;
+    colorBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    setPhoto(c.image);
+   };
+   colorBox.append(b);
+  });
+
+  p.variants.sizes.forEach(sz=>{
+   const b=document.createElement("button");
+   b.type="button";
+   b.className="size-choice"+(sz==="M"?" active":"");
+   b.textContent=sz;
+   b.onclick=()=>{
+    activeVariant.size=sz;
+    sizeBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+   };
+   sizeBox.append(b);
+  });
+
+  setPhoto(p.variants.colors[0].image);
+ }else{
+  options.classList.add("hidden");
+  options.innerHTML="";
+  if(p.image)setPhoto(p.image);
+  else{
+   image.removeAttribute("src");
+   image.style.display="none";
+   placeholder.classList.remove("hidden");
+  }
+ }
+
+ document.getElementById("detailsAdd").onclick=function(){
+  addToCart(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");
+  closeProductDetails();
+  document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+ };
+ document.getElementById("detailsOrder").onclick=function(){
+  orderProduct(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");
+ };
+ modal.classList.add("open");
+ document.body.classList.add("modal-open");
 }
-function closeProductDetails(){document.getElementById("detailsModal").classList.remove("open");document.body.classList.remove("modal-open");document.getElementById("detailsImage").classList.remove("zoomed");}
-document.addEventListener("keydown",event=>{if(event.key==="Escape")closeProductDetails();});
+
+function closeProductDetails(){
+ document.getElementById("detailsModal").classList.remove("open");
+ document.body.classList.remove("modal-open");
+ document.getElementById("detailsImage").classList.remove("zoomed");
+}
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape")closeProductDetails();
+});
+
 function cartKey(id,color,size){return [id,color||"",size||""].join("|");}
-function addToCart(id,color="",size=""){const key=cartKey(id,color,size);cart[key]=(cart[key]||0)+1;renderCart();}
-function changeQty(key,amount){cart[key]=(cart[key]||0)+amount;if(cart[key]<=0)delete cart[key];renderCart();}
-function renderCart(){let count=0;const container=document.getElementById("cartItems");container.innerHTML="";Object.keys(cart).forEach(key=>{const [id,color,size]=key.split("|");const p=productsData.find(item=>item.id===Number(id));if(!p)return;count+=cart[key];const row=document.createElement("div");row.className="cart-row";const label=document.createElement("span");label.textContent=p.name+(color?" · "+color:" ")+(size?" · Size "+size:"")+" × "+cart[key];const controls=document.createElement("span");const minus=document.createElement("button");minus.className="small-btn";minus.textContent="−";minus.onclick=()=>changeQty(key,-1);const plus=document.createElement("button");plus.className="small-btn";plus.textContent="+";plus.onclick=()=>changeQty(key,1);controls.append(minus,plus);row.append(label,controls);container.append(row);});if(!count)container.textContent="Your cart is empty.";document.getElementById("cartCount").textContent=count;document.getElementById("cartCountTop").textContent=count;document.getElementById("cartTotal").textContent=count?"Prices and delivery cost will be confirmed on WhatsApp.":"";}
-function openWhatsApp(message){if(!/^\d{8,15}$/.test(PRIORY_WHATSAPP)){alert("Please set a valid WhatsApp number in the code.");return;}window.open("https://wa.me/"+PRIORY_WHATSAPP+"?text="+encodeURIComponent(message),"_blank");}
-function orderProduct(id,color="",size=""){const p=productsData.find(item=>item.id===id);if(p)openWhatsApp("Hello PRIORY! I am interested in "+p.name+(color?" · Colour: "+color:"")+(size?" · Size: "+size:"")+". Please confirm price, availability and delivery details.");}
-function checkout(){const ids=Object.keys(cart);if(!ids.length){alert("Your cart is empty.");return;}let message="Hello PRIORY! I would like to order:\n";ids.forEach(key=>{const [id,color,size]=key.split("|");const p=productsData.find(item=>item.id===Number(id));if(p)message+="- "+p.name+(color?" · Colour: "+color:"")+(size?" · Size: "+size:"")+" x "+cart[key]+"\n";});message+="Please confirm prices, availability and delivery charges.";openWhatsApp(message);}
-document.getElementById("year").textContent=new Date().getFullYear();renderCart();renderProducts();
+function addToCart(id,color="",size=""){
+ const key=cartKey(id,color,size);
+ cart[key]=(cart[key]||0)+1;
+ renderCart();
+}
+function changeQty(key,amount){
+ cart[key]=(cart[key]||0)+amount;
+ if(cart[key]<=0)delete cart[key];
+ renderCart();
+}
+function renderCart(){
+ let count=0;
+ const container=document.getElementById("cartItems");
+ container.innerHTML="";
+ Object.keys(cart).forEach(key=>{
+  const [id,color,size]=key.split("|");
+  const p=productsData.find(item=>item.id===Number(id));
+  if(!p)return;
+  count+=cart[key];
+  const row=document.createElement("div");
+  row.className="cart-row";
+  const label=document.createElement("span");
+  label.textContent=p.name+(color?" · "+color:" ")+(size?" · Size "+size:"")+" × "+cart[key];
+  const controls=document.createElement("span");
+  const minus=document.createElement("button");
+  minus.className="small-btn";
+  minus.textContent="−";
+  minus.onclick=()=>changeQty(key,-1);
+  const plus=document.createElement("button");
+  plus.className="small-btn";
+  plus.textContent="+";
+  plus.onclick=()=>changeQty(key,1);
+  controls.append(minus,plus);
+  row.append(label,controls);
+  container.append(row);
+ });
+ if(!count)container.textContent="Your cart is empty.";
+ document.getElementById("cartCount").textContent=count;
+ document.getElementById("cartCountTop").textContent=count;
+ document.getElementById("cartTotal").textContent=count?"Prices and delivery cost will be confirmed on WhatsApp.":"";
+}
+function openWhatsApp(message){
+ if(!/^\d{8,15}$/.test(PRIORY_WHATSAPP)){
+  alert("Please set a valid WhatsApp number in the code.");
+  return;
+ }
+ window.open("https://wa.me/"+PRIORY_WHATSAPP+"?text="+encodeURIComponent(message),"_blank");
+}
+function orderProduct(id,color="",size=""){
+ const p=productsData.find(item=>item.id===id);
+ if(p)openWhatsApp("Hello PRIORY! I am interested in "+p.name+(color?" · Colour: "+color:"")+(size?" · Size: "+size:"")+". Please confirm price, availability and delivery details.");
+}
+function checkout(){
+ const ids=Object.keys(cart);
+ if(!ids.length){
+  alert("Your cart is empty.");
+  return;
+ }
+ let message="Hello PRIORY! I would like to order:\n";
+ ids.forEach(key=>{
+  const [id,color,size]=key.split("|");
+  const p=productsData.find(item=>item.id===Number(id));
+  if(p)message+="- "+p.name+(color?" · Colour: "+color:"")+(size?" · Size: "+size:"")+" x "+cart[key]+"\n";
+ });
+ message+="Please confirm prices, availability and delivery charges.";
+ openWhatsApp(message);
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+renderCart();
+renderProducts();
 </script>
 </body>
 </html>
