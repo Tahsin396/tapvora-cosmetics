@@ -384,21 +384,22 @@ const makeupPhotos={
 };
 
 /* Nightwear image mapping: images go inside the nightwear folder */
-const nightwearCatalog=[
-{name:"Floral Cotton Pajama Set",image:"./nightwear/floral-cotton-pajama.jpg"},
-{name:"Satin Pajama Set",image:"./nightwear/satin-pajama-set.jpg"},
-{name:"Shorts Pajama Set",image:"./nightwear/shorts-pajama-set.jpg"},
-{name:"Long Floral Nightdress",image:"./nightwear/long-nightdress.jpg"},
-{name:"Cotton Nightshirt",image:"./nightwear/cotton-nightshirt.jpg"},
-{name:"Women's Dressing Robe",image:"./nightwear/dressing-robe.jpg"},
-{name:"Checked Pajama Set",image:"./nightwear/checked-pajama.jpg"},
-{name:"Soft Cotton Lounge Set",image:"./nightwear/cotton-lounge-set.jpg"},
-{name:"Fleece Pajama Set",image:"./nightwear/fleece-pajama.jpg"},
-{name:"Three-Piece Nightwear Set",image:"./nightwear/three-piece-nightwear.jpg"}
+const nightwearCatalog = [
+  {name:"Floral Cotton Pajama Set",image:"./nightwear/floral-cotton-pajama.jpg.jpg"},
+  {name:"Satin Pajama Set",image:"./nightwear/satin-pajama-set.jpg.jpg"},
+  {name:"Shorts Pajama Set",image:"./nightwear/shorts-pajama-set.jpg.jpg"},
+  {name:"Long Floral Nightdress",image:"./nightwear/long-nightdress.jpg.jpg"},
+  {name:"Cotton Nightshirt",image:"./nightwear/cotton-nightshirt.jpg.jpg"},
+  {name:"Women's Dressing Robe",image:"./nightwear/dressing-robe.jpg.jpg"},
+  {name:"Checked Pajama Set",image:"./nightwear/checked-pajama.jpg.jpg"},
+  {name:"Soft Cotton Lounge Set",image:"./nightwear/cotton-lounge-set.jpg.jpg"},
+  {name:"Fleece Pajama Set",image:"./nightwear/fleece-pajama.jpg.jpg"},
+  {name:"Three-Piece Nightwear Set",image:"./nightwear/three-piece-nightwear.jpg.jpg"}
 ];
 
-const nightwearByName=Object.fromEntries(nightwearCatalog.map(p=>[p.name,p]));
-
+const nightwearByName = Object.fromEntries(
+  nightwearCatalog.map(p => [p.name, p])
+);
 /* Innerwear image files are in the root of the GitHub repository */
 const innerwearColors=[
 {name:"Black",hex:"#171717"},
