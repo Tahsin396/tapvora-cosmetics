@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#f8f0e9">
 <meta name="description" content="PRIORY Beauty, Fashion & Lifestyle">
 <title>PRIORY | Beauty, Fashion & Lifestyle</title>
+
 <style>
 :root{--ink:#171514;--cream:#fbf6f0;--blush:#f4d7d7;--rose:#d99a9e;--muted:#756b66;--line:#e9ded6;--white:#fff}
 *{box-sizing:border-box}
@@ -95,7 +96,7 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 .details-panel{position:relative;width:min(100%,850px);max-height:94vh;overflow-y:auto;background:white;border-radius:14px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .details-close{position:absolute;right:10px;top:7px;border:0;background:white;font-size:30px;z-index:3}
 .details-photo-wrap{height:400px;overflow:hidden;background:#f8e6e3;display:grid;place-items:center;position:relative}
-.details-photo{width:100%;height:100%;object-fit:contain;object-position:center center;padding:8px;cursor:zoom-in;transition:transform .25s ease}
+.details-photo{width:100%;height:100%;object-fit:contain;object-position:center center;padding:8px;cursor:zoom-in;transition:transform .25s ease,filter .25s ease}
 .details-photo.zoomed{transform:scale(1.8);cursor:zoom-out}
 .details-placeholder{font-size:75px}
 .details-info{padding:24px 8px 8px}
@@ -114,7 +115,14 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 .size-options{display:flex;flex-wrap:wrap;gap:7px}
 .size-choice{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:6px;font-size:11px}
 .size-choice.active{background:var(--ink);color:white;border-color:var(--ink)}
+
+/* Nightwear colour choices */
+.nightwear-color-options{display:flex;flex-wrap:wrap;gap:8px}
+.nightwear-color-options .color-choice{padding:7px 9px}
+.nightwear-note{font-size:11px!important;color:#8a6666!important;line-height:1.5!important;margin-top:10px}
+
 body.modal-open .header{z-index:20}
+
 @media(max-width:850px){
 .nav{gap:9px}
 .category-strip{grid-template-columns:repeat(4,1fr)}
@@ -158,8 +166,10 @@ body.modal-open .header{z-index:20}
 }
 </style>
 </head>
+
 <body>
 <div class="topbar">♡ Beauty • Fashion • Lifestyle | Bangladesh 🇧🇩 | Oman 🇴🇲</div>
+
 <header class="header" id="home">
 <a class="brand" href="#home"><div class="logo">PRIORY</div><small>Beauty, Fashion &amp; Lifestyle</small></a>
 <nav class="nav" id="mainNav">
@@ -289,7 +299,6 @@ const groups={
 "Sunglasses":["Cat-Eye Sunglasses","Oversized Sunglasses","Butterfly Sunglasses","Slim Rectangle Sunglasses","Oval Sunglasses","Heart-Shaped Sunglasses","Rimless Sunglasses","Feminine Aviator Sunglasses","Geometric Sunglasses","Vintage Round Sunglasses"],
 "Jewellery":["Necklace","Pendant Necklace","Hoop Earrings","Stud Earrings","Drop Earrings","Ear Cuff","Chain Bracelet","Bangle Bracelet","Charm Bracelet","Stackable Rings","Statement Ring","Adjustable Ring","Anklet","Layered Necklace","Pearl Jewellery Set","Bridal Jewellery Set","Waist Chain","Brooch Pin","Decorative Hair Pins","Jewellery Gift Set"],
 
-/* UPDATED: Nightwear collection — 10 agreed designs */
 "Nightwear":[
 "Floral Cotton Pajama Set",
 "Satin Pajama Set",
@@ -383,23 +392,33 @@ const makeupPhotos={
 "Kajal Pencil":makeupPhoto
 };
 
-/* Nightwear image mapping: images go inside the nightwear folder */
+/* Nightwear image mapping */
 const nightwearCatalog = [
-  {name:"Floral Cotton Pajama Set", image:"./floral-cotton-pajama.jpg.jpg"},
-  {name:"Satin Pajama Set", image:"./satin-pajama-set.jpg.jpg"},
-  {name:"Shorts Pajama Set", image:"./shorts-pajama-set.jpg.jpg"},
-  {name:"Long Floral Nightdress", image:"./long-nightdress.jpg.jpg"},
-  {name:"Cotton Nightshirt", image:"./cotton-nightshirt.jpg.jpg"},
-  {name:"Women's Dressing Robe", image:"./dressing-robe.jpg.jpg"},
-  {name:"Checked Pajama Set", image:"./checked-pajama.jpg.jpg"},
-  {name:"Soft Cotton Lounge Set", image:"./cotton-lounge-set.jpg.jpg"},
-  {name:"Fleece Pajama Set", image:"./fleece-pajama.jpg.jpg"},
-  {name:"Three-Piece Nightwear Set", image:"./three-piece-nightwear.jpg.jpg"}
+{name:"Floral Cotton Pajama Set",image:"./floral-cotton-pajama.jpg.jpg"},
+{name:"Satin Pajama Set",image:"./satin-pajama-set.jpg.jpg"},
+{name:"Shorts Pajama Set",image:"./shorts-pajama-set.jpg.jpg"},
+{name:"Long Floral Nightdress",image:"./long-nightdress.jpg.jpg"},
+{name:"Cotton Nightshirt",image:"./cotton-nightshirt.jpg.jpg"},
+{name:"Women's Dressing Robe",image:"./dressing-robe.jpg.jpg"},
+{name:"Checked Pajama Set",image:"./checked-pajama.jpg.jpg"},
+{name:"Soft Cotton Lounge Set",image:"./cotton-lounge-set.jpg.jpg"},
+{name:"Fleece Pajama Set",image:"./fleece-pajama.jpg.jpg"},
+{name:"Three-Piece Nightwear Set",image:"./three-piece-nightwear.jpg.jpg"}
 ];
 
-const nightwearByName = Object.fromEntries(
-  nightwearCatalog.map(p => [p.name, p])
-);
+const nightwearByName=Object.fromEntries(nightwearCatalog.map(p=>[p.name,p]));
+
+/* Nightwear colour options and approximate photo filters */
+const nightwearColors=[
+{name:"Cherry Red",hex:"#C2183A",filter:"sepia(.35) saturate(3) hue-rotate(300deg)"},
+{name:"Hot Pink",hex:"#FF1493",filter:"sepia(.25) saturate(3) hue-rotate(285deg)"},
+{name:"Royal Purple",hex:"#7026A5",filter:"sepia(.3) saturate(2.8) hue-rotate(235deg)"},
+{name:"Wine",hex:"#722F45",filter:"sepia(.45) saturate(2.2) hue-rotate(300deg)"},
+{name:"Emerald Green",hex:"#087A55",filter:"sepia(.4) saturate(3) hue-rotate(90deg)"},
+{name:"Black",hex:"#171717",filter:"grayscale(1) brightness(.38)"},
+{name:"Champagne Gold",hex:"#E8D5A5",filter:"sepia(.65) saturate(1.5) brightness(1.05)"}
+];
+
 /* Innerwear image files are in the root of the GitHub repository */
 const innerwearColors=[
 {name:"Black",hex:"#171717"},
@@ -420,9 +439,11 @@ const innerwearSlugs={
 "High-Waist Underwear":"high-waist-underwear",
 "Full-Coverage Briefs":"full-coverage-briefs"
 };
+
 const innerwearImage=(name,color)=>{
 return "./innerwear-"+innerwearSlugs[name]+"-"+color.toLowerCase()+".jpg.jpg";
 };
+
 const innerwearData={};
 Object.keys(innerwearSlugs).forEach(name=>{
 innerwearData[name]={
@@ -571,16 +592,18 @@ document.getElementById("detailsPrice").textContent=p.price?"৳"+p.price.toLoca
 document.getElementById("detailsDescription").textContent=p.variants
 ?"Choose a colour and size. The product photo changes when you select a colour. Please confirm available stock before ordering."
 :p.cat==="Nightwear"
-?"Nightwear collection. Please contact PRIORY to confirm available designs, fabric, sizes, price and stock before ordering."
+?"Choose your preferred Nightwear colour. The preview uses a colour filter, so the displayed shade is approximate. Please confirm available designs, fabric, sizes, price and stock before ordering."
 :"Please contact PRIORY to confirm availability, colours, sizes, materials and product specifications before ordering.";
 
 image.classList.remove("zoomed");
 image.style.display="none";
+image.style.filter="none";
 placeholder.classList.add("hidden");
 placeholder.textContent=p.emoji;
 
 function setPhoto(src){
 image.classList.remove("zoomed");
+image.style.filter="none";
 placeholder.classList.add("hidden");
 image.style.display="block";
 image.src=src;
@@ -592,8 +615,48 @@ placeholder.textContent="Please upload the matching product photo";
 };
 }
 
-if(p.variants){
+if(p.cat==="Nightwear"){
+activeVariant={color:"Cherry Red",size:""};
+
+options.classList.remove("hidden");
+options.innerHTML=
+'<label>Choose Nightwear Colour</label>'+
+'<div class="nightwear-color-options" id="nightwearColorOptions"></div>'+
+'<p class="nightwear-note">Colour preview is approximate. Actual product colour may vary.</p>';
+
+const colorBox=options.querySelector("#nightwearColorOptions");
+
+function setNightwearColor(c,button){
+activeVariant.color=c.name;
+
+colorBox.querySelectorAll("button").forEach(x=>{
+x.classList.remove("active");
+});
+
+button.classList.add("active");
+setPhoto(p.image);
+image.style.filter=c.filter;
+}
+
+nightwearColors.forEach((c,index)=>{
+const b=document.createElement("button");
+b.type="button";
+b.className="color-choice"+(index===0?" active":"");
+b.innerHTML=
+'<span class="color-dot" style="background:'+c.hex+'"></span>'+
+c.name;
+
+b.onclick=()=>setNightwearColor(c,b);
+colorBox.append(b);
+
+if(index===0){
+setNightwearColor(c,b);
+}
+});
+
+}else if(p.variants){
 activeVariant={color:"Black",size:"M"};
+
 options.classList.remove("hidden");
 options.innerHTML='<label>Choose colour</label><div class="color-options" id="colorOptions"></div><label>Choose size</label><div class="size-options" id="sizeOptions"></div>';
 
@@ -605,12 +668,14 @@ const b=document.createElement("button");
 b.type="button";
 b.className="color-choice"+(c.name==="Black"?" active":"");
 b.innerHTML='<span class="color-dot" style="background:'+c.hex+'"></span>'+c.name;
+
 b.onclick=()=>{
 activeVariant.color=c.name;
 colorBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
 b.classList.add("active");
 setPhoto(c.image);
 };
+
 colorBox.append(b);
 });
 
@@ -619,20 +684,25 @@ const b=document.createElement("button");
 b.type="button";
 b.className="size-choice"+(sz==="M"?" active":"");
 b.textContent=sz;
+
 b.onclick=()=>{
 activeVariant.size=sz;
 sizeBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
 b.classList.add("active");
 };
+
 sizeBox.append(b);
 });
 
 setPhoto(p.variants.colors[0].image);
+
 }else{
 options.classList.add("hidden");
 options.innerHTML="";
-if(p.image)setPhoto(p.image);
-else{
+
+if(p.image){
+setPhoto(p.image);
+}else{
 image.removeAttribute("src");
 image.style.display="none";
 placeholder.classList.remove("hidden");
@@ -640,13 +710,23 @@ placeholder.classList.remove("hidden");
 }
 
 document.getElementById("detailsAdd").onclick=function(){
-addToCart(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");
+const hasVariants=p.variants||p.cat==="Nightwear";
+addToCart(
+p.id,
+hasVariants?activeVariant.color:"",
+p.variants?activeVariant.size:""
+);
 closeProductDetails();
 document.getElementById("cart").scrollIntoView({behavior:"smooth"});
 };
 
 document.getElementById("detailsOrder").onclick=function(){
-orderProduct(p.id,p.variants?activeVariant.color:"",p.variants?activeVariant.size:"");
+const hasVariants=p.variants||p.cat==="Nightwear";
+orderProduct(
+p.id,
+hasVariants?activeVariant.color:"",
+p.variants?activeVariant.size:""
+);
 };
 
 modal.classList.add("open");
@@ -657,6 +737,7 @@ function closeProductDetails(){
 document.getElementById("detailsModal").classList.remove("open");
 document.body.classList.remove("modal-open");
 document.getElementById("detailsImage").classList.remove("zoomed");
+document.getElementById("detailsImage").style.filter="none";
 }
 
 document.addEventListener("keydown",event=>{
@@ -695,7 +776,7 @@ const row=document.createElement("div");
 row.className="cart-row";
 
 const label=document.createElement("span");
-label.textContent=p.name+(color?" · "+color:" ")+(size?" · Size "+size:"")+" × "+cart[key];
+label.textContent=p.name+(color?" · "+color:"")+(size?" · Size "+size:"")+" × "+cart[key];
 
 const controls=document.createElement("span");
 const minus=document.createElement("button");
