@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,7 +202,7 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 
 <section id="productsSection" class="section">
 <div class="section-heading"><div class="eyebrow">PRIORY collections</div><h2 id="productsTitle">Products</h2><p id="productsIntro">Explore our collections.</p></div>
-<div class="toolbar"><input id="search" type="search" placeholder="Search products..." oninput="renderProducts"><p><button class="btn" onclick="showAllProducts()">View All Products</button></p></div>
+<div class="toolbar"><input id="search" type="search" placeholder="Search products..." oninput="renderProducts()"><p><button class="btn" onclick="showAllProducts()">View All Products</button></p></div>
 <div id="products" class="products"></div>
 <p id="noResults" class="hidden" style="text-align:center">No products found.</p>
 </section>
@@ -330,7 +329,7 @@ const nightwearFiles={
 
 const nightwearVariants={
 "Floral Cotton Pajama Set":[["Pink","#e9a8b8","floral-cotton-pajama-pink.jpg"],["Blue","#82b4d8","floral-cotton-pajama-blue.jpg"],["Purple","#a98acb","floral-cotton-pajama-purple.jpg"]],
-"Satin Pajama Set":[["Red","#c62828","satin-pajama-set-red.jpg.jpg"],["Purple","#800080","satin-pajama-set-purple.jpg.jpg"],["Nude","#d8b99b","satin-pajama-set-nude.jpg.jpg"],["Baby Pink","#f4c2d7","satin-pajama-set-baby-pink.jpg.jpg"]]
+"Satin Pajama Set":[["Red","#c62828","satin-pajama-set-red.jpg.jpg"],["Purple","#800080","satin-pajama-set-purple.jpg.jpg"],["Nude","#d8b99b","satin-pajama-set-nude.jpg.jpg"],["Baby Pink","#f4c2d7","satin-pajama-set-baby-pink.jpg.jpg"]],
 "Shorts Pajama Set":[["Pink","#e9a8b8","shorts-pajama-pink.jpg"],["Blue","#82b4d8","shorts-pajama-blue.jpg"],["Mint","#a8d9c2","shorts-pajama-mint.jpg"]],
 "Long Floral Nightdress":[["Black","#171717","long-nightdress-black.jpg"],["Burgundy","#722f45","long-nightdress-burgundy.jpg"],["Pink","#e9a8b8","long-nightdress-pink.jpg"]],
 "Cotton Nightshirt":[["White","#ffffff","cotton-nightshirt-white.jpg"],["Pink","#e9a8b8","cotton-nightshirt-pink.jpg"],["Blue","#82b4d8","cotton-nightshirt-blue.jpg"]],
@@ -621,7 +620,6 @@ const p=productsData.find(item=>item.id===id);
 if(p)openWhatsApp("Hello PRIORY! I am interested in "+p.name+(color?" · Colour: "+color:"")+(size?" · Size: "+size:"")+". Please confirm price, availability and delivery details.");
 }
 
-/* Corrected checkout function */
 function checkout(){
 const ids=Object.keys(cart);
 if(!ids.length){
