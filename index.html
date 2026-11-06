@@ -62,7 +62,8 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;max-width:1200px;margin:22px auto}
 .card{background:white;text-align:center;border:1px solid #eadbd6;padding:10px;overflow:hidden;min-width:0}
 .product-image,.product-fallback{height:190px;width:100%;object-fit:contain;display:block;background:#fff;cursor:pointer}
-.product-fallback{display:grid;place-items:center;background:#f8e6e3;font-size:48px}
+.product-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f8e6e3;font-size:36px;color:#8a6666;padding:10px}
+.product-fallback span{font-size:11px;margin-top:6px;font-family:sans-serif;color:var(--muted)}
 .card h3{font:17px Georgia,serif;margin:12px 0 5px;cursor:pointer}
 .card p{font-size:12px;color:var(--muted);line-height:1.5}
 .price{color:#7b3e46!important;font-weight:bold}
@@ -90,7 +91,7 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 .details-photo-wrap{height:400px;overflow:hidden;background:#f8e6e3;display:grid;place-items:center;position:relative}
 .details-photo{width:100%;height:100%;object-fit:contain;padding:8px;cursor:zoom-in}
 .details-photo.zoomed{transform:scale(1.8);cursor:zoom-out}
-.details-placeholder{font-size:20px;padding:20px;text-align:center}
+.details-placeholder{font-size:20px;padding:20px;text-align:center;color:#8a6666}
 .details-info{padding:24px 8px 8px}
 .details-info h2{font:30px Georgia,serif;margin:12px 0}
 .details-info p{font-size:13px;line-height:1.7;color:var(--muted)}
@@ -190,12 +191,12 @@ h1{font:clamp(48px,8vw,82px)/1 Georgia,serif;letter-spacing:2px;margin:14px 0}
 
 <section class="section"><div class="section-heading"><div class="eyebrow">Discover your style</div><h2>Our Best Picks</h2><p>Explore our beauty and lifestyle collections</p></div>
 <div class="best-grid">
-<button class="best-card" onclick="showCategory('Makeup')"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=500&q=80"><strong>Makeup</strong><small>Explore collection →</small></button>
-<button class="best-card" onclick="showCategory('Lip Products')"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80"><strong>Lip Products</strong><small>Explore collection →</small></button>
-<button class="best-card" onclick="showCategory('Bags')"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80"><strong>Bags</strong><small>Explore collection →</small></button>
-<button class="best-card" onclick="showCategory('Jewellery')"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80"><strong>Jewellery</strong><small>Explore collection →</small></button>
-<button class="best-card" onclick="showCategory('Nightwear')"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=80"><strong>Nightwear</strong><small>Explore collection →</small></button>
-<button class="best-card" onclick="showCategory('Sunglasses')"><img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80"><strong>Sunglasses</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Makeup')"><div class="product-fallback" style="height:130px">💄</div><strong>Makeup</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Lip Products')"><div class="product-fallback" style="height:130px">💋</div><strong>Lip Products</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Bags')"><div class="product-fallback" style="height:130px">👜</div><strong>Bags</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Jewellery')"><div class="product-fallback" style="height:130px">💎</div><strong>Jewellery</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Nightwear')"><div class="product-fallback" style="height:130px">🌙</div><strong>Nightwear</strong><small>Explore collection →</small></button>
+<button class="best-card" onclick="showCategory('Sunglasses')"><div class="product-fallback" style="height:130px">🕶️</div><strong>Sunglasses</strong><small>Explore collection →</small></button>
 </div></section>
 
 <div class="lifestyle"><h2>More Than Just Shopping</h2><p>It's a PRIORY Lifestyle ♡</p></div>
@@ -263,138 +264,72 @@ const groups={
 const emojis={"Makeup":"💄","Lip Products":"💋","Bags":"👜","Sunglasses":"🕶️","Jewellery":"💎","Nightwear":"🌙","Innerwear":"🎀"};
 
 const sunglassesCatalog=[
-["Cat-Eye Sunglasses",990,"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"],
-["Oversized Sunglasses",1090,"https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=85"],
-["Butterfly Sunglasses",1190,"https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=900&q=85"],
-["Slim Rectangle Sunglasses",890,"https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=900&q=85"],
-["Oval Sunglasses",790,"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"],
-["Heart-Shaped Sunglasses",690,"https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=900&q=85"],
-["Rimless Sunglasses",1090,"https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=900&q=85"],
-["Feminine Aviator Sunglasses",990,"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85"],
-["Geometric Sunglasses",1090,"https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=900&q=85"],
-["Vintage Round Sunglasses",890,"https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=900&q=85"]
-];
-
-const jewelleryImages=[
-"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85",
-"https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85"
+["Cat-Eye Sunglasses",990,"cat-eye-sunglasses.jpg"],
+["Oversized Sunglasses",1090,"oversized-sunglasses.jpg"],
+["Butterfly Sunglasses",1190,"butterfly-sunglasses.jpg"],
+["Slim Rectangle Sunglasses",890,"slim-rectangle-sunglasses.jpg"],
+["Oval Sunglasses",790,"oval-sunglasses.jpg"],
+["Heart-Shaped Sunglasses",690,"heart-shaped-sunglasses.jpg"],
+["Rimless Sunglasses",1090,"rimless-sunglasses.jpg"],
+["Feminine Aviator Sunglasses",990,"feminine-aviator-sunglasses.jpg"],
+["Geometric Sunglasses",1090,"geometric-sunglasses.jpg"],
+["Vintage Round Sunglasses",890,"vintage-round-sunglasses.jpg"]
 ];
 
 const makeupPhotos={
-"Primer":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Foundation":"https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?auto=format&fit=crop&w=900&q=85",
-"Concealer":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Setting Spray":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Setting Spray - Color 2":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Compact Powder":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Blush":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Highlighter":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Makeup Remover":"https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=85",
-"Eyeshadow Palette":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85",
-"Eyeliner":"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
-"Mascara":"https://images.unsplash.com/photo-1560700146-76495b42d765?auto=format&fit=crop&w=900&q=85",
-"Eyebrow Pencil":"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
-"Makeup Brush Set":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Loose Setting Powder":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Makeup Sponge":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Contour Palette":"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85",
-"Bronzer":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Color Corrector":"https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?auto=format&fit=crop&w=900&q=85",
-"BB Cream":"https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?auto=format&fit=crop&w=900&q=85",
-"CC Cream":"https://images.unsplash.com/photo-1599733589046-9b8308b5b50d?auto=format&fit=crop&w=900&q=85",
-"False Eyelashes":"https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=900&q=85",
-"Eyelash Curler":"https://images.unsplash.com/photo-1560700146-76495b42d765?auto=format&fit=crop&w=900&q=85",
-"Brow Gel":"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
-"Makeup Fixing Powder":"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85",
-"Makeup Pouch":"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
-"Kajal Pencil":"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85"
-};
-
-const lipPhotos={
-"Matte Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Liquid Matte Lipstick":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Cream Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Satin Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Glossy Lipstick":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Velvet Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Metallic Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Sheer Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Lip Tint":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Lip Stain":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Lip Crayon":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Lip Balm Tint":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Lip Gloss":"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85",
-"Long-Lasting Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85",
-"Transfer-Proof Lipstick":"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=85"
-};
-
-const bagsPhotos={
-"Tote Bag":"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
-"Crossbody Bag":"https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85",
-"Mini Bag":"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=900&q=85",
-"Clutch Bag":"https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=900&q=85"
+"Primer":"primer.jpg","Foundation":"foundation.jpg","Concealer":"concealer.jpg",
+"Setting Spray":"setting-spray-1.jpg","Setting Spray - Color 2":"setting-spray-2.jpg",
+"Compact Powder":"compact-powder.jpg","Blush":"blush.jpg","Highlighter":"highlighter.jpg",
+"Makeup Remover":"makeup-remover.jpg","Eyeshadow Palette":"eyeshadow-palette.jpg",
+"Eyeliner":"eyeliner.jpg","Mascara":"mascara.jpg","Eyebrow Pencil":"eyebrow-pencil.jpg",
+"Makeup Brush Set":"makeup-brush-set.jpg","Loose Setting Powder":"loose-setting-powder.jpg",
+"Makeup Sponge":"makeup-sponge.jpg","Contour Palette":"contour-palette.jpg",
+"Bronzer":"bronzer.jpg","Color Corrector":"color-corrector.jpg",
+"BB Cream":"bb-cream.jpg","CC Cream":"cc-cream.jpg",
+"False Eyelashes":"false-eyelashes.jpg","Eyelash Curler":"eyelash-curler.jpg",
+"Brow Gel":"brow-gel.jpg","Makeup Fixing Powder":"makeup-fixing-powder.jpg",
+"Makeup Pouch":"makeup-pouch.jpg","Kajal Pencil":"kajal-pencil.jpg"
 };
 
 const nightwearFiles={
-"Floral Cotton Pajama Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Satin Pajama Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Shorts Pajama Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Long Floral Nightdress":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Cotton Nightshirt":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Women's Dressing Robe":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Checked Pajama Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Soft Cotton Lounge Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Fleece Pajama Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-"Three-Piece Nightwear Set":"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+"Floral Cotton Pajama Set":"floral-cotton-pajama.jpg",
+"Satin Pajama Set":"satin-pajama-set.jpg",
+"Shorts Pajama Set":"shorts-pajama-nude.jpg",
+"Long Floral Nightdress":"long-nightdress.jpg",
+"Cotton Nightshirt":"cotton-nightshirt.jpg",
+"Women's Dressing Robe":"dressing-robe.jpg",
+"Checked Pajama Set":"checked-pajama.jpg",
+"Soft Cotton Lounge Set":"cotton-lounge-set.jpg",
+"Fleece Pajama Set":"fleece-pajama.jpg",
+"Three-Piece Nightwear Set":"three-piece-nightwear.jpg"
 };
 
 const nightwearVariants={
-"Floral Cotton Pajama Set":[["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Blue","#82b4d8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Purple","#a98acb","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Satin Pajama Set":[["Red","#c62828","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Purple","#800080","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Nude","#d8b99b","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Baby Pink","#f4c2d7","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Shorts Pajama Set":[["Nude","#d8b99b","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Hot Pink","#ff69b4","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Blue","#82b4d8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Navy Blue","#000080","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Long Floral Nightdress":[["Black","#171717","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Burgundy","#722f45","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Cotton Nightshirt":[["White","#ffffff","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Blue","#82b4d8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Women's Dressing Robe":[["Rose","#d99a9e","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Black","#171717","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Purple","#9566b0","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Checked Pajama Set":[["Blue","#82b4d8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Grey","#999999","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Soft Cotton Lounge Set":[["Beige","#d8c3a5","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Green","#6c9b78","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Fleece Pajama Set":[["Grey","#999999","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Pink","#e9a8b8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Blue","#82b4d8","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]],
-"Three-Piece Nightwear Set":[["Heather Pink","#d98caa","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Lavender","#b69bd5","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Burgundy Red","#722f45","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"],["Beige","#d8c3a5","https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"]]
+"Floral Cotton Pajama Set":[["Pink","#e9a8b8","floral-cotton-pajama-pink.jpg"],["Blue","#82b4d8","floral-cotton-pajama-blue.jpg"],["Purple","#a98acb","floral-cotton-pajama-purple.jpg"]],
+"Satin Pajama Set":[["Red","#c62828","satin-pajama-set-red.jpg"],["Purple","#800080","satin-pajama-set-purple.jpg"],["Nude","#d8b99b","satin-pajama-set-nude.jpg"],["Baby Pink","#f4c2d7","satin-pajama-set-baby-pink.jpg"]],
+"Shorts Pajama Set":[["Nude","#d8b99b","shorts-pajama-nude.jpg"],["Hot Pink","#ff69b4","shorts-pajama-hot-pink.jpg"],["Blue","#82b4d8","shorts-pajama-blue.jpg"],["Navy Blue","#000080","shorts-pajama-navy-blue.jpg"]],
+"Long Floral Nightdress":[["Black","#171717","long-nightdress-black.jpg"],["Burgundy","#722f45","long-nightdress-burgundy.jpg"],["Pink","#e9a8b8","long-nightdress-pink.jpg"]],
+"Cotton Nightshirt":[["White","#ffffff","cotton-nightshirt-white.jpg"],["Pink","#e9a8b8","cotton-nightshirt-pink.jpg"],["Blue","#82b4d8","cotton-nightshirt-blue.jpg"]],
+"Women's Dressing Robe":[["Rose","#d99a9e","dressing-robe-rose.jpg"],["Black","#171717","dressing-robe-black.jpg"],["Purple","#9566b0","dressing-robe-purple.jpg"]],
+"Checked Pajama Set":[["Blue","#82b4d8","checked-pajama-blue.jpg"],["Pink","#e9a8b8","checked-pajama-pink.jpg"],["Grey","#999999","checked-pajama-grey.jpg"]],
+"Soft Cotton Lounge Set":[["Beige","#d8c3a5","cotton-lounge-set-beige.jpg"],["Green","#6c9b78","cotton-lounge-set-green.jpg"],["Pink","#e9a8b8","cotton-lounge-set-pink.jpg"]],
+"Fleece Pajama Set":[["Grey","#999999","fleece-pajama-grey.jpg"],["Pink","#e9a8b8","fleece-pajama-pink.jpg"],["Blue","#82b4d8","fleece-pajama-blue.jpg"]],
+"Three-Piece Nightwear Set":[["Heather Pink","#d98caa","three-piece-heather-pink.jpg"],["Lavender","#b69bd5","three-piece-lavender.jpg"],["Burgundy Red","#722f45","three-piece-burgundy-red.jpg"],["Beige","#d8c3a5","three-piece-beige.jpg"]]
 };
 
-// Online photo links for Innerwear Category
-const innerwearPhotos={
-"Everyday Bra":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Sports Bra":"https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=85",
-"Bralette":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Cotton Underwear":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Seamless Underwear":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Camisole":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Shapewear Shorts":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Matching Innerwear Set":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"High-Waist Underwear":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85",
-"Full-Coverage Briefs":"https://images.unsplash.com/photo-1583846783214-7229a91b20ed?auto=format&fit=crop&w=900&q=85"
+const innerwearSlugs={
+"Everyday Bra":"everyday-bra","Sports Bra":"sports-bra","Bralette":"bralette",
+"Cotton Underwear":"cotton-underwear","Seamless Underwear":"seamless-underwear",
+"Camisole":"camisole","Shapewear Shorts":"shapewear-shorts",
+"Matching Innerwear Set":"matching-innerwear-set","High-Waist Underwear":"high-waist-underwear",
+"Full-Coverage Briefs":"full-coverage-briefs"
 };
-
 const innerwearColors=[["Black","#171717"],["White","#ffffff"],["Nude","#d8b99b"],["Pink","#e9a8b8"]];
 const innerwearSizes=["S","M","L","XL","XXL"];
+
+function innerwearImage(name,color){
+return "./innerwear-"+innerwearSlugs[name]+"-"+color.toLowerCase()+".jpg";
+}
 
 const productsData=[];
 let nextId=1;
@@ -402,18 +337,15 @@ Object.entries(groups).forEach(([cat,names])=>{
 names.forEach((name,index)=>{
 let image=null,price=null,variants=null;
 if(cat==="Makeup")image=makeupPhotos[name]||null;
-if(cat==="Lip Products")image=lipPhotos[name]||null;
-if(cat==="Bags")image=bagsPhotos[name]||null;
 if(cat==="Sunglasses"){
 const item=sunglassesCatalog.find(x=>x[0]===name);
 if(item){price=item[1];image=item[2];}
 }
-if(cat==="Jewellery")image=jewelleryImages[index]||null;
 if(cat==="Nightwear")image=nightwearFiles[name];
 if(cat==="Innerwear"){
-image=innerwearPhotos[name];
+image=innerwearImage(name,"Black");
 variants={
-colors:innerwearColors.map(c=>({name:c[0],hex:c[1],image:innerwearPhotos[name]})),
+colors:innerwearColors.map(c=>({name:c[0],hex:c[1],image:innerwearImage(name,c[0])})),
 sizes:innerwearSizes
 };
 }
@@ -443,6 +375,13 @@ renderProducts();
 document.getElementById("productsSection").scrollIntoView({behavior:"smooth"});
 }
 
+function createFallback(emoji){
+const fallback=document.createElement("div");
+fallback.className="product-fallback";
+fallback.innerHTML=emoji+'<span>Photo Coming Soon</span>';
+return fallback;
+}
+
 function renderProducts(){
 const query=document.getElementById("search").value.toLowerCase().trim();
 const list=productsData.filter(p=>(!selectedCategory||p.cat===selectedCategory)&&(p.name.toLowerCase().includes(query)||p.cat.toLowerCase().includes(query)));
@@ -459,16 +398,12 @@ image.src=p.image;
 image.alt=p.name;
 image.loading="lazy";
 image.onerror=function(){
-const fallback=document.createElement("div");
-fallback.className="product-fallback";
-fallback.textContent=p.emoji;
+const fallback=createFallback(p.emoji);
 fallback.onclick=()=>openProductDetails(p.id);
 this.replaceWith(fallback);
 };
 }else{
-image=document.createElement("div");
-image.className="product-fallback";
-image.textContent=p.emoji;
+image=createFallback(p.emoji);
 }
 image.addEventListener("click",()=>openProductDetails(p.id));
 const name=document.createElement("h3");
@@ -513,7 +448,6 @@ document.getElementById("detailsPrice").textContent=p.price?"৳"+p.price.toLoca
 image.classList.remove("zoomed");
 image.style.display="none";
 placeholder.classList.add("hidden");
-placeholder.textContent=p.emoji;
 
 function setPhoto(src){
 image.classList.remove("zoomed");
@@ -523,7 +457,7 @@ image.src=src;
 image.onerror=function(){
 this.style.display="none";
 placeholder.classList.remove("hidden");
-placeholder.textContent="Please contact PRIORY for details";
+placeholder.innerHTML=p.emoji+'<br><span style="font-size:12px;display:block;margin-top:8px">Photo not uploaded yet</span>';
 };
 }
 
@@ -532,7 +466,7 @@ const variants=nightwearVariants[p.name]||[];
 activeVariant={color:variants[0]?.[0]||"",size:""};
 document.getElementById("detailsDescription").textContent="Choose your preferred Nightwear colour. Please confirm available stock, fabric, sizes and price before ordering.";
 options.classList.remove("hidden");
-options.innerHTML='<label>Choose Nightwear Colour</label><div class="nightwear-color-options"></div><p class="nightwear-note">Select a colour to view options.</p>';
+options.innerHTML='<label>Choose Nightwear Colour</label><div class="nightwear-color-options"></div><p class="nightwear-note">Select a colour to view its matching product photo.</p>';
 const colorBox=options.querySelector(".nightwear-color-options");
 variants.forEach((c,index)=>{
 const b=document.createElement("button");
@@ -543,7 +477,7 @@ b.onclick=()=>{
 activeVariant.color=c[0];
 colorBox.querySelectorAll("button").forEach(x=>x.classList.remove("active"));
 b.classList.add("active");
-setPhoto(c[2]);
+setPhoto("./"+c[2]);
 };
 colorBox.append(b);
 if(index===0)b.click();
@@ -586,7 +520,7 @@ document.getElementById("detailsDescription").textContent="Please contact PRIORY
 options.classList.add("hidden");
 options.innerHTML="";
 if(p.image)setPhoto(p.image);
-else{image.removeAttribute("src");image.style.display="none";placeholder.classList.remove("hidden");}
+else{image.removeAttribute("src");image.style.display="none";placeholder.classList.remove("hidden");placeholder.innerHTML=p.emoji+'<br><span style="font-size:12px;display:block;margin-top:8px">Photo not uploaded yet</span>';}
 }
 
 document.getElementById("detailsAdd").onclick=()=>{
